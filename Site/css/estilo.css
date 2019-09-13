@@ -58,21 +58,9 @@ a {
 
 #menu-login #cadastrar a {
     position: absolute;
-    top: -83px;
+    top: -81px;
     right: -210px;
-}
-
-#menu-login #cadastrar a::after {
-    content: "|";
-    margin-left: 14px;
-    color: white;
-    cursor: auto;
-}
-
-#menu-login #entrar a {
-    position: absolute;
-    top: -83px;
-    right: -270px;
+    text-indent: 20px;
 }
 
 #menu-nav a {
@@ -137,7 +125,6 @@ a {
 
 .caixa-rapido a h2 {
     text-shadow: 1px 0px 1px black;
-    ;
     margin-left: 20px;
     font-weight: bold;
     font-size: 2em;
@@ -145,7 +132,6 @@ a {
 
 .caixa-rapido a p {
     text-shadow: 0px 0px 1px black;
-    ;
     margin-left: 20px;
     margin-top: 15px;
 }
@@ -207,13 +193,22 @@ a {
 }
 
 #texto {
-    padding: 50px;
+    padding: 50px 0 20px 50px;
     max-width: 960px;
     margin: 0 auto;
+    border-bottom: 3px solid rgb(14, 0, 214);
+    margin-bottom: 30px;
 }
 
 #texto h1 {
     font-size: 2em;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+#texto p {
+    color: rgb(112, 112, 112);
+    font-size: 1.2em;
 }
 
 #tela-login-cadastro {
@@ -221,7 +216,7 @@ a {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #cadastro {
@@ -243,23 +238,32 @@ a {
 /**************            ************
  *********** Formulário Cadastro  ************/
 
-#formulario-cadastro {
+.formulario-cadastro {
     padding: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 450px;
+    box-shadow: 20px 0px 10px 0px #ccc;
+    margin-bottom: 60px;
+    height: 720px;
+    border-radius: 15px;
 }
 
-#formulario-cadastro h4 {
+.formulario-cadastro h4 {
     text-transform: uppercase;
     color: rgb(255, 136, 0);
 }
 
-#formulario-cadastro p {
+.formulario-cadastro p {
     font-style: italic;
     color: rgb(151, 151, 151);
 }
 
-#formulario-cadastro input {
+.formulario-cadastro input {
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
     margin: 7px 0;
     border-radius: 3px;
+    background: white;;
 }
 
 input[type="text"], input[type="email"] {
@@ -284,13 +288,33 @@ input[type="text"], input[type="email"] {
     width: 10em;
 }
 
-#formulario-cadastro label {
+.formulario-cadastro label {
     font-size: 1em;
     margin-right: 13px;
     color: #535353;
 }
 
-#formulario-cadastro fieldset legend {
+.formulario-cadastro fieldset legend {
     font-weight: bold;
     font-size: 1.05em;
+}
+
+.formulario-cadastro input.submit{
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+    width: 170px;
+    height: 30px;
+    font-size: 1em;
+    margin-left: 110px;
+    border-radius: 15px;
+    color: white;
+    background: linear-gradient(to bottom, rgb(230, 44, 30), rgb(230, 44, 30));
+    border: 4px solid white;
+    padding-top: 3px;
+    padding-bottom: 25px;
+    margin-bottom: 50px;
+}
+
+.formulario-cadastro input.submit:hover {
+    color: white;
+    background: rgb(88, 6, 0);
 }
