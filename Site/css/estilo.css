@@ -1,4 +1,8 @@
-/* Formatações Padrões */
+
+
+/**************            ************
+ *********** FORMATAÇÕES PADRÕES  ***********/
+
 
 body, h1, h2, p, ul, li, a {
     margin: 0;
@@ -22,7 +26,8 @@ a {
     box-sizing: border-box;
 }
 
-/* MENU */
+/**************            ************
+ *********** TOPO  ************/
 
 #menu-bg {
     background: linear-gradient(to right, #ccc, rgb(2, 132, 184), rgb(2, 132, 184), #ccc);
@@ -34,6 +39,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
+    /* justify-content: center; */
 }
 
 #menu-logo img {
@@ -59,30 +65,45 @@ a {
     right: -210px;
 }
 
+#menu-login #cadastrar a::after {
+    content: "|";
+    margin-left: 14px;
+    color: white;
+    cursor: auto;
+}
+
 #menu-login #entrar a {
     position: absolute;
     top: -83px;
-    right: -300px;
+    right: -270px;
 }
 
-
-#menu-login a, #menu-nav a {
+#menu-nav a {
     color: white;
     font-size: 1em;
     font-weight: bold;
     display: block;
-    margin: 0 10px;
+    margin: 0 5px;
     background: #006577;
     padding: 7px;
     border-radius: 15px;
 }
 
-#menu-login a:hover, #menu-nav a:hover {
+#menu-login a {
+    color: white;
+}
+
+#menu-login a:hover {
+    color: #006577;
+}
+
+#menu-nav a:hover {
     background: white;
     color: #006577;
 }
 
-/* ACESSO RÁPIDO */
+/**************            ************
+ *********** ACESSO RAPIDO  ************/
 
 #acesso-rapido {
     max-width: 960px;
@@ -98,6 +119,13 @@ a {
     height: 300px;
     border-radius: 15px;
     cursor: pointer;
+    box-shadow: 20px 20px 10px 2px #ccc;
+}
+
+.caixa-rapido:hover {
+    width: 250px;
+    height: 320px;
+    transition: width 1s, height 1s;
 }
 
 .caixa-rapido a img {
@@ -111,19 +139,23 @@ a {
 }
 
 .caixa-rapido a h2 {
+    text-shadow: 1px 0px 1px black;
+    ;
     margin-left: 20px;
     font-weight: bold;
     font-size: 2em;
 }
 
 .caixa-rapido a p {
+    text-shadow: 0px 0px 1px black;
+    ;
     margin-left: 20px;
     margin-top: 15px;
 }
 
 
-
-/* RODAPÉ */
+/**************            ************
+ *********** RODAPÉ  SITE  ************/
 
 #rodape-bg {
     background: rgb(148, 147, 147);
@@ -153,12 +185,14 @@ a {
     flex-wrap: wrap;
 }
 
-#rodape nav h4{
+#rodape nav h4 {
     margin-left: 80px;
     margin-right: 100px;
+    align-self: center;
+    border-bottom: 1px solid black;
 }
 
-#rodape nav a{
+#rodape nav a {
     color: white;
     font-size: 1em;
     display: inline-block;
@@ -168,3 +202,5 @@ a {
 #rodape nav a:hover {
     color: aqua;
 }
+
+/* TELA CADASTRO */
