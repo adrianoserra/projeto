@@ -1,8 +1,5 @@
-
-
 /**************            ************
  *********** FORMATAÇÕES PADRÕES  ***********/
-
 
 body, h1, h2, p, ul, li, a {
     margin: 0;
@@ -26,7 +23,7 @@ a {
     box-sizing: border-box;
 }
 
-/**************            ************
+/**************         ************
  *********** TOPO  ************/
 
 #menu-bg {
@@ -153,7 +150,6 @@ a {
     margin-top: 15px;
 }
 
-
 /**************            ************
  *********** RODAPÉ  SITE  ************/
 
@@ -203,4 +199,98 @@ a {
     color: aqua;
 }
 
-/* TELA CADASTRO */
+/**************            ************
+ *********** TELA CADASTRO  ************/
+
+#tela-login-cadastro-bg {
+    /* background: linear-gradient(rgb(0, 73, 107), white) ; */
+}
+
+#texto {
+    padding: 50px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#texto h1 {
+    font-size: 2em;
+}
+
+#tela-login-cadastro {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#cadastro {
+    background: rgb(240, 240, 240);
+    border-radius: 15px;
+}
+
+.top-caixa {
+    padding: 15px;
+    background: rgb(230, 44, 30);
+    color: #fff;
+    border-radius: 15px;
+}
+
+.top-caixa p {
+    font-size: 0.8em;
+}
+
+/**************            ************
+ *********** Formulário Cadastro  ************/
+
+#formulario-cadastro {
+    padding: 22px;
+}
+
+#formulario-cadastro h4 {
+    text-transform: uppercase;
+    color: rgb(255, 136, 0);
+}
+
+#formulario-cadastro p {
+    font-style: italic;
+    color: rgb(151, 151, 151);
+}
+
+#formulario-cadastro input {
+    margin: 7px 0;
+    border-radius: 3px;
+}
+
+input[type="text"], input[type="email"] {
+    width: 20em;
+    height: 2em;
+}
+
+.cpf input {
+    width: 10em;
+}
+
+.senha input {
+    width: 12em;
+    height: 2em;
+}
+
+.numero input {
+    width: 5em;
+}
+
+.cep input {
+    width: 10em;
+}
+
+#formulario-cadastro label {
+    font-size: 1em;
+    margin-right: 13px;
+    color: #535353;
+}
+
+#formulario-cadastro fieldset legend {
+    font-weight: bold;
+    font-size: 1.05em;
+}
