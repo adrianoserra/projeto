@@ -22,12 +22,10 @@ a {
     box-sizing: border-box;
 }
 
-
 /* MENU */
 
-
 #menu-bg {
-    background: #00b5d4;
+    background: linear-gradient(to right, #ccc, rgb(2, 132, 184), rgb(2, 132, 184), #ccc);
 }
 
 #menu {
@@ -35,39 +33,138 @@ a {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 10px;
-    align-items: center;
+    align-items: flex-end;
 }
 
 #menu-logo img {
-    max-width: 50%;
+    max-width: 45%;
+    display: block;
 }
+
+#menu-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+#menu-login ul {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+#menu-login #cadastrar a {
+    position: absolute;
+    top: -83px;
+    right: -210px;
+}
+
+#menu-login #entrar a {
+    position: absolute;
+    top: -83px;
+    right: -300px;
+}
+
 
 #menu-login a, #menu-nav a {
     color: white;
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: bold;
     display: block;
     margin: 0 10px;
+    background: #006577;
+    padding: 7px;
+    border-radius: 15px;
 }
 
-#menu-login ul{
+#menu-login a:hover, #menu-nav a:hover {
+    background: white;
+    color: #006577;
+}
+
+/* ACESSO RÁPIDO */
+
+#acesso-rapido {
+    max-width: 960px;
+    margin: 60px auto;
+    display: flex;
+    flex: wrap;
+    justify-content: center;
+}
+
+.caixa-rapido {
+    background: rgb(53, 195, 119);
+    width: 220px;
+    height: 300px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.caixa-rapido a img {
+    max-width: 50%;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.caixa-rapido a {
+    color: white;
+}
+
+.caixa-rapido a h2 {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.caixa-rapido a p {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+
+
+/* RODAPÉ */
+
+#rodape-bg {
+    background: rgb(148, 147, 147);
+}
+
+#rodape {
+    max-width: 960px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    
+    align-items: center;
 }
 
-#menu-login li {
+#rodape-logo img {
+    max-width: 80%;
+}
+
+#rodape p {
+    color: white;
     align-self: flex-end;
+    margin-left: 170px;
+    margin-bottom: 10px;
 }
 
-#menu-nav ul{
+#rodape nav {
     display: flex;
     flex-wrap: wrap;
 }
 
-#menu-nav li{
+#rodape nav h4{
+    margin-left: 80px;
+    margin-right: 100px;
 }
 
+#rodape nav a{
+    color: white;
+    font-size: 1em;
+    display: inline-block;
+    margin: 5px 0px;
+}
 
-
+#rodape nav a:hover {
+    color: aqua;
+}
