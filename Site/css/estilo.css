@@ -1,7 +1,7 @@
-/**************            ************
+/* /**************            ************ *
  *********** FORMATAÇÕES PADRÕES  ***********/
 
-body, h1, h2, p, ul, li, a {
+body, h1, h2, h4, h3, p, ul, li, a {
     margin: 0;
     padding: 0;
 }
@@ -50,16 +50,9 @@ a {
     margin-bottom: 10px;
 }
 
-#menu-login ul {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-#menu-login #cadastrar a {
-    position: absolute;
-    top: -81px;
-    right: -210px;
+#menu-login {
+    margin-top: 10px;
+    align-self: flex-start;
 }
 
 #menu-nav a {
@@ -67,7 +60,7 @@ a {
     font-size: 1em;
     font-weight: bold;
     display: block;
-    margin: 0 25px;
+    margin: 10px 25px 0px 25px;
     background: #006577;
     padding: 7px 15px 7px 15px;
     border-radius: 7px;
@@ -147,28 +140,28 @@ a {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
 }
 
 #rodape-logo img {
-    max-width: 80%;
+    max-width: 75%;
 }
 
 #rodape p {
     color: white;
     align-self: flex-end;
-    margin-left: 170px;
     margin-bottom: 10px;
 }
 
-#rodape div {
+#rodape div#rodape-nav {
+    min-width: 250px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 #rodape div h4 {
-    margin-left: 80px;
-    margin-right: 100px;
     align-self: center;
     border-bottom: 1px solid black;
 }
@@ -347,13 +340,14 @@ input[type="text"], input[type="email"] {
     color: #777;
     background-color: white;
     text-align: justify;
-    padding: 50px 80px;
+    padding: 40px 80px;
 }
 
 .conteudo h3 {
     text-transform: uppercase;
     color: #111;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .conteudo p {
@@ -363,7 +357,10 @@ input[type="text"], input[type="email"] {
 /* Efeito Parallax */
 
 .caixa1, .caixa2, .caixa3, .caixa4 {
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     opacity: 0.7;
     background-repeat: no-repeat;
@@ -388,14 +385,6 @@ input[type="text"], input[type="email"] {
     background-image: url(../img/palestras4.jpg);
 }
 
-.conteudo-titulo {
-    position: absolute;
-    left: 0%;
-    top: 45%;
-    width: 100%;
-    text-align: center;
-}
-
 .conteudo-titulo span.titulo {
     text-transform: uppercase;
     color: #fff;
@@ -404,3 +393,62 @@ input[type="text"], input[type="email"] {
     font-size: 25px;
     letter-spacing: 5px;
 }
+
+/**************            ************
+ *********** Contato ************/
+
+ #contato-titulo {
+    background: rgb(52, 98, 104);
+     max-width: 960px;
+     margin: 40px auto;
+     border-radius: 5px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     padding: 70px 0px;
+ }
+
+ #contato-titulo h3 {
+     color: white;
+     font-size: 2em;
+ }
+
+ #contato-conteudo {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 90px;
+}
+
+
+.contato-ajuda img {
+    width: 35px;
+    height: 30px;
+}
+
+.contato-ajuda h4{
+   font-size: 1.2em;
+   margin: 10px 0;
+   color: rgb(52, 98, 104);
+}
+
+
+/* "Tem alguma dúvida?" / */
+.contato-ajuda p:first-of-type { 
+   margin: 15px 0 25px 0;
+   color: rgb(138, 138, 138);
+}
+
+.contato-ajuda p:last-of-type {
+   color: #222;
+   font-weight: bold;
+}
+
+
+
+
+
+
+
