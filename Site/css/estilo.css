@@ -6,9 +6,10 @@ body, h1, h2, p, ul, li, a {
     padding: 0;
 }
 
-body {
+body, html {
     font-family: "Nunito", Helvetica, Arial, sans-serif;
     color: #222222;
+    height: 100%;
 }
 
 ul {
@@ -36,7 +37,6 @@ a {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    /* justify-content: center; */
 }
 
 #menu-logo img {
@@ -60,7 +60,6 @@ a {
     position: absolute;
     top: -81px;
     right: -210px;
-    text-indent: 20px;
 }
 
 #menu-nav a {
@@ -68,10 +67,10 @@ a {
     font-size: 1em;
     font-weight: bold;
     display: block;
-    margin: 0 5px;
+    margin: 0 25px;
     background: #006577;
-    padding: 7px;
-    border-radius: 15px;
+    padding: 7px 15px 7px 15px;
+    border-radius: 7px;
 }
 
 #menu-login a {
@@ -104,13 +103,13 @@ a {
     height: 300px;
     border-radius: 15px;
     cursor: pointer;
+    transition: 0.3s ease-out;
     box-shadow: 20px 20px 10px 2px #ccc;
 }
 
 .caixa-rapido:hover {
-    width: 250px;
-    height: 320px;
-    transition: width 1s, height 1s;
+    transition: all 0.3s ease;
+    transform: scale(1.1);
 }
 
 .caixa-rapido a img {
@@ -162,26 +161,26 @@ a {
     margin-bottom: 10px;
 }
 
-#rodape nav {
+#rodape div {
     display: flex;
     flex-wrap: wrap;
 }
 
-#rodape nav h4 {
+#rodape div h4 {
     margin-left: 80px;
     margin-right: 100px;
     align-self: center;
     border-bottom: 1px solid black;
 }
 
-#rodape nav a {
+#rodape div a {
     color: white;
     font-size: 1em;
     display: inline-block;
     margin: 5px 0px;
 }
 
-#rodape nav a:hover {
+#rodape div a:hover {
     color: aqua;
 }
 
@@ -189,21 +188,23 @@ a {
  *********** TELA CADASTRO  ************/
 
 #tela-login-cadastro-bg {
-    /* background: linear-gradient(rgb(0, 73, 107), white) ; */
+    background: linear-gradient(#f2fafd, white);
 }
 
 #texto {
     padding: 50px 0 20px 50px;
     max-width: 960px;
     margin: 0 auto;
-    border-bottom: 3px solid rgb(14, 0, 214);
+    border-bottom: 3px solid rgb(88, 82, 177);
     margin-bottom: 30px;
+    border-radius: 5px;
 }
 
 #texto h1 {
     font-size: 2em;
     color: #222222;
     margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 #texto p {
@@ -219,51 +220,63 @@ a {
     justify-content: space-between;
 }
 
-#cadastro {
-    background: rgb(240, 240, 240);
-    border-radius: 15px;
-}
-
-.top-caixa {
+#top-caixa-cadastro, #top-caixa-login {
     padding: 15px;
     background: rgb(230, 44, 30);
-    color: #fff;
-    border-radius: 15px;
+    color: white;
+    /* text-shadow: 0px 0px 1px black; */
+    /* border-radius: 15px; */
 }
 
-.top-caixa p {
+#top-caixa-cadastro p, #top-caixa-login p {
+    margin-bottom: 5px;
+}
+
+#top-caixa-login {
+    background: rgb(0, 156, 47);
+}
+
+#top-caixa-cadastro p, #top-caixa-login p {
     font-size: 0.8em;
 }
 
 /**************            ************
  *********** Formulário Cadastro  ************/
 
-.formulario-cadastro {
+.formulario-cadastro, .formulario-login {
     padding: 22px;
     display: flex;
     flex-wrap: wrap;
     max-width: 450px;
-    box-shadow: 20px 0px 10px 0px #ccc;
+    box-shadow: 12px 12px 12px 0px #ccc;
     margin-bottom: 60px;
-    height: 720px;
     border-radius: 15px;
+    background: rgb(253, 253, 253);
 }
 
-.formulario-cadastro h4 {
+.formulario-login {
+    height: 300px;
+}
+
+.formulario-cadastro h4, .formulario-login h4 {
     text-transform: uppercase;
     color: rgb(255, 136, 0);
+    border-bottom: 1px solid rgb(255, 136, 0);
+    margin: 20px 0px 20px 0px;
+    ;
 }
 
-.formulario-cadastro p {
+.formulario-cadastro p, .formulario-login p {
     font-style: italic;
     color: rgb(151, 151, 151);
 }
 
-.formulario-cadastro input {
+.formulario-cadastro input, .formulario-login input {
     font-family: "Nunito", Helvetica, Arial, sans-serif;
     margin: 7px 0;
     border-radius: 3px;
-    background: white;;
+    background: white;
+    ;
 }
 
 input[type="text"], input[type="email"] {
@@ -288,7 +301,7 @@ input[type="text"], input[type="email"] {
     width: 10em;
 }
 
-.formulario-cadastro label {
+.formulario-cadastro label, .formulario-login label {
     font-size: 1em;
     margin-right: 13px;
     color: #535353;
@@ -299,7 +312,7 @@ input[type="text"], input[type="email"] {
     font-size: 1.05em;
 }
 
-.formulario-cadastro input.submit{
+.formulario-cadastro input.submit, .formulario-login input.submit {
     font-family: "Nunito", Helvetica, Arial, sans-serif;
     width: 170px;
     height: 30px;
@@ -311,10 +324,83 @@ input[type="text"], input[type="email"] {
     border: 4px solid white;
     padding-top: 3px;
     padding-bottom: 25px;
-    margin-bottom: 50px;
+}
+
+.formulario-login input.submit {
+    background: linear-gradient(to bottom, rgb(0, 156, 47), rgb(0, 156, 47));
 }
 
 .formulario-cadastro input.submit:hover {
     color: white;
     background: rgb(88, 6, 0);
+}
+
+.formulario-login input.submit:hover {
+    color: white;
+    background: rgb(16, 75, 29);
+}
+
+/**************            ************
+ *********** CONHEÇA O SIGE  ************/
+
+.conteudo {
+    color: #777;
+    background-color: white;
+    text-align: justify;
+    padding: 50px 80px;
+}
+
+.conteudo h3 {
+    text-transform: uppercase;
+    color: #111;
+    text-align: center;
+}
+
+.conteudo p {
+    margin-bottom: 20px;
+}
+
+/* Efeito Parallax */
+
+.caixa1, .caixa2, .caixa3, .caixa4 {
+    position: relative;
+    height: 100%;
+    opacity: 0.7;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.caixa1 {
+    background-image: url(../img/palestras1.jpg);
+}
+
+.caixa2 {
+    background-image: url(../img/palestras2.jpg);
+}
+
+.caixa3 {
+    background-image: url(../img/palestras3.jpg);
+}
+
+.caixa4 {
+    background-image: url(../img/palestras4.jpg);
+}
+
+.conteudo-titulo {
+    position: absolute;
+    left: 0%;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+}
+
+.conteudo-titulo span.titulo {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #111;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 5px;
 }

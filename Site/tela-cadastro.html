@@ -11,7 +11,7 @@
 
 <body>
 
-    <header id="menu-bg">
+    <div id="menu-bg">
 
         <div id="menu">
             <div id="menu-logo">
@@ -20,25 +20,24 @@
                 </a>
             </div>
 
-            <nav id="menu-nav">
+            <div id="menu-nav">
                 <ul>
-                    <li><a href="">Página Principal</a></li>
-                    <li><a href="#sobre">Conheça o SIGE</a></li>
+                    <li><a href="index.html">Página Principal</a></li>
+                    <li><a href="sobre.html">Conheça o SIGE</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
-            </nav>
+            </div>
 
             <div id="menu-login">
                 <ul>
-                    <li id="cadastrar"><a href="">Cadastrar-se</a></li>
-                    <li id="entrar"><a href="">Entrar</a></li>
+                    <li id="cadastrar"><a href="tela-cadastro.html">Cadastrar-se | Entrar</a></li>
                 </ul>
             </div>
         </div>
 
-    </header>
+    </div>
 
-    <section id="tela-login-cadastro-bg">
+    <div id="tela-login-cadastro-bg">
 
         <div id="texto">
             <h1>Seu Cadastro</h1>
@@ -48,13 +47,47 @@
 
         <div id="tela-login-cadastro">
 
-
-
             <div id="cadastro">
 
-                <div class="top-caixa">
+                <div id="top-caixa-login">
+                    <h2>Ja é cadastrado?</h2>
+                    <p>Então entre com seus dados de login e senha.</p>
+                </div>
+
+
+
+                <div class="formulario-login">
+
+                    <p>CPF e Senha obrigatórios para o login.</p>
+                    <h4>Dados pessoais</h4>
+
+                    <form action="">
+
+                        <div class="cpf">
+                            <label for="cpf">CPF:</label>
+                            <input type="text" name="cpf" id="cpf" minlength="11" maxlength="11"
+                                placeholder="Digite seu CPF" required autofocus>
+                            <p class="cadastro-ajuda">Somente Números</p>
+                        </div>
+
+                        <div class="senha">
+                            <label for="email">Senha:</label>
+                            <input type="password" name="senha" id="senha" required minlength="8" maxlength="12"
+                                placeholder="Digite sua senha" required autofocus>
+                        </div>
+
+                        <input class="submit" type="submit" name="logar" id="logar" value="Logar">
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div id="login">
+
+                <div id="top-caixa-cadastro">
                     <h2>Ainda não é cadastrado no site?</h2>
-                    <p>Faça agora seu cadastro, é simples e rápido</p>
+                    <p>Faça agora seu cadastro, é simples e rápido!</p>
                 </div>
 
                 <div class="formulario-cadastro">
@@ -67,31 +100,30 @@
                         <div>
                             <label for="nome">Nome:</label>
                             <input type="text" name="nome" id="nome" maxlength="60" placeholder="Digite seu nome"
-                                required autofocus>
+                                required>
                         </div>
 
                         <div class="cpf">
                             <label for="cpf">CPF:</label>
                             <input type="text" name="cpf" id="cpf" minlength="11" maxlength="11"
-                                placeholder="Digite seu CPF" required autofocus>
+                                placeholder="Digite seu CPF" required>
                             <p class="cadastro-ajuda">Somente Números</p>
                         </div>
 
                         <div>
                             <label for="email">E-mail:</label>
-                            <input type="email" name="email" id="email" placeholder="Digite seu email" required
-                                autofocus>
+                            <input type="email" name="email" id="email" placeholder="Digite seu email" required>
                         </div>
 
                         <div class="senha">
                             <label for="email">Senha:</label>
                             <input type="password" name="senha" id="senha" required minlength="8" maxlength="12"
-                                placeholder="Digite sua senha" required autofocus>
+                                placeholder="Digite sua senha" required>
                         </div>
 
                         <div>
                             <label for="sexo">Sexo:</label>
-                            <select id="sexo" required autofocus>
+                            <select id="sexo" required>
                                 <option value="">Prefiro não declarar</option>
                                 <option value="">Masculino</option>
                                 <option value="">Feminino</option>
@@ -139,115 +171,18 @@
 
                         </fieldset>
 
-                        
-                            <input class="submit" type="submit" name="cadastrar" id="cadastrar" value="Cadastrar">
-                        
+
+                        <input class="submit" type="submit" name="cadastrar" id="cadastrar" value="Cadastrar">
+
                     </form>
                 </div>
 
             </div>
 
-            <div id="login">
-
-                    <div class="top-caixa">
-                            <h2>Ainda não é cadastrado no site?</h2>
-                            <p>Faça agora seu cadastro, é simples e rápido</p>
-                        </div>
-        
-                        <div class="formulario-cadastro">
-        
-                            <p>Todos os campos são de preenchimento obrigatório.</p>
-                            <h4>Dados Cadastrais</h4>
-        
-                            <form action="">
-        
-                                <div>
-                                    <label for="nome">Nome:</label>
-                                    <input type="text" name="nome" id="nome" maxlength="60" placeholder="Digite seu nome"
-                                        required autofocus>
-                                </div>
-        
-                                <div class="cpf">
-                                    <label for="cpf">CPF:</label>
-                                    <input type="text" name="cpf" id="cpf" minlength="11" maxlength="11"
-                                        placeholder="Digite seu CPF" required autofocus>
-                                    <p class="cadastro-ajuda">Somente Números</p>
-                                </div>
-        
-                                <div>
-                                    <label for="email">E-mail:</label>
-                                    <input type="email" name="email" id="email" placeholder="Digite seu email" required
-                                        autofocus>
-                                </div>
-        
-                                <div class="senha">
-                                    <label for="email">Senha:</label>
-                                    <input type="password" name="senha" id="senha" required minlength="8" maxlength="12"
-                                        placeholder="Digite sua senha" required autofocus>
-                                </div>
-        
-                                <div>
-                                    <label for="sexo">Sexo:</label>
-                                    <select id="sexo" required autofocus>
-                                        <option value="">Prefiro não declarar</option>
-                                        <option value="">Masculino</option>
-                                        <option value="">Feminino</option>
-                                    </select>
-                                </div>
-        
-                                <div>
-                                    <label for="data-nascimento">Data de Nascimento:</label>
-                                    <input type="date" name="data-nascimento" id="data-nascimento">
-                                </div>
-        
-                                <div>
-                                    <label for="telefone">Telefone:</label>
-                                    <input type="text" name="telefone" id="telefone" placeholder="00 0 00000000" minlength="11"
-                                        maxlength="11">
-                                </div>
-        
-                                <fieldset>
-                                    <legend>Endereço</legend>
-        
-                                    <div>
-                                        <label for="nome-rua">Nome da Rua:</label>
-                                        <input type="text" name="nome-rua" id="nome-rua" placeholder="Digite o nome da rua">
-                                    </div>
-        
-                                    <div class="numero">
-                                        <label for="numero">Número:</label>
-                                        <input type="text" name="numero" id="numero" placeholder="Nº">
-                                    </div>
-        
-                                    <div>
-                                        <label for="bairro">Bairro:</label>
-                                        <input type="text" name="bairro" id="bairro" placeholder="Digite seu bairro">
-                                    </div>
-        
-                                    <div>
-                                        <label for="cidade">Cidade:</label>
-                                        <input type="text" name="cidade" id="cidade" placeholder="Digite sua cidade">
-                                    </div>
-        
-                                    <div class="cep">
-                                        <label for="cep">CEP:</label>
-                                        <input type="text" name="cep" id="cep" placeholder="Digite seu cep">
-                                    </div>
-        
-                                </fieldset>
-        
-                                
-                                    <input class="submit" type="submit" name="cadastrar" id="cadastrar" value="Cadastrar">
-                                
-                            </form>
-                        </div>
-
-            </div>
-
         </div>
-    </section>
+    </div>
 
-    <footer id="rodape-bg">
+    <div id="rodape-bg">
         <div id="rodape">
 
 
@@ -258,17 +193,17 @@
             </div>
             <p>&copy; Copyright 2019</p>
 
-            <nav>
+            <div>
                 <h4>O SIGE</h4>
                 <ul>
-                    <li><a href="">Topo</a></li>
-                    <li><a href="">Conheça o SIGE</a></li>
+                    <li><a href="#menu">Topo</a></li>
+                    <li><a href="sobre.html">Conheça o SIGE</a></li>
                     <li><a href="">Contato</a></li>
                     <li><a href="">Eventos</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </footer>
+    </div>
 
 
 
