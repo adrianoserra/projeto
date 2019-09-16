@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+<title>SIGE - Login</title>
+<link rel="stylesheet" href="../css/estilo.css"/>
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap"
+	rel="stylesheet" />
+
+</h:head>
+
+<body>
+
+	<h:form id="form">   
+	
+	
+
+		<div id="menu-bg">
+
+			<div id="menu">
+				<div id="menu-logo">
+					<a href="../index.html"> <img src="../img/logo-sige.png" alt=""/></a>
+				</div>
+
+				<div id="menu-nav">
+					<ul>
+						<li><a href="../index.html">Página Principal</a></li>
+						<li><a href="sobre.html">Conheça o SIGE</a></li>
+						<li><a href="contato.html">Fale com a gente</a></li>
+					</ul>
+				</div>
+
+				
+				<div id="menu-login">
+				
+					<ul>
+					
+						<li id="cadastrar"><a href="tela-cadastro.html">Cadastrar-se
+								| Entrar</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="tela-login-cadastro-bg">
+
+			<div id="texto">
+			    <p:messages id="messages" showDetail="true" closable="true">
+                  <p:autoUpdate />
+                </p:messages>
+			
+				<h1>Seu Cadastro</h1>
+				<p>Você precisa ser cadastrado ou já ter um cadastro para
+					continuar...</p>
+
+			</div>
+
+			<div id="tela-login-cadastro">
+
+				<div id="formulario-login">
+
+					<div id="top-caixa-login">
+						<h2>Ja é cadastrado?</h2>
+						<p>Então entre com seus dados de login e senha.</p>
+					</div>
+
+                    <div class="formulario-cadastro">    
+						<p>CPF e Senha obrigatórios para o login.</p>
+						
+						        
+						<p:panelGrid style="border: none !important;" columns="2" >        
+						<p:outputLabel value="Matrícula: " />
+						<p:inputText style="width:70%" value="#{cadastrarParticipanteMbean.matricula}" />
+						
+						<p:outputLabel value="Senha:" />
+						<p:password style="width:70%" value="#{cadastrarParticipanteMbean.senha}" />
+					    </p:panelGrid>
+                      
+					  </div>
+
+                       <p:commandButton value="Logar" style="margin-left:30%" action="#{cadastrarParticipanteMbean.logar()}" update="@form" />
+				</div>
+
+				<div id="cadastro">
+
+
+					<div id="top-caixa-cadastro">
+						<h2>Ainda não é cadastrado no site?</h2>
+						<p>Faça agora seu cadastro, é simples e rápido!</p>
+					</div>
+
+					<div class="formulario-cadastro">
+
+						<p>Todos os campos são de preenchimento obrigatório.</p>
+						<p:panelGrid columns="2">
+						
+						<p:outputLabel value="Matrícula: " />
+						<p:inputText style="width:50%" value="#{cadastrarParticipanteMbean.participante.matricula}"/>
+						
+						<p:outputLabel value="Senha:" />
+						<p:password style="width:50%" value="#{cadastrarParticipanteMbean.participante.senha}"/>
+						
+						<p:outputLabel value="Nome:" />
+						<p:inputText style="width:100%" value="#{cadastrarParticipanteMbean.participante.nome}"/>
+						
+						<p:outputLabel value="Setor:" />
+						<p:inputText style="width:100%" value="#{cadastrarParticipanteMbean.participante.setor}"/>
+						
+						<p:outputLabel value="CPF:" />
+						<p:inputMask style="width:70%" mask="999.999.999-99" value="#{cadastrarParticipanteMbean.participante.CPF}"/>
+						
+						<p:outputLabel value="Telefone:" />
+						<p:inputMask style="width:80%" mask="(99)99999-9999" value="#{cadastrarParticipanteMbean.participante.telefone}"/>
+						
+						<p:outputLabel value="Email:" />
+						<p:inputText style="width:100%" value="#{cadastrarParticipanteMbean.participante.email}"/>
+						
+						</p:panelGrid>
+
+                	</div>
+                	
+                	<p:commandButton value="Salvar" style="margin-left:30%" action="#{cadastrarParticipanteMbean.salvar()}" update="@form"/>
+
+				</div>
+
+			</div>
+		</div>
+	</h:form>
+	<br/>
+	<div id="rodape-bg">
+		<div id="rodape">
+			<div id="rodape-logo">
+				<a href="index.html"> <img src="../img/logo-sige.png" alt=""/></a>
+			</div>
+			<p>&copy; Copyright 2019</p>
+			<div id="rodape-nav">
+				<h4>O SIGE</h4>
+				<ul>
+					<li><a href="#menu">Topo</a></li>
+					<li><a href="sobre.html">Conheça o SIGE</a></li>
+					<li><a href="contato.html">Contato</a></li>
+					<li><a href="">Eventos</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>
