@@ -16,6 +16,8 @@
 </h:head>
 
 <body>
+ <ui:param name="mBean" value="#{cadastrarParticipanteMbean}" /> 
+
 
 	<h:form id="form">   
 	
@@ -41,7 +43,7 @@
 				
 					<ul>
 					
-						<li id="cadastrar"><a href="tela-cadastro.html">Cadastrar-se
+						<li id="cadastrar"><a href="cadastrarParticipante.xhtml">Cadastrar-se
 								| Entrar</a></li>
 					</ul>
 				</div>
@@ -52,10 +54,7 @@
 		<div id="tela-login-cadastro-bg">
 
 			<div id="texto">
-			    <p:messages id="messages" showDetail="true" closable="true">
-                  <p:autoUpdate />
-                </p:messages>
-			
+			   
 				<h1>Seu Cadastro</h1>
 				<p>Você precisa ser cadastrado ou já ter um cadastro para
 					continuar...</p>
@@ -68,24 +67,24 @@
 
 					<div id="top-caixa-login">
 						<h2>Ja é cadastrado?</h2>
-						<p>Então entre com seus dados de login e senha.</p>
+						<p>Então entre com seus dados de matrícula e senha.</p>
 					</div>
 
                     <div class="formulario-cadastro">    
-						<p>CPF e Senha obrigatórios para o login.</p>
+						<p>Matrícula e Senha obrigatórios para o login.</p>
 						
 						        
 						<p:panelGrid style="border: none !important;" columns="2" >        
 						<p:outputLabel value="Matrícula: " />
-						<p:inputText style="width:70%" value="#{cadastrarParticipanteMbean.matricula}" />
+						<p:inputText style="width:70%" value="#{mBean.matricula}" />
 						
 						<p:outputLabel value="Senha:" />
-						<p:password style="width:70%" value="#{cadastrarParticipanteMbean.senha}" />
+						<p:password style="width:70%" value="#{mBean.senha}" />
 					    </p:panelGrid>
                       
 					  </div>
 
-                       <p:commandButton value="Logar" style="margin-left:30%" action="#{cadastrarParticipanteMbean.logar()}" update="@form" />
+                       <p:commandButton value="Logar" style="margin-left:30%" action="#{mBean.logar()}" update="@form" />
 				</div>
 
 				<div id="cadastro">
@@ -102,36 +101,39 @@
 						<p:panelGrid columns="2">
 						
 						<p:outputLabel value="Matrícula: " />
-						<p:inputText style="width:50%" value="#{cadastrarParticipanteMbean.participante.matricula}"/>
+						<p:inputText style="width:50%" value="#{mBean.participante.matricula}"/>
 						
 						<p:outputLabel value="Senha:" />
-						<p:password style="width:50%" value="#{cadastrarParticipanteMbean.participante.senha}"/>
+						<p:password style="width:50%" value="#{mBean.participante.senha}"/>
 						
 						<p:outputLabel value="Nome:" />
-						<p:inputText style="width:100%" value="#{cadastrarParticipanteMbean.participante.nome}"/>
+						<p:inputText style="width:100%" value="#{mBean.participante.nome}"/>
 						
 						<p:outputLabel value="Setor:" />
-						<p:inputText style="width:100%" value="#{cadastrarParticipanteMbean.participante.setor}"/>
+						<p:inputText style="width:100%" value="#{mBean.participante.setor}"/>
 						
 						<p:outputLabel value="CPF:" />
-						<p:inputMask style="width:70%" mask="999.999.999-99" value="#{cadastrarParticipanteMbean.participante.CPF}"/>
+						<p:inputMask style="width:70%" mask="999.999.999-99" value="#{mBean.participante.CPF}"/>
 						
 						<p:outputLabel value="Telefone:" />
-						<p:inputMask style="width:80%" mask="(99)99999-9999" value="#{cadastrarParticipanteMbean.participante.telefone}"/>
+						<p:inputMask style="width:80%" mask="(99)99999-9999" value="#{mBean.participante.telefone}"/>
 						
 						<p:outputLabel value="Email:" />
-						<p:inputText style="width:100%" value="#{cadastrarParticipanteMbean.participante.email}"/>
+						<p:inputText style="width:100%" value="#{mBean.participante.email}"/>
 						
 						</p:panelGrid>
 
                 	</div>
                 	
-                	<p:commandButton value="Salvar" style="margin-left:30%" action="#{cadastrarParticipanteMbean.salvar()}" update="@form"/>
+                	<p:commandButton value="Salvar" style="margin-left:30%" action="#{mBean.salvar()}" update="@form"/>
 
 				</div>
 
 			</div>
 		</div>
+		        <p:messages id="messages" showDetail="true" closable="true">
+                  <p:autoUpdate />
+                </p:messages>
 	</h:form>
 	<br/>
 	<div id="rodape-bg">

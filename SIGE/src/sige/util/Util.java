@@ -1,4 +1,4 @@
-package sigo.util;
+package sige.util;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

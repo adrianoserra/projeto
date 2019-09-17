@@ -27,8 +27,8 @@ public class ParticipanteDAO {
 	    stmt.setString(5, participante.getEmail());
 	    stmt.setString(6, participante.getTelefone());
 	    stmt.setString(7, participante.getSenha());
-	    if (participante.getMatricula().substring(0).equals("1")) {
-	    	participante.setTipoUsuario(1);
+	    if (participante.getMatricula().subSequence(0, 1).equals("2")) {
+	    	participante.setTipoUsuario(2);
 	    } else {
 	    	participante.setTipoUsuario(1);  	
 	    }
@@ -62,8 +62,13 @@ public class ParticipanteDAO {
 		   
 		   while(rs.next()){
 			   particianteAtual = new Participante();
-			   
-			    
+			   particianteAtual.setMatricula(rs.getString("matricula"));
+			   particianteAtual.setNome(rs.getString("nome"));
+			   particianteAtual.setSetor(rs.getString("setor"));
+			   particianteAtual.setCPF(rs.getString("CPF"));
+			   particianteAtual.setEmail(rs.getString("email"));
+			   particianteAtual.setTelefone(rs.getString("telefone"));
+			   particianteAtual.setTipoUsuario(rs.getInt("tipoUsuario"));
 		   }
 	   } catch (SQLException e) {
 			e.printStackTrace();
@@ -73,5 +78,30 @@ public class ParticipanteDAO {
 			connection.close();
 		}
 		return particianteAtual;
+   }
+   public boolean verificarSeMatriculaExiste (String matricula) throws SQLException, ClassNotFoundException {
+	   this.connection = new JDBC().getConexao();
+	   PreparedStatement stmt = null;
+	   ResultSet rs = null;
+	   boolean existe = false; 
+	   
+	   try {
+		   String	sql	=	"SELECT matricula "
+		   		+ "FROM participante WHERE matricula = ?";
+		   stmt = connection.prepareStatement(sql);
+		   stmt.setString(1, matricula);
+		   rs = stmt.executeQuery();
+		   
+		   while(rs.next()){
+			   existe = true;
+			}
+	   } catch (SQLException e) {
+			e.printStackTrace();
+			connection.rollback();
+		} finally {
+			stmt.close();
+			connection.close();
+		}
+		return existe;
    }
 }   
