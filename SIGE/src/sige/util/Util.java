@@ -3,6 +3,9 @@ package sige.util;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.PrimeFaces;
+import org.primefaces.context.PrimeFacesContext;
+
 public class Util {
 	
 	public void getMenssagemInfor (String menssagem) {
@@ -18,6 +21,18 @@ public class Util {
 	public void getMenssagemErro () {
 		FacesContext.getCurrentInstance().addMessage(
 				null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Entre em contato com o administrador"));
+	}
+	public void exibirDialog (String tipo) {
+		PrimeFaces current = PrimeFaces.current();
+		if (tipo.equals("alerta")) {
+		current.executeScript("PF('DialogVarAlerta').show();");
+		}
+		if (tipo.equals("confirmação")) {
+			current.executeScript("PF('DialogVarConfirmacao').show();");
+		}
+		if (tipo.equals("erro")) {
+			current.executeScript("PF('DialogVarErro').show();");
+		}
 	}
 	
 	

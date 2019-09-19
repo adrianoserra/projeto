@@ -12,6 +12,9 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap"
 	rel="stylesheet" />
+	
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 </h:head>
 
@@ -131,9 +134,26 @@
 
 			</div>
 		</div>
-		        <p:messages id="messages" showDetail="true" closable="true">
-                  <p:autoUpdate />
-                </p:messages>
+                <p:dialog modal="true" widgetVar="DialogVarAlerta" minHeight="40">
+                    <h:panelGrid columns="2"> 
+                        <i class="fa fa-exclamation-triangle" style="font-size:20px;color:orange"> </i>
+                        <h:outputText value="#{mBean.mensagem}" />
+                    </h:panelGrid>
+                </p:dialog>
+                
+                <p:dialog modal="true" widgetVar="DialogVarConfirmacao" minHeight="40">
+                    <h:panelGrid columns="2">
+                       <i class="fa fa-check" style="font-size:20px;color:green"> </i>
+                       <h:outputText value="#{mBean.mensagem}" />
+                    </h:panelGrid>
+                </p:dialog>
+                
+                  <p:dialog modal="true" widgetVar="DialogVarErro" minHeight="40">
+                    <h:panelGrid columns="2">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px;color:red"> </i>
+                      <h:outputText value="#{mBean.mensagem}" />
+                    </h:panelGrid>
+                  </p:dialog>
 	</h:form>
 	<br/>
 	<div id="rodape-bg">

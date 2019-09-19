@@ -22,10 +22,12 @@ public class CadastrarParticipanteMbean {
 	private Participante participante;
 	private String matricula;
 	private String senha;
+	private String mensagem;
 	
 	  @PostConstruct
       public void inicializar (){
 		  participante = new Participante();
+		  mensagem = "";
     	  
 		
 	}
@@ -34,12 +36,14 @@ public class CadastrarParticipanteMbean {
 		  try {
 			  if (validar() && !verificarSeMatriculaExiste()) {
 			      participanteControle.salvarParticipante(participante);
-			      util.getMenssagemInfor("Participante salvo com sucesso!");
+			      mensagem = "Participante salvo com sucesso!";
+			      util.exibirDialog("confirmação");
 			  }
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			util.getMenssagemErro();
+			mensagem = "Erro grave, entre em contato com o administrador";
+			util.exibirDialog("erro");
 			return;
 		}
 		  
@@ -61,35 +65,43 @@ public class CadastrarParticipanteMbean {
 	  
 	  public boolean validar (){
 		  if (participante.getMatricula().equals("")) {
-			  util.getMenssagemAlerta("O campo matrícula é obrigatorio!");
+			  mensagem = "O campo matrícula é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  if (participante.getSenha().equals("")) {
-			  util.getMenssagemAlerta("O campo senha é obrigatorio!");
+			  mensagem = "O campo senha é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  if (participante.getSetor().equals("")) {
-			  util.getMenssagemAlerta("O campo setor é obrigatorio!");
+			  mensagem = "O campo setor é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  if (participante.getNome().equals("")) {
-			  util.getMenssagemAlerta("O campo nome é obrigatorio!");
+			  mensagem = "O campo nome é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  if (participante.getSetor().equals("")) {
-			  util.getMenssagemAlerta("O campo setor é obrigatorio!");
+			  mensagem = "O campo setor é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  if (participante.getCPF().equals("")) {
-			  util.getMenssagemAlerta("O campo CPF é obrigatorio!");
+			  mensagem = "O campo CPF é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  if (participante.getTelefone().equals("")) {
-			  util.getMenssagemAlerta("O campo telefone é obrigatorio!");
+			  mensagem = "O campo telefone é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  if (participante.getEmail().equals("")) {
-			  util.getMenssagemAlerta("O campo email é obrigatorio!");
+			  mensagem = "O campo email é obrigatorio!";
+			  util.exibirDialog("alerta");
 			  return false;
 		  }
 		  return true;
@@ -104,7 +116,8 @@ public class CadastrarParticipanteMbean {
 			e.printStackTrace();
 		}
 		  if (existe) {
-			  util.getMenssagemAlerta("matrícula já cadastrada, informe outra matrícula!");
+			  mensagem = "matrícula já cadastrada, informe outra matrícula!";
+			  util.exibirDialog("alerta");
 		  }
 		  return existe;
 	  }
@@ -130,6 +143,14 @@ public class CadastrarParticipanteMbean {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
 	}
 
 }
