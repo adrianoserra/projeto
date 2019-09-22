@@ -100,8 +100,9 @@
 
 					<div class="formulario-cadastro">
 
+                      
 						<p>Todos os campos são de preenchimento obrigatório.</p>
-						<p:panelGrid columns="2">
+						<p:panelGrid id="panelCadastro" columns="2">
 						
 						<p:outputLabel value="Matrícula: " />
 						<p:inputText style="width:50%" value="#{mBean.participante.matricula}"/>
@@ -109,17 +110,20 @@
 						<p:outputLabel value="Senha:" />
 						<p:password style="width:50%" value="#{mBean.participante.senha}"/>
 						
+						<p:outputLabel value="Confirmar senha:" />
+						<p:password style="width:50%" value="#{mBean.confirmarSenha}"/>
+						
 						<p:outputLabel value="Nome:" />
-						<p:inputText style="width:100%" value="#{mBean.participante.nome}"/>
+						<p:inputText style="width:100%"  value="#{mBean.participante.nome}"/>
 						
 						<p:outputLabel value="Setor:" />
-						<p:inputText style="width:100%" value="#{mBean.participante.setor}"/>
+						<p:inputText style="width:100%"  value="#{mBean.participante.setor}"/>
 						
 						<p:outputLabel value="CPF:" />
-						<p:inputMask style="width:70%" mask="999.999.999-99" value="#{mBean.participante.CPF}"/>
+						<p:inputMask style="width:70%"  mask="999.999.999-99" value="#{mBean.participante.CPF}"/>
 						
 						<p:outputLabel value="Telefone:" />
-						<p:inputMask style="width:80%" mask="(99)99999-9999" value="#{mBean.participante.telefone}"/>
+						<p:inputMask style="width:80%"  mask="(99)99999-9999" value="#{mBean.participante.telefone}"/>
 						
 						<p:outputLabel value="Email:" />
 						<p:inputText style="width:100%" value="#{mBean.participante.email}"/>

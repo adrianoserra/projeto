@@ -4,7 +4,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.PrimeFaces;
-import org.primefaces.context.PrimeFacesContext;
 
 public class Util {
 	

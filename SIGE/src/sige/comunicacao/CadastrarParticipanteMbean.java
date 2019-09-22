@@ -1,10 +1,12 @@
 package sige.comunicacao;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import sige.controle.ParticipanteControle;
 import sige.modeo.Participante;
@@ -23,6 +25,7 @@ public class CadastrarParticipanteMbean {
 	private String matricula;
 	private String senha;
 	private String mensagem;
+	private String confirmarSenha;
 	
 	  @PostConstruct
       public void inicializar (){
@@ -49,17 +52,35 @@ public class CadastrarParticipanteMbean {
 		  
 	  }
 	  
-	  public void logar () {
+	  public void logar () throws IOException {
+		  if (matricula == null || matricula.equals("")) {
+			  mensagem = "O campo matrícula é obrigatorio para o login!";
+			  util.exibirDialog("alerta");
+			  return;
+		  } 
+          if (senha == null || senha.equals("")) {
+    			  mensagem = "O campo senha é obrigatorio para o login!";
+    			  util.exibirDialog("alerta");
+    			  return;
+		  }
 		  try {
 			  Participante participanteAutenticado = participanteControle.autenticarUsuario(matricula, senha);
 			  if (participanteAutenticado != null) {
+				  if (participanteAutenticado.getTipoUsuario() == 2) {
+					  FacesContext.getCurrentInstance().getExternalContext().redirect("contato.html");  
+				  } else {
+					  FacesContext.getCurrentInstance().getExternalContext().redirect("contato.html");
+				  }
 				  
 			  } else {
-				  
+				  mensagem = "a senha ou matrícula informadas estão erradas";
+					util.exibirDialog("alerta");
 			  }
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			mensagem = "Erro grave, entre em contato com o administrador";
+			util.exibirDialog("erro");
 		}
 	  }
 	  
@@ -71,6 +92,11 @@ public class CadastrarParticipanteMbean {
 		  }
 		  if (participante.getSenha().equals("")) {
 			  mensagem = "O campo senha é obrigatorio!";
+			  util.exibirDialog("alerta");
+			  return false;
+		  }
+		  if (!confirmarSenha.equals(participante.getSenha())) {
+			  mensagem = "As senhas informadas estão diferentes!";
 			  util.exibirDialog("alerta");
 			  return false;
 		  }
@@ -151,6 +177,14 @@ public class CadastrarParticipanteMbean {
 
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
+	}
+
+	public String getConfirmarSenha() {
+		return confirmarSenha;
+	}
+
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
 	}
 
 }

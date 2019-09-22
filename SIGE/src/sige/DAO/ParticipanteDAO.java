@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import sige.modeo.Participante;
 import sige.util.conexao.JDBC;
@@ -79,6 +81,38 @@ public class ParticipanteDAO {
 		}
 		return particianteAtual;
    }
+   public List<Participante> listarParticipantes () throws SQLException, ClassNotFoundException {
+	   this.connection = new JDBC().getConexao();
+	   PreparedStatement stmt = null;
+	   ResultSet rs = null;
+	   List<Participante> colecaoParticipante = new ArrayList<Participante>();
+	   Participante particiante; 
+	   
+	   try {
+		   String	sql	=	"SELECT * FROM participante";
+		   stmt = connection.prepareStatement(sql);
+		   rs = stmt.executeQuery();
+		   
+		   while(rs.next()){
+			   particiante = new Participante();
+			   particiante.setMatricula(rs.getString("matricula"));
+			   particiante.setNome(rs.getString("nome"));
+			   particiante.setSetor(rs.getString("setor"));
+			   particiante.setCPF(rs.getString("CPF"));
+			   particiante.setEmail(rs.getString("email"));
+			   particiante.setTelefone(rs.getString("telefone"));
+			   particiante.setTipoUsuario(rs.getInt("tipoUsuario"));
+			   colecaoParticipante.add(particiante);
+		   }
+	   } catch (SQLException e) {
+			e.printStackTrace();
+			connection.rollback();
+		} finally {
+			stmt.close();
+			connection.close();
+		}
+		return colecaoParticipante;
+   }
    public boolean verificarSeMatriculaExiste (String matricula) throws SQLException, ClassNotFoundException {
 	   this.connection = new JDBC().getConexao();
 	   PreparedStatement stmt = null;
@@ -103,5 +137,34 @@ public class ParticipanteDAO {
 			connection.close();
 		}
 		return existe;
+   }
+   
+   public void alterarParticipante (Participante participante) throws ClassNotFoundException, SQLException {
+	    this.connection = new JDBC().getConexao();
+		PreparedStatement stmt = null;
+		try {
+		String	sql	=	"UPDATE participante"
+				+ "(nome = ?, setor = ?, CPF = ?, email = ?, telefone ?, senha = ? WHERE matricula = ?)";
+				
+				
+		stmt = connection.prepareStatement(sql);
+	    stmt.setString(1, participante.getNome());
+	    stmt.setString(2, participante.getSetor());
+	    stmt.setString(3, participante.getCPF());
+	    stmt.setString(4, participante.getEmail());
+	    stmt.setString(5, participante.getTelefone());
+	    stmt.setString(6, participante.getSenha());
+	    stmt.setString(7, participante.getMatricula());
+		stmt.execute();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			connection.rollback();
+		} finally {
+			stmt.close();
+			connection.close();
+		}
+		
+	
    }
 }   
