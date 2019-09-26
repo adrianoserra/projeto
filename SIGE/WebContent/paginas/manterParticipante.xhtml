@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+<title>SIGE - Login</title>
+<link rel="stylesheet" href="../css/estilo.css"/>
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap"
+	rel="stylesheet" />
+	
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+</h:head>
+
+<body>
+ <ui:param name="mBean" value="#{manterParticipanteMbean}" /> 
+
+
+	<h:form id="form">
+	<p:growl id="message" showDetail="true" /> 
+
+		<div id="menu-bg">
+
+			<div id="menu">
+				<div id="menu-logo">
+					<a href="../index.html"> <img src="../img/logo-sige.png" alt=""/></a>
+				</div>
+
+				<div id="menu-nav">
+					<ul>
+						<li><a href="../index.html">Página Principal</a></li>
+						<li><a href="sobre.html">Conheça o SIGE</a></li>
+						<li><a href="contato.html">Fale com a gente</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		
+		<br/>
+		<br/>
+		
+		<p:commandButton action="#{mBean.incluirParticipante()}" update="@form" value="Adicionar" icon="fa fa-plus" 
+		style="margin-left:78%"	 title="incluir" />
+		<br/>
+		
+		<p:dataTable value="#{mBean.colecaoParticipante}" style="width:80%; margin-left:10%" var="participante">
+		
+		<p:column headerText="Matrícula">
+		<h:outputText value="#{participante.matricula}" />		
+		</p:column>
+		
+		<p:column headerText="Nome">
+		<h:outputText value="#{participante.nome}" />		
+		</p:column>
+		
+		<p:column headerText="Setor">
+		<h:outputText value="#{participante.setor}" />		
+		</p:column>
+		
+		<p:column headerText="CPF">
+		<h:outputText value="#{participante.CPF}" />		
+		</p:column>
+		
+		<p:column headerText="Email">
+		<h:outputText value="#{participante.email}" />		
+		</p:column>
+		
+		<p:column headerText="Telefone">
+		<h:outputText value="#{participante.telefone}" />		
+		</p:column>
+		
+		<p:column headerText="Opções" style="width:10%">
+		<p:commandButton action="#{mBean.alterarParticipante(participante)}" 
+		icon="fa fa-pencil" title="alterar" update="@form" />
+		<p:commandButton action="#{mBean.excluirParticipante(participante)}" 
+		icon="fa fa-times" update="@form" title="excluir" >
+		<p:confirm header="Confirmar" message="Deseja mesmo excluir o participante #{participante.matricula} ?"/>
+		</p:commandButton>
+		</p:column>
+		
+		</p:dataTable>
+		
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" style="margin-left:30%" icon="pi pi-check" />
+        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+    </p:confirmDialog>
+
+		<p:dialog widgetVar="DialogAdicionar">
+			<p:panelGrid columns="2">
+				<p:panelGrid id="panelCadastro" columns="2">
+
+					<p:outputLabel value="Matrícula: " />
+					<p:inputText style="width:50%"
+						value="#{mBean.participanteSelecionado.matricula}" />
+
+					<p:outputLabel value="Senha:" />
+					<p:password style="width:50%" value="#{mBean.participanteSelecionado.senha}" />
+
+					<p:outputLabel value="Nome:" />
+					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.nome}" />
+
+					<p:outputLabel value="Setor:" />
+					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.setor}" />
+
+					<p:outputLabel value="CPF:" />
+					<p:inputMask style="width:70%" mask="999.999.999-99"
+						value="#{mBean.participanteSelecionado.CPF}" />
+
+					<p:outputLabel value="Telefone:" />
+					<p:inputMask style="width:80%" mask="(99)99999-9999"
+						value="#{mBean.participanteSelecionado.telefone}" />
+
+					<p:outputLabel value="Email:" />
+					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.email}" />
+					
+					<p:commandButton value="Salvar" action="#{mBean.salvar()}" update="@form" />
+
+				</p:panelGrid>
+			</p:panelGrid>
+		</p:dialog>
+		
+		<p:dialog widgetVar="DialogAlterar">
+			<p:panelGrid columns="2">
+				<p:panelGrid id="panelAlterar" columns="2">
+
+					<p:outputLabel value="Matrícula: " />
+					<p:inputText style="width:50%"
+						value="#{mBean.participanteSelecionado.matricula}" />
+
+					<p:outputLabel value="Senha:" />
+					<p:password style="width:50%" value="#{mBean.participanteSelecionado.senha}" />
+
+					<p:outputLabel value="Nome:" />
+					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.nome}" />
+
+					<p:outputLabel value="Setor:" />
+					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.setor}" />
+
+					<p:outputLabel value="CPF:" />
+					<p:inputMask style="width:70%" mask="999.999.999-99"
+						value="#{mBean.participanteSelecionado.CPF}" />
+
+					<p:outputLabel value="Telefone:" />
+					<p:inputMask style="width:80%" mask="(99)99999-9999"
+						value="#{mBean.participanteSelecionado.telefone}" />
+
+					<p:outputLabel value="Email:" />
+					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.email}" />
+					
+					<p:commandButton value="Salvar" action="#{mBean.alterar()}" update="@form" />
+
+				</p:panelGrid>
+			</p:panelGrid>
+		</p:dialog>
+		
+	</h:form>
+	<br/>
+	<br/>
+	<br/>
+	<div id="rodape-bg">
+		<div id="rodape">
+			<div id="rodape-logo">
+				<a href="index.html"> <img src="../img/logo-sige.png" alt=""/></a>
+			</div>
+			<p>&copy; Copyright 2019</p>
+			<div id="rodape-nav">
+				<h4>O SIGE</h4>
+				<ul>
+					<li><a href="#menu">Topo</a></li>
+					<li><a href="sobre.html">Conheça o SIGE</a></li>
+					<li><a href="contato.html">Contato</a></li>
+					<li><a href="">Eventos</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>

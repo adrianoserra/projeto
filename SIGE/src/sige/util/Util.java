@@ -34,6 +34,11 @@ public class Util {
 		}
 	}
 	
+	public void exibirDialogPF (String idDialog) {
+		PrimeFaces current = PrimeFaces.current();
+		current.executeScript("PF('" + idDialog + "').show();");	
+	}
+	
 	
 
 }
