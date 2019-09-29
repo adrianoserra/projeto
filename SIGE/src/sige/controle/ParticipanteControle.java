@@ -1,6 +1,7 @@
 package sige.controle;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import sige.DAO.ParticipanteDAO;
 import sige.modeo.Participante;
@@ -17,5 +18,14 @@ public class ParticipanteControle {
 	public boolean verificarSeMatriculaExiste (String matricula) throws ClassNotFoundException, SQLException{
 		return participanteDAO.verificarSeMatriculaExiste(matricula);
 		
+	}
+	public void alterarParticipante (Participante participante) throws ClassNotFoundException, SQLException {
+		participanteDAO.alterarParticipante(participante);
+	}
+	public void excluirParticipante (Participante participante) throws ClassNotFoundException, SQLException {
+		participanteDAO.excluirParticipante(participante);
+	}
+	public List<Participante> listarParticipante (){
+		return participanteDAO.listarParticipantes();
 	}
 }

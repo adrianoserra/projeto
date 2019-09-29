@@ -81,14 +81,15 @@ public class ParticipanteDAO {
 		}
 		return particianteAtual;
    }
-   public List<Participante> listarParticipantes () throws SQLException, ClassNotFoundException {
-	   this.connection = new JDBC().getConexao();
+   
+   public List<Participante> listarParticipantes () {
 	   PreparedStatement stmt = null;
-	   ResultSet rs = null;
 	   List<Participante> colecaoParticipante = new ArrayList<Participante>();
-	   Participante particiante; 
-	   
 	   try {
+		   this.connection = new JDBC().getConexao();
+		   ResultSet rs = null;
+		   
+		   Participante particiante; 
 		   String	sql	=	"SELECT * FROM participante";
 		   stmt = connection.prepareStatement(sql);
 		   rs = stmt.executeQuery();
@@ -104,12 +105,13 @@ public class ParticipanteDAO {
 			   particiante.setTipoUsuario(rs.getInt("tipoUsuario"));
 			   colecaoParticipante.add(particiante);
 		   }
+		   stmt.close();
+		   connection.close();
 	   } catch (SQLException e) {
 			e.printStackTrace();
-			connection.rollback();
-		} finally {
-			stmt.close();
-			connection.close();
+		} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 		}
 		return colecaoParticipante;
    }
@@ -143,8 +145,8 @@ public class ParticipanteDAO {
 	    this.connection = new JDBC().getConexao();
 		PreparedStatement stmt = null;
 		try {
-		String	sql	=	"UPDATE participante"
-				+ "(nome = ?, setor = ?, CPF = ?, email = ?, telefone ?, senha = ? WHERE matricula = ?)";
+		String	sql	=	"update participante set"
+				+ " nome = ? , setor = ? , CPF = ? , email = ? , telefone = ? , senha = ? WHERE matricula = ?";
 				
 				
 		stmt = connection.prepareStatement(sql);
@@ -166,5 +168,24 @@ public class ParticipanteDAO {
 		}
 		
 	
+   }
+   public void excluirParticipante (Participante participante) throws ClassNotFoundException, SQLException {
+	   this.connection = new JDBC().getConexao();
+		PreparedStatement stmt = null;
+		try {
+		String	sql	=	"DELETE FROM participante WHERE matricula = ?";
+				
+				
+		stmt = connection.prepareStatement(sql);
+	    stmt.setString(1, participante.getMatricula());
+		stmt.execute();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			connection.rollback();
+		} finally {
+			stmt.close();
+			connection.close();
+		}
    }
 }   

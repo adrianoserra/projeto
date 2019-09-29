@@ -29,14 +29,14 @@
 
 			<div id="menu">
 				<div id="menu-logo">
-					<a href="../index.html"> <img src="../img/logo-sige.png" alt=""/></a>
+					<a href="inicioADM.html"> <img src="../img/logo-sige.png" alt=""/></a>
 				</div>
 
 				<div id="menu-nav">
 					<ul>
-						<li><a href="../index.html">Página Principal</a></li>
-						<li><a href="sobre.html">Conheça o SIGE</a></li>
-						<li><a href="contato.html">Fale com a gente</a></li>
+						<li><a href="inicioADM.html">Menu</a></li>
+						<li><a href="manterParticipante.xhtml">Participante</a></li>
+						<li><a href="manterEvento.xhtml">Evento</a></li>
 					</ul>
 				</div>
 
@@ -76,11 +76,12 @@
 		<h:outputText value="#{participante.telefone}" />		
 		</p:column>
 		
-		<p:column headerText="Opções" style="width:10%">
+		<p:column headerText="Opções" style="width:15%">
 		<p:commandButton action="#{mBean.alterarParticipante(participante)}" 
 		icon="fa fa-pencil" title="alterar" update="@form" />
+		
 		<p:commandButton action="#{mBean.excluirParticipante(participante)}" 
-		icon="fa fa-times" update="@form" title="excluir" >
+		icon="fa fa-trash" update="@form" title="excluir" >
 		<p:confirm header="Confirmar" message="Deseja mesmo excluir o participante #{participante.matricula} ?"/>
 		</p:commandButton>
 		</p:column>
@@ -93,71 +94,61 @@
     </p:confirmDialog>
 
 		<p:dialog widgetVar="DialogAdicionar">
-			<p:panelGrid columns="2">
-				<p:panelGrid id="panelCadastro" columns="2">
+			<p:panelGrid id="panel-cadastro" columns="2">
 
 					<p:outputLabel value="Matrícula: " />
 					<p:inputText style="width:50%"
-						value="#{mBean.participanteSelecionado.matricula}" />
+						value="#{mBean.participanteNovo.matricula}" />
 
 					<p:outputLabel value="Senha:" />
-					<p:password style="width:50%" value="#{mBean.participanteSelecionado.senha}" />
+					<p:password style="width:50%"  value="#{mBean.participanteNovo.senha}" />
 
 					<p:outputLabel value="Nome:" />
-					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.nome}" />
+					<p:inputText style="width:100%"  value="#{mBean.participanteNovo.nome}" />
 
 					<p:outputLabel value="Setor:" />
-					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.setor}" />
+					<p:inputText style="width:100%"  value="#{mBean.participanteNovo.setor}" />
 
 					<p:outputLabel value="CPF:" />
-					<p:inputMask style="width:70%" mask="999.999.999-99"
-						value="#{mBean.participanteSelecionado.CPF}" />
+					<p:inputMask style="width:70%"  mask="999.999.999-99" 
+						value="#{mBean.participanteNovo.CPF}" />
 
 					<p:outputLabel value="Telefone:" />
-					<p:inputMask style="width:80%" mask="(99)99999-9999"
-						value="#{mBean.participanteSelecionado.telefone}" />
+					<p:inputMask style="width:80%"  mask="(99)99999-9999"
+						value="#{mBean.participanteNovo.telefone}" />
 
 					<p:outputLabel value="Email:" />
-					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.email}" />
-					
-					<p:commandButton value="Salvar" action="#{mBean.salvar()}" update="@form" />
-
+					<p:inputText style="width:100%"  value="#{mBean.participanteNovo.email}" />
 				</p:panelGrid>
-			</p:panelGrid>
+				<p:commandButton value="Salvar" action="#{mBean.salvar()}" update="@form" />
 		</p:dialog>
 		
 		<p:dialog widgetVar="DialogAlterar">
-			<p:panelGrid columns="2">
 				<p:panelGrid id="panelAlterar" columns="2">
 
 					<p:outputLabel value="Matrícula: " />
-					<p:inputText style="width:50%"
+					<h:outputText style="width:50%"
 						value="#{mBean.participanteSelecionado.matricula}" />
 
-					<p:outputLabel value="Senha:" />
-					<p:password style="width:50%" value="#{mBean.participanteSelecionado.senha}" />
-
 					<p:outputLabel value="Nome:" />
-					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.nome}" />
+					<p:inputText  style="width:100%" value="#{mBean.participanteSelecionado.nome}" />
 
 					<p:outputLabel value="Setor:" />
-					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.setor}" />
+					<p:inputText  style="width:100%" value="#{mBean.participanteSelecionado.setor}" />
 
 					<p:outputLabel value="CPF:" />
-					<p:inputMask style="width:70%" mask="999.999.999-99"
+					<p:inputMask  style="width:70%" mask="999.999.999-99"
 						value="#{mBean.participanteSelecionado.CPF}" />
 
 					<p:outputLabel value="Telefone:" />
-					<p:inputMask style="width:80%" mask="(99)99999-9999"
+					<p:inputMask  style="width:80%" mask="(99)99999-9999"
 						value="#{mBean.participanteSelecionado.telefone}" />
 
 					<p:outputLabel value="Email:" />
-					<p:inputText style="width:100%" value="#{mBean.participanteSelecionado.email}" />
-					
-					<p:commandButton value="Salvar" action="#{mBean.alterar()}" update="@form" />
-
+					<p:inputText  style="width:100%" value="#{mBean.participanteSelecionado.email}" />
 				</p:panelGrid>
-			</p:panelGrid>
+				<br/>
+				<p:commandButton value="Salvar" style="margin-left:40%" action="#{mBean.alterar()}" update="@form" />
 		</p:dialog>
 		
 	</h:form>

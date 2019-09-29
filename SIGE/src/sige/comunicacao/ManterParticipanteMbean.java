@@ -17,40 +17,55 @@ import sige.util.Util;
 public class ManterParticipanteMbean {
 	private ParticipanteControle participanteControle = new ParticipanteControle();
 	private List<Participante> colecaoParticipante;
+	private Participante participanteNovo;
 	private Participante participanteSelecionado;
 	private Util util = new Util();
 	
 	@PostConstruct
 	public void inicializar () {
 		colecaoParticipante = new ArrayList<Participante>();
-		setParticipanteSelecionado(new Participante());
-		Participante participanteTeste = new Participante();
-		participanteTeste.setMatricula("111111");
-		colecaoParticipante.add(participanteTeste);
+		colecaoParticipante = participanteControle.listarParticipante();
+		participanteSelecionado = new Participante();
+		setParticipanteNovo(new Participante());
 		}
 	
 	public void excluirParticipante (Participante participante) {
-		colecaoParticipante.remove(participante);
+		try {
+			participanteControle.excluirParticipante(participante);
+			colecaoParticipante.remove(participante);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void incluirParticipante () {
-		setParticipanteSelecionado(new Participante());
+		setParticipanteNovo(new Participante());
 		util.exibirDialogPF("DialogAdicionar");
 	}
 	
 	public void alterarParticipante (Participante participante) {
-		setParticipanteSelecionado(new Participante());
-		colecaoParticipante.remove(participante);
+		participanteSelecionado = participante;
 		util.exibirDialogPF("DialogAlterar");
 		
 	}
 	
 	public void salvar () {
-		colecaoParticipante.add(participanteSelecionado);
+		try {
+			participanteControle.salvarParticipante(participanteNovo);
+			colecaoParticipante.add(participanteNovo);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void alterar () {
-		colecaoParticipante.add(participanteSelecionado);
+		try {
+			participanteControle.alterarParticipante(participanteSelecionado);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void alterarUsuario (Participante participante) {
@@ -71,6 +86,14 @@ public class ManterParticipanteMbean {
 
 	public void setParticipanteSelecionado(Participante participanteSelecionado) {
 		this.participanteSelecionado = participanteSelecionado;
+	}
+
+	public Participante getParticipanteNovo() {
+		return participanteNovo;
+	}
+
+	public void setParticipanteNovo(Participante participanteNovo) {
+		this.participanteNovo = participanteNovo;
 	}
 
 }
