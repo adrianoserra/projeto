@@ -22,13 +22,14 @@ a {
 
 * {
     box-sizing: border-box;
-}
+} 
 
 /**************         ************
  *********** TOPO  ************/
 
 #menu-bg {
-    background: linear-gradient(to right, #ccc, rgb(2, 132, 184), rgb(2, 132, 184), #ccc);
+    background: linear-gradient(to right, rgb(15, 15, 15), rgb(20, 20, 20), rgb(20, 20, 20), rgb(20, 20, 20), rgb(20, 20, 20), rgb(15, 15, 15));
+    box-shadow: 0px 10px 10px 2px #ccc;
 }
 
 #menu {
@@ -36,23 +37,25 @@ a {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #menu-logo img {
-    max-width: 45%;
+    width: 65px;
+    height: 65px;
     display: block;
+    transition: 0.3s ease-out;
+}
+
+#menu-logo:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
 }
 
 #menu-nav ul {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10px;
-}
-
-#menu-login {
-    margin-top: 10px;
-    align-self: flex-start;
 }
 
 #menu-nav a {
@@ -60,23 +63,27 @@ a {
     font-size: 1em;
     font-weight: bold;
     display: block;
-    margin: 10px 25px 0px 25px;
-    background: #006577;
-    padding: 7px 15px 7px 15px;
+    margin: 0px 5px;
+    padding: 5px 8px;
     border-radius: 7px;
+}
+
+#menu-nav ul li:nth-last-child(1) {
+    background: rgb(0, 135, 139);
+    border-radius: 7px;
+    margin-left: 40px;
 }
 
 #menu-login a {
     color: white;
 }
 
-#menu-login a:hover {
+#menu-nav a:hover {
     color: #006577;
 }
 
-#menu-nav a:hover {
-    background: white;
-    color: #006577;
+#menu-nav ul li:nth-last-child(1) {
+    color: white;
 }
 
 /**************            ************
@@ -132,7 +139,7 @@ a {
  *********** RODAPÉ  SITE  ************/
 
 #rodape-bg {
-    background: rgb(148, 147, 147);
+    background: #000;
 }
 
 #rodape {
@@ -140,22 +147,40 @@ a {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 #rodape-logo img {
-    max-width: 75%;
+    width: 130px;
+    height: 130px;
+    margin-top: 10px;
+    margin-bottom: 26px;
 }
 
-#rodape p {
-    color: white;
-    align-self: flex-end;
-    margin-bottom: 10px;
+
+
+#redes-sociais img{
+    width: 35px;
+    height: 35px;
+    margin: 15px;
+    margin-top: 18px;
+    transition: 0.4s ease-out;
+
 }
+
+#redes-sociais img:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
+
+#redes-sociais a {
+    background: #222326;
+    border-radius: 150px;
+}
+
 
 #rodape div#rodape-nav {
-    min-width: 250px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -163,7 +188,7 @@ a {
 
 #rodape div h4 {
     align-self: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #919496;
 }
 
 #rodape div a {
@@ -173,8 +198,12 @@ a {
     margin: 5px 0px;
 }
 
+#rodape h4 {
+    color: #919496;
+}
+
 #rodape div a:hover {
-    color: aqua;
+    color: #006577;
 }
 
 /**************            ************
@@ -234,7 +263,7 @@ a {
 }
 
 .sem-borda {
-   border: none !important;
+    border: none !important;
 }
 
 /**************            ************
@@ -366,7 +395,7 @@ input[type="text"], input[type="email"] {
     justify-content: center;
     align-items: center;
     height: 100%;
-    opacity: 0.7;
+    opacity: 0.8;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -401,23 +430,23 @@ input[type="text"], input[type="email"] {
 /**************            ************
  *********** Contato ************/
 
- #contato-titulo {
+#contato-titulo {
     background: rgb(52, 98, 104);
-     max-width: 960px;
-     margin: 40px auto;
-     border-radius: 5px;
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     padding: 70px 0px;
- }
+    max-width: 960px;
+    margin: 40px auto;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 70px 0px;
+}
 
- #contato-titulo h3 {
-     color: white;
-     font-size: 2em;
- }
+#contato-titulo h3 {
+    color: white;
+    font-size: 2em;
+}
 
- #contato-conteudo {
+#contato-conteudo {
     max-width: 960px;
     margin: 0 auto;
     display: flex;
@@ -426,33 +455,44 @@ input[type="text"], input[type="email"] {
     margin-bottom: 90px;
 }
 
-
 .contato-ajuda img {
     width: 35px;
     height: 30px;
 }
 
-.contato-ajuda h4{
-   font-size: 1.2em;
-   margin: 10px 0;
-   color: rgb(52, 98, 104);
+.contato-ajuda h4 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: rgb(52, 98, 104);
 }
 
-
 /* "Tem alguma dúvida?" / */
-.contato-ajuda p:first-of-type { 
-   margin: 15px 0 25px 0;
-   color: rgb(138, 138, 138);
+
+.contato-ajuda p:first-of-type {
+    margin: 15px 0 25px 0;
+    color: rgb(138, 138, 138);
 }
 
 .contato-ajuda p:last-of-type {
-   color: #222;
-   font-weight: bold;
+    color: #222;
+    font-weight: bold;
 }
 
 
+/* VOLTAR AO TOPO / SOBRE */
 
+.voltar-ao-topo {
+    position: fixed;
+    bottom: 1.7em;
+    right: 1.7em;
+    padding: 7px;
+}
 
-
-
-
+.voltar-ao-topo img {
+    width: 40px;
+    height: 40px;
+}
+.voltar-ao-topo:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
