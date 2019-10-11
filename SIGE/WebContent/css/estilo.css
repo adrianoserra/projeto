@@ -289,82 +289,71 @@ a {
     color: rgb(255, 136, 0);
     border-bottom: 1px solid rgb(255, 136, 0);
     margin: 20px 0px 20px 0px;
-    ;
 }
 
-.formulario-cadastro p, .formulario-login p {
-    font-style: italic;
-    color: rgb(151, 151, 151);
+.formulario-cadastro p {
+	margin-bottom: 12px;
+	color: #FF9933
 }
 
-.formulario-cadastro input, .formulario-login input {
-    font-family: "Nunito", Helvetica, Arial, sans-serif;
-    margin: 7px 0;
-    border-radius: 3px;
-    background: white;
-    ;
+
+.ui-panelgrid .ui-panelgrid-cell { 
+    border-style: none;
+    padding: 0px 10px;
 }
 
-input[type="text"], input[type="email"] {
-    width: 20em;
-    height: 2em;
+.ui-widget-content {
+    border: 0px solid #a8a8a8;
 }
 
-.cpf input {
-    width: 10em;
+.ui-panelgrid {
+    border-collapse: none;
 }
 
-.senha input {
-    width: 12em;
-    height: 2em;
+.ui-widget {
+    font-family: "Nunito";
 }
 
-.numero input {
-    width: 5em;
+/* Input */
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #a8a8a8;
+    border-left: 5px solid #CCCCCC;
+    margin-bottom: 15px;
 }
 
-.cep input {
-    width: 10em;
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: "Nunito";
 }
 
-.formulario-cadastro label, .formulario-login label {
-    font-size: 1em;
-    margin-right: 13px;
-    color: #535353;
+.ui-inputfield {
+    padding-left: 10px;
+    margin-top: 4px;
 }
 
-.formulario-cadastro fieldset legend {
-    font-weight: bold;
-    font-size: 1.05em;
-}
 
-.formulario-cadastro input.submit, .formulario-login input.submit {
-    font-family: "Nunito", Helvetica, Arial, sans-serif;
-    width: 170px;
-    height: 30px;
-    font-size: 1em;
-    margin-left: 110px;
-    border-radius: 15px;
+/* BOTÃO ENTRE */
+
+.ui-widget-content .ui-state-default.botao-entrar {
+    border: 0px solid #a8a8a8;
     color: white;
-    background: linear-gradient(to bottom, rgb(230, 44, 30), rgb(230, 44, 30));
-    border: 4px solid white;
-    padding-top: 3px;
-    padding-bottom: 25px;
+    background:green;
+    text-shadow: 0 0px 0 rgba(255,255,255,0.7);
+    margin-top: 5px;
 }
 
-.formulario-login input.submit {
-    background: linear-gradient(to bottom, rgb(0, 156, 47), rgb(0, 156, 47));
-}
-
-.formulario-cadastro input.submit:hover {
+.ui-widget-content .ui-state-default.botao-cadastrar {
+    border: 0px solid #a8a8a8;
     color: white;
-    background: rgb(88, 6, 0);
+    background:red;
+    text-shadow: 0 0px 0 rgba(255,255,255,0.7);
+    margin-top: 5px;
 }
 
-.formulario-login input.submit:hover {
-    color: white;
-    background: rgb(16, 75, 29);
+.campo-entrada{
+width: 100%;
 }
+
 
 /**************            ************
  *********** CONHEÃ‡A O SIGE  ************/
@@ -496,3 +485,6 @@ input[type="text"], input[type="email"] {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
 }
+
+
+

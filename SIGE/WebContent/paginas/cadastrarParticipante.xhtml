@@ -68,18 +68,19 @@
                     <div class="formulario-cadastro">    
 						<p>Matrícula e Senha obrigatórios para o login.</p>
 						
-						        
-						<p:panelGrid style="border: none !important;" columns="2" >        
-						<p:outputLabel value="Matrícula: " />
-						<p:inputText style="width:70%" value="#{mBean.matricula}" />
+						<p:panelGrid style="border: none !important;" columns="1" >        
+						<p:outputLabel value="Matrícula" />
+						<p:inputText value="#{mBean.matricula}" />
 						
-						<p:outputLabel value="Senha:" />
-						<p:password style="width:70%" value="#{mBean.senha}" />
-					    </p:panelGrid>
-                      
-					  </div>
+						<p:outputLabel value="Senha" />
+						<p:password style="width:80%" value="#{mBean.senha}" />
+						<p:commandButton styleClass="botao-entrar" value="Entrar" action="#{mBean.logar()}" update="@form" />
+					    </p:panelGrid> 
+					    
+					    
+                        </div>
 
-                       <p:commandButton value="Logar" style="margin-left:30%" action="#{mBean.logar()}" update="@form" />
+                       
 				</div>
 
 				<div id="cadastro">
@@ -94,37 +95,39 @@
 
                       
 						<p>Todos os campos são de preenchimento obrigatório.</p>
-						<p:panelGrid id="panelCadastro" columns="2">
+						<p:panelGrid id="panelCadastro" columns="1">
 						
-						<p:outputLabel value="Matrícula: " />
-						<p:inputText style="width:50%" value="#{mBean.participante.matricula}"/>
+						<p:outputLabel value="Matrícula " />
+						<p:inputText style="width:100%" value="#{mBean.participante.matricula}"/>
 						
-						<p:outputLabel value="Senha:" />
-						<p:password style="width:50%" value="#{mBean.participante.senha}"/>
+						<p:outputLabel value="Crie sua Senha" />
+						<p:password style="width:80%" value="#{mBean.participante.senha}"/>
 						
-						<p:outputLabel value="Confirmar senha:" />
-						<p:password style="width:50%" value="#{mBean.confirmarSenha}"/>
+						<p:outputLabel value="Confirmar senha" />
+						<p:password style="width:80%" value="#{mBean.confirmarSenha}"/>
+					
+						<p:outputLabel value="Nome" />
+						<p:inputText style="width:140%"  value="#{mBean.participante.nome}"/>
 						
-						<p:outputLabel value="Nome:" />
-						<p:inputText style="width:100%"  value="#{mBean.participante.nome}"/>
-						
-						<p:outputLabel value="Setor:" />
+						<p:outputLabel value="Setor" />
 						<p:inputText style="width:100%"  value="#{mBean.participante.setor}"/>
 						
-						<p:outputLabel value="CPF:" />
+						<p:outputLabel value="CPF" />
 						<p:inputMask style="width:70%"  mask="999.999.999-99" value="#{mBean.participante.CPF}"/>
 						
-						<p:outputLabel value="Telefone:" />
+						<p:outputLabel value="Telefone" />
 						<p:inputMask style="width:80%"  mask="(99)99999-9999" value="#{mBean.participante.telefone}"/>
 						
-						<p:outputLabel value="Email:" />
-						<p:inputText style="width:100%" value="#{mBean.participante.email}"/>
+						<p:outputLabel value="Email" />
+						<p:inputText style="width:140%" value="#{mBean.participante.email}"/>
+						
+						<p:commandButton value="Cadastrar" styleClass="botao-cadastrar" action="#{mBean.salvar()}" update="@form"/>
 						
 						</p:panelGrid>
 
                 	</div>
                 	
-                	<p:commandButton value="Salvar" style="margin-left:30%" action="#{mBean.salvar()}" update="@form"/>
+                	
 
 				</div>
 
@@ -167,14 +170,14 @@
 			</div>
 			
 			<div id="redes-sociais">
-                <a href="">
-                    <img src="img/icone-facebook.png" >
+                <a href=""> 
+                    <img src="../img/icone-facebook.png" > </img>
                 </a>
                 <a href="">
-                    <img src="img/icone-instagram.png" >
+                    <img src="../img/icone-instagram.png" > </img>
                 </a>
                 <a href="">
-                    <img src="img/icone-twitter.png" >
+                    <img src="../img/icone-twitter.png" > </img>
                 </a>
             </div>
 
