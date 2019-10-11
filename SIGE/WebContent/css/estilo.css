@@ -142,6 +142,16 @@ a {
     background: #000;
 }
 
+#rodape-bg.rodape-no-final-da-pagina {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #000;
+}
+
+
+
 #rodape {
     max-width: 960px;
     margin: 0 auto;
@@ -332,7 +342,7 @@ a {
 }
 
 
-/* BOTÃO ENTRE */
+/* BOTï¿½O ENTRE */
 
 .ui-widget-content .ui-state-default.botao-entrar {
     border: 0px solid #a8a8a8;
