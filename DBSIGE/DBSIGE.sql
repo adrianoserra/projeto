@@ -57,4 +57,3 @@ insert into historico_participante values ('', 'Ausente', '2', '24006302');
 insert into historico_participante values ('', 'Presente', '3', '24006300');
 
 
-
