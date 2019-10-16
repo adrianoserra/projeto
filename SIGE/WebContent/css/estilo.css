@@ -99,10 +99,11 @@ a {
 
 #acesso-rapido {
     max-width: 960px;
-    margin: 60px auto;
+    margin: 80px auto;
     display: flex;
     flex: wrap;
     justify-content: center;
+    margin-bottom: 100px;
 }
 
 
@@ -200,10 +201,15 @@ a {
 }
 
 #rodape-logo img {
-    width: 130px;
-    height: 130px;
-    margin-top: 10px;
-    margin-bottom: 26px;
+    width: 50%;
+    height: 50%;
+    transition: 0.3s ease-out;
+}
+
+#rodape-logo:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+    pad
 }
 
 #redes-sociais img{
@@ -217,7 +223,7 @@ a {
 
 #redes-sociais img:hover {
     transition: all 0.3s ease;
-    transform: scale(1.1);
+    transform: scale(0.9);
 }
 
 #redes-sociais a {
@@ -226,10 +232,13 @@ a {
 }
 
 
-#rodape div#rodape-nav {
+#rodape div#rodape-nav ul{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+#rodape div#rodape-nav ul li a {
+    margin-left: 20px;
 }
 
 #rodape div h4 {
