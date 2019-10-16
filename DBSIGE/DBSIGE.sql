@@ -10,7 +10,7 @@ email varchar(255),
 setor varchar(255),
 tipoUsuario smallint(1),
 matricula int unique not null primary key auto_increment
-) auto_increment=2400300;
+) auto_increment=24006300;
 
 create table evento (
 idEvento int not null unique auto_increment primary key,

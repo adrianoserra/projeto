@@ -33,10 +33,10 @@
 				</div>
 
 				<div id="menu-nav">
-					<ul>
-						<li><a href="inicioADM.html">Menu</a></li>
+					<ul>												
 						<li><a href="manterParticipante.xhtml">Participante</a></li>
 						<li><a href="manterEvento.xhtml">Evento</a></li>
+						<li><a href="#">Certificados</a></li>
 					</ul>
 				</div>
 
@@ -50,7 +50,7 @@
 		style="margin-left:78%"	 title="incluir" />
 		<br/>
 		
-		<p:dataTable value="#{mBean.colecaoParticipante}" style="width:80%; margin-left:10%" var="participante">
+		<p:dataTable value="#{mBean.colecaoParticipante}" style="width:90%; margin-left: auto; margin-right: auto" var="participante">
 		
 		<p:column headerText="Matrícula">
 		<h:outputText value="#{participante.matricula}" />		
@@ -68,7 +68,7 @@
 		<h:outputText value="#{participante.CPF}" />		
 		</p:column>
 		
-		<p:column headerText="Email">
+		<p:column headerText="Email" style="width:20%">
 		<h:outputText value="#{participante.email}" />		
 		</p:column>
 		
@@ -77,7 +77,7 @@
 		</p:column>
 		
 		<p:column headerText="Opções" style="width:15%">
-		<p:commandButton action="#{mBean.alterarParticipante(participante)}" 
+		<p:commandButton style="margin-left:13px; margin-right:40px; margin-top:7px" action="#{mBean.alterarParticipante(participante)}" 
 		icon="fa fa-pencil" title="alterar" update="@form" />
 		
 		<p:commandButton action="#{mBean.excluirParticipante(participante)}" 
@@ -125,11 +125,11 @@
 		
 		<p:dialog widgetVar="DialogAlterar">
 				<p:panelGrid id="panelAlterar" columns="2">
-
-					<p:outputLabel value="Matrícula: " />
-					<h:outputText style="width:50%"
+					
+					<p:outputLabel style="display:block; margin-bottom: 10px;" value="Matrícula: " />
+					<h:outputText style="width:50%; display:block; margin-bottom: 10px;margin-left: 10px;"
 						value="#{mBean.participanteSelecionado.matricula}" />
-
+					
 					<p:outputLabel value="Nome:" />
 					<p:inputText  style="width:100%" value="#{mBean.participanteSelecionado.nome}" />
 
@@ -148,7 +148,7 @@
 					<p:inputText  style="width:100%" value="#{mBean.participanteSelecionado.email}" />
 				</p:panelGrid>
 				<br/>
-				<p:commandButton value="Salvar" style="margin-left:40%" action="#{mBean.alterar()}" update="@form" />
+				<p:commandButton value="Salvar" style="margin-left:36%;" action="#{mBean.alterar()}" update="@form" />
 		</p:dialog>
 		
 	</h:form>
@@ -160,9 +160,7 @@
 			<div id="rodape-logo">
 				<a href="index.html"> <img src="../img/logo-sige.png" alt=""/></a>
 			</div>
-			<p>&copy; Copyright 2019</p>
 			<div id="rodape-nav">
-				<h4>O SIGE</h4>
 				<ul>
 					<li><a href="#menu">Topo</a></li>
 					<li><a href="sobre.html">Conheça o SIGE</a></li>
@@ -170,9 +168,23 @@
 					<li><a href="">Eventos</a></li>
 				</ul>
 			</div>
+			
+			<div id="redes-sociais">
+                <a href=""> 
+                    <img src="../img/icone-facebook.png" > </img>
+                </a>
+                <a href="">
+                    <img src="../img/icone-instagram.png" > </img>
+                </a>
+                <a href="">
+                    <img src="../img/icone-twitter.png" > </img>
+                </a>
+            </div>
+
+			
+
 		</div>
 	</div>
-
 
 
 

@@ -26,6 +26,7 @@ a {
 
 /**************         ************
  *********** TOPO  ************/
+ 
 
 #menu-bg {
     background: linear-gradient(to right, rgb(15, 15, 15), rgb(20, 20, 20), rgb(20, 20, 20), rgb(20, 20, 20), rgb(20, 20, 20), rgb(15, 15, 15));
@@ -86,6 +87,13 @@ a {
     color: white;
 }
 
+#menu p {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+
 /**************            ************
  *********** ACESSO RAPIDO  ************/
 
@@ -97,14 +105,17 @@ a {
     justify-content: center;
 }
 
+
+
 .caixa-rapido {
-    background: rgb(53, 195, 119);
+    background: rgb(32, 163, 93);
     width: 220px;
     height: 300px;
     border-radius: 15px;
     cursor: pointer;
     transition: 0.3s ease-out;
     box-shadow: 20px 20px 10px 2px #ccc;
+    margin-left: 70px;
 }
 
 .caixa-rapido:hover {
@@ -115,7 +126,7 @@ a {
 .caixa-rapido a img {
     max-width: 50%;
     margin-top: 20px;
-    margin-left: 5px;
+    margin-left: 46px;
 }
 
 .caixa-rapido a {
@@ -132,7 +143,35 @@ a {
 .caixa-rapido a p {
     text-shadow: 0px 0px 1px black;
     margin-left: 20px;
+    margin-right: 20px;
     margin-top: 15px;
+}
+
+#acesso-rapido div.adm:nth-child(1){
+    background: rgb(82, 80, 201);
+}
+
+#acesso-rapido div:nth-child(1) img{
+    max-width: 45%;
+    margin-top: 29px;
+    margin-left: 60px;
+    margin-bottom: 1px;
+}
+
+#acesso-rapido div:nth-child(1) h2 {
+    margin-left: 0;
+    text-align: center;
+}
+
+#acesso-rapido div:nth-child(3){
+    background: rgb(136, 2, 2);
+}
+
+#acesso-rapido div:nth-child(3) img{
+    max-width: 48%;
+    margin-top: 22px;
+    margin-left: 60px;
+    margin-bottom: 1px;
 }
 
 /**************            ************
@@ -148,9 +187,8 @@ a {
     right: 0;
     left: 0;
     background: #000;
+    
 }
-
-
 
 #rodape {
     max-width: 960px;
@@ -167,8 +205,6 @@ a {
     margin-top: 10px;
     margin-bottom: 26px;
 }
-
-
 
 #redes-sociais img{
     width: 35px;
@@ -215,6 +251,24 @@ a {
 #rodape div a:hover {
     color: #006577;
 }
+
+
+/************* RODAPE - ADM ********/
+
+#rodape-logo-adm img {
+    width: 90px;
+    height: 90px;
+}
+
+#rodape #rodape-logo-adm {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
 /**************            ************
  *********** TELA CADASTRO  ************/

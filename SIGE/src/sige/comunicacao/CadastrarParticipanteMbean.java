@@ -67,9 +67,9 @@ public class CadastrarParticipanteMbean {
 			  Participante participanteAutenticado = participanteControle.autenticarUsuario(matricula, senha);
 			  if (participanteAutenticado != null) {
 				  if (participanteAutenticado.getTipoUsuario() == 2) {
-					  FacesContext.getCurrentInstance().getExternalContext().redirect("contato.html");  
+					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.html");  
 				  } else {
-					  FacesContext.getCurrentInstance().getExternalContext().redirect("contato.html");
+					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.html");
 				  }
 				  
 			  } else {
