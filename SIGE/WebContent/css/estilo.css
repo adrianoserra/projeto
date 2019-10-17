@@ -1,7 +1,7 @@
 /* /**************            ************ *
  *********** FORMATAÇÕES PADRÕES  ***********/
 
-body, h1, h2, h4, h3, p, ul, li, a {
+body, h1, h2, h3, h4, h5, p, ul, li, a {
     margin: 0;
     padding: 0;
 }
@@ -559,5 +559,103 @@ width: 100%;
     border-radius: 10px;
 }
 
+/********************* EVENTOS *******************/
+
+#eventos {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+#eventos-titulo {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid rgb(88, 82, 177);
+    margin-bottom: 30px;
+}
+
+#eventos-titulo img {
+    align-self: flex-start;
+    width: 80px;
+    height: 90px;
+    margin-right: 35px;
+}
+
+#eventos-titulo h2 {
+    align-self: flex-end;
+    margin-left: 35px;
+    color: #222222;
+    font-weight: bold;
+    font-size: 2em;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+
+}
+
+#conteudo-eventos {
+    padding: 40px 0px;
+    max-width: 960px;
+    margin: 0 auto;
+    background: rgb(238, 238, 240);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+.caixa-eventos {
+    margin-left: 38px;
+    width: 250px;
+    height: 450px;
+    background: #fff;
+    display: flex;
+    border-radius: 10px;
+    transition: 0.3s ease-out;
+    margin-bottom: 30px;
+}
 
 
+.caixa-eventos:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+    background: rgb(231, 231, 231);
+}
+
+.caixa-eventos img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.caixa-eventos h5 {
+    margin: 10px;
+    color: #4753f5;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4753f5;
+    display: inline-block;
+}
+
+.caixa-eventos h5:hover {
+    color:rgb(48, 0, 53);
+}
+
+.caixa-eventos p:nth-of-type(1) {
+    margin: 0 10px;
+    text-align: justify;
+    color: rgb(102, 102, 102);
+}
+
+.caixa-eventos p:nth-of-type(1n+2) {
+    margin: 10px 0;
+    margin-left: 23%;
+    color: black;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+.caixa-eventos p:hover {
+    color:rgb(48, 0, 53);
+}

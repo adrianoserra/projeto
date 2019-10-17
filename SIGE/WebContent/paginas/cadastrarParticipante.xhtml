@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-<title>SIGE - Login</title>
-<link rel="stylesheet" href="../css/estilo.css"/>
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap"
-	rel="stylesheet" />
-	
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<title>SIGE - Login</title>
+	<link rel="stylesheet" href="../css/estilo.css" />
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 </h:head>
 
 <body>
- <ui:param name="mBean" value="#{cadastrarParticipanteMbean}" /> 
+	<ui:param name="mBean" value="#{cadastrarParticipanteMbean}" />
 
 
-	<h:form id="form">   
-	
-	
+	<h:form id="form">
+
+
 
 		<div id="menu-bg">
 
 			<div id="menu">
 				<div id="menu-logo">
-					<a href="../index.html"> <img src="../img/logo-sige.png" alt=""/></a>
+					<a href="../index.html"> <img src="../img/logo-sige.png" alt="" /></a>
 				</div>
 
 				<div id="menu-nav">
 					<ul>
+						<li><a href="eventos.html">Eventos</a></li>
 						<li><a href="sobre.html">Conheça o SIGE</a></li>
 						<li><a href="contato.html">Fale conosco</a></li>
 						<li id="cadastrar"><a href="cadastrarParticipante.xhtml">Cadastrar-se
@@ -49,7 +47,7 @@
 		<div id="tela-login-cadastro-bg">
 
 			<div id="texto">
-			   
+
 				<h1>Seu Cadastro</h1>
 				<p>Você precisa ser cadastrado ou já ter um cadastro para
 					continuar...</p>
@@ -65,22 +63,23 @@
 						<p>Então entre com seus dados de matrícula e senha.</p>
 					</div>
 
-                    <div class="formulario-cadastro">    
+					<div class="formulario-cadastro">
 						<p>Matrícula e Senha obrigatórios para o login.</p>
-						
-						<p:panelGrid style="border: none !important;" columns="1" >        
-						<p:outputLabel value="Matrícula" />
-						<p:inputText value="#{mBean.matricula}" />
-						
-						<p:outputLabel value="Senha" />
-						<p:password style="width:80%" value="#{mBean.senha}" />
-						<p:commandButton styleClass="botao-entrar" value="Entrar" action="#{mBean.logar()}" update="@form" />
-					    </p:panelGrid> 
-					    
-					    
-                        </div>
 
-                       
+						<p:panelGrid style="border: none !important;" columns="1">
+							<p:outputLabel value="Matrícula" />
+							<p:inputText value="#{mBean.matricula}" />
+
+							<p:outputLabel value="Senha" />
+							<p:password style="width:80%" value="#{mBean.senha}" />
+							<p:commandButton styleClass="botao-entrar" value="Entrar" action="#{mBean.logar()}"
+								update="@form" />
+						</p:panelGrid>
+
+
+					</div>
+
+
 				</div>
 
 				<div id="cadastro">
@@ -93,95 +92,97 @@
 
 					<div class="formulario-cadastro">
 
-                      
+
 						<p>Todos os campos são de preenchimento obrigatório.</p>
 						<p:panelGrid id="panelCadastro" columns="1">
-						
-						<p:outputLabel value="Matrícula " />
-						<p:inputText style="width:100%" value="#{mBean.participante.matricula}"/>
-						
-						<p:outputLabel value="Crie sua Senha" />
-						<p:password style="width:80%" value="#{mBean.participante.senha}"/>
-						
-						<p:outputLabel value="Confirmar Senha" />
-						<p:password style="width:80%" value="#{mBean.confirmarSenha}"/>
-					
-						<p:outputLabel value="Nome" />
-						<p:inputText style="width:140%"  value="#{mBean.participante.nome}"/>
-						
-						<p:outputLabel value="Setor" />
-						<p:inputText style="width:100%"  value="#{mBean.participante.setor}"/>
-						
-						<p:outputLabel value="CPF" />
-						<p:inputMask style="width:70%"  mask="999.999.999-99" value="#{mBean.participante.CPF}"/>
-						
-						<p:outputLabel value="Telefone" />
-						<p:inputMask style="width:80%"  mask="(99)99999-9999" value="#{mBean.participante.telefone}"/>
-						
-						<p:outputLabel value="Email" />
-						<p:inputText style="width:140%" value="#{mBean.participante.email}"/>
-						
-						<p:commandButton value="Cadastrar" styleClass="botao-cadastrar" action="#{mBean.salvar()}" update="@form"/>
-						
+
+							<p:outputLabel value="Matrícula " />
+							<p:inputText style="width:100%" value="#{mBean.participante.matricula}" />
+
+							<p:outputLabel value="Crie sua Senha" />
+							<p:password style="width:80%" value="#{mBean.participante.senha}" />
+
+							<p:outputLabel value="Confirmar Senha" />
+							<p:password style="width:80%" value="#{mBean.confirmarSenha}" />
+
+							<p:outputLabel value="Nome" />
+							<p:inputText style="width:140%" value="#{mBean.participante.nome}" />
+
+							<p:outputLabel value="Setor" />
+							<p:inputText style="width:100%" value="#{mBean.participante.setor}" />
+
+							<p:outputLabel value="CPF" />
+							<p:inputMask style="width:70%" mask="999.999.999-99" value="#{mBean.participante.CPF}" />
+
+							<p:outputLabel value="Telefone" />
+							<p:inputMask style="width:80%" mask="(99)99999-9999"
+								value="#{mBean.participante.telefone}" />
+
+							<p:outputLabel value="Email" />
+							<p:inputText style="width:140%" value="#{mBean.participante.email}" />
+
+							<p:commandButton value="Cadastrar" styleClass="botao-cadastrar" action="#{mBean.salvar()}"
+								update="@form" />
+
 						</p:panelGrid>
 
-                	</div>
-                	
-                	
+					</div>
+
+
 
 				</div>
 
 			</div>
 		</div>
-                <p:dialog modal="true" widgetVar="DialogVarAlerta" minHeight="40">
-                    <h:panelGrid columns="2"> 
-                        <i class="fa fa-exclamation-triangle" style="font-size:20px;color:orange"> </i>
-                        <h:outputText value="#{mBean.mensagem}" />
-                    </h:panelGrid>
-                </p:dialog>
-                
-                <p:dialog modal="true" widgetVar="DialogVarConfirmacao" minHeight="40">
-                    <h:panelGrid columns="2">
-                       <i class="fa fa-check" style="font-size:20px;color:green"> </i>
-                       <h:outputText value="#{mBean.mensagem}" />
-                    </h:panelGrid>
-                </p:dialog>
-                
-                  <p:dialog modal="true" widgetVar="DialogVarErro" minHeight="40">
-                    <h:panelGrid columns="2">
-                      <i class="fa fa-exclamation-circle" style="font-size:20px;color:red"> </i>
-                      <h:outputText value="#{mBean.mensagem}" />
-                    </h:panelGrid>
-                  </p:dialog>
+		<p:dialog modal="true" widgetVar="DialogVarAlerta" minHeight="40">
+			<h:panelGrid columns="2">
+				<i class="fa fa-exclamation-triangle" style="font-size:20px;color:orange"> </i>
+				<h:outputText value="#{mBean.mensagem}" />
+			</h:panelGrid>
+		</p:dialog>
+
+		<p:dialog modal="true" widgetVar="DialogVarConfirmacao" minHeight="40">
+			<h:panelGrid columns="2">
+				<i class="fa fa-check" style="font-size:20px;color:green"> </i>
+				<h:outputText value="#{mBean.mensagem}" />
+			</h:panelGrid>
+		</p:dialog>
+
+		<p:dialog modal="true" widgetVar="DialogVarErro" minHeight="40">
+			<h:panelGrid columns="2">
+				<i class="fa fa-exclamation-circle" style="font-size:20px;color:red"> </i>
+				<h:outputText value="#{mBean.mensagem}" />
+			</h:panelGrid>
+		</p:dialog>
 	</h:form>
-	<br/>
+	<br />
 	<div id="rodape-bg">
 		<div id="rodape">
 			<div id="rodape-logo">
-				<a href="index.html"> <img src="../img/logo-sige.png" alt=""/></a>
+				<a href="index.html"> <img src="../img/logo-sige.png" alt="" /></a>
 			</div>
 			<div id="rodape-nav">
 				<ul>
 					<li><a href="#menu">Topo</a></li>
 					<li><a href="sobre.html">Conheça o SIGE</a></li>
 					<li><a href="contato.html">Contato</a></li>
-					<li><a href="">Eventos</a></li>
+					<li><a href="eventos.html">Eventos</a></li>
 				</ul>
 			</div>
-			
-			<div id="redes-sociais">
-                <a href=""> 
-                    <img src="../img/icone-facebook.png" > </img>
-                </a>
-                <a href="">
-                    <img src="../img/icone-instagram.png" > </img>
-                </a>
-                <a href="">
-                    <img src="../img/icone-twitter.png" > </img>
-                </a>
-            </div>
 
-			
+			<div id="redes-sociais">
+				<a href="">
+					<img src="../img/icone-facebook.png"> </img>
+				</a>
+				<a href="">
+					<img src="../img/icone-instagram.png"> </img>
+				</a>
+				<a href="">
+					<img src="../img/icone-twitter.png"> </img>
+				</a>
+			</div>
+
+
 
 		</div>
 	</div>
