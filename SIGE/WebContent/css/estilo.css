@@ -3,7 +3,7 @@
 
 body, h1, h2, h3, h4, h5, p, ul, li, a {
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
 
 body, html {
@@ -564,7 +564,7 @@ width: 100%;
 #eventos {
     max-width: 960px;
     margin: 0 auto;
-    padding: 30px;
+    margin-bottom: 30px;
 }
 
 #eventos-titulo {
