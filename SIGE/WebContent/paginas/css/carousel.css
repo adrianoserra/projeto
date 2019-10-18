@@ -23,8 +23,7 @@
 
 
 .carousel {
-  height: 500px;
-  margin-bottom: 60px;
+  height: 400px;
 }
 
 .carousel-caption {
@@ -32,7 +31,7 @@
 }
 
 .carousel .item {
-  height: 500px;
+  height: 400px;
   background-color: #777;
 }
 .carousel-inner > .item > img {
