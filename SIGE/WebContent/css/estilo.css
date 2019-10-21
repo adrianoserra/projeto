@@ -93,6 +93,27 @@ a {
     font-size: 1.1em;
 }
 
+#menu.sair a span{
+    color: white;
+    text-decoration: underline;
+}
+
+#menu.sair a.fas{
+    color: red;
+    margin-left: 10px;
+}
+
+#menu.sair a span:hover, #menu.sair a:hover  {
+    color: #006577;
+}
+
+
+
+
+
+
+
+
 
 /**************            ************
  *********** ACESSO RAPIDO  ************/
