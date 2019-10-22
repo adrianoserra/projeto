@@ -3,7 +3,7 @@
 
 body, h1, h2, h3, h4, h5, p, ul, li, a {
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
 
 body, html {
@@ -22,11 +22,10 @@ a {
 
 * {
     box-sizing: border-box;
-} 
+}
 
 /**************         ************
  *********** TOPO  ************/
- 
 
 #menu-bg {
     background: linear-gradient(to right, rgb(15, 15, 15), rgb(20, 20, 20), rgb(20, 20, 20), rgb(20, 20, 20), rgb(20, 20, 20), rgb(15, 15, 15));
@@ -93,21 +92,22 @@ a {
     font-size: 1.1em;
 }
 
-#menu-nav li.sair a, #menu li.sair a, #menu li.sair li.adm a{
+#menu-nav li.sair a, #menu li.sair a, #menu li.sair a.adm {
     color: white;
     text-decoration: underline;
     font-family: "Nunito";
+    font-weight: bold;
 }
 
 #menu-nav li.sair a:hover, #menu li.sair a:hover {
     color: #D20001;
 }
 
-
 li.sair {
     position: relative;
 }
-.sair a::before{
+
+.sair a::before {
     position: absolute;
     content: "";
     background: url(../img/seta-sair.png) no-repeat;
@@ -118,7 +118,7 @@ li.sair {
     top: 0px;
 }
 
-.sair .adm a::before{
+.sair a.adm::before {
     position: absolute;
     content: "";
     background: url(../img/seta-sair.png) no-repeat;
@@ -128,9 +128,6 @@ li.sair {
     left: 26px;
     top: -5px;
 }
-
-
-
 
 /**************            ************
  *********** ACESSO RAPIDO  ************/
@@ -143,8 +140,6 @@ li.sair {
     justify-content: center;
     margin-bottom: 100px;
 }
-
-
 
 .caixa-rapido {
     background: rgb(32, 163, 93);
@@ -186,11 +181,11 @@ li.sair {
     margin-top: 15px;
 }
 
-#acesso-rapido div.adm:nth-child(1){
+#acesso-rapido div.adm:nth-child(1) {
     background: rgb(82, 80, 201);
 }
 
-#acesso-rapido div:nth-child(1) img{
+#acesso-rapido div:nth-child(1) img {
     max-width: 45%;
     margin-top: 29px;
     margin-left: 60px;
@@ -202,11 +197,11 @@ li.sair {
     text-align: center;
 }
 
-#acesso-rapido div:nth-child(3){
+#acesso-rapido div:nth-child(3) {
     background: rgb(136, 2, 2);
 }
 
-#acesso-rapido div:nth-child(3) img{
+#acesso-rapido div:nth-child(3) img {
     max-width: 48%;
     margin-top: 22px;
     margin-left: 60px;
@@ -226,7 +221,6 @@ li.sair {
     right: 0;
     left: 0;
     background: #000;
-    
 }
 
 #rodape {
@@ -250,13 +244,12 @@ li.sair {
     pad
 }
 
-#redes-sociais img{
+#redes-sociais img {
     width: 35px;
     height: 35px;
     margin: 15px;
     margin-top: 18px;
     transition: 0.4s ease-out;
-
 }
 
 #redes-sociais img:hover {
@@ -269,8 +262,7 @@ li.sair {
     border-radius: 150px;
 }
 
-
-#rodape div#rodape-nav ul{
+#rodape div#rodape-nav ul {
     display: flex;
     justify-content: center;
 }
@@ -299,7 +291,6 @@ li.sair {
     color: #006577;
 }
 
-
 /************* RODAPE - ADM ********/
 
 #rodape-logo-adm img {
@@ -315,7 +306,6 @@ li.sair {
     justify-content: space-around;
     align-items: center;
 }
-
 
 /**************            ************
  *********** TELA CADASTRO  ************/
@@ -403,12 +393,11 @@ li.sair {
 }
 
 .formulario-cadastro p {
-	margin-bottom: 12px;
-	color: #FF9933
+    margin-bottom: 12px;
+    color: #FF9933
 }
 
-
-.ui-panelgrid .ui-panelgrid-cell { 
+.ui-panelgrid .ui-panelgrid-cell {
     border-style: none;
     padding: 0px 10px;
 }
@@ -442,29 +431,27 @@ li.sair {
     margin-top: 4px;
 }
 
-
 /* BOT�O ENTRE */
 
 .ui-widget-content .ui-state-default.botao-entrar {
     border: 0px solid #a8a8a8;
     color: white;
-    background:green;
-    text-shadow: 0 0px 0 rgba(255,255,255,0.7);
+    background: green;
+    text-shadow: 0 0px 0 rgba(255, 255, 255, 0.7);
     margin-top: 5px;
 }
 
 .ui-widget-content .ui-state-default.botao-cadastrar {
     border: 0px solid #a8a8a8;
     color: white;
-    background:red;
-    text-shadow: 0 0px 0 rgba(255,255,255,0.7);
+    background: red;
+    text-shadow: 0 0px 0 rgba(255, 255, 255, 0.7);
     margin-top: 5px;
 }
 
-.campo-entrada{
-width: 100%;
+.campo-entrada {
+    width: 100%;
 }
-
 
 /**************            ************
  *********** CONHEÇA O SIGE  ************/
@@ -578,7 +565,6 @@ width: 100%;
     font-weight: bold;
 }
 
-
 /* VOLTAR AO TOPO / SOBRE */
 
 .voltar-ao-topo {
@@ -592,6 +578,7 @@ width: 100%;
     width: 40px;
     height: 40px;
 }
+
 .voltar-ao-topo:hover {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
@@ -629,7 +616,6 @@ width: 100%;
     font-size: 2em;
     letter-spacing: 1px;
     padding-bottom: 10px;
-
 }
 
 #conteudo-eventos {
@@ -653,7 +639,6 @@ width: 100%;
     margin-bottom: 30px;
 }
 
-
 .caixa-eventos:hover {
     transition: all 0.3s ease;
     transform: scale(1.1);
@@ -676,7 +661,7 @@ width: 100%;
 }
 
 .caixa-eventos h5:hover {
-    color:rgb(48, 0, 53);
+    color: rgb(48, 0, 53);
 }
 
 .caixa-eventos p:nth-of-type(1) {
@@ -695,5 +680,145 @@ width: 100%;
 }
 
 .caixa-eventos p:hover {
-    color:rgb(48, 0, 53);
+    color: rgb(48, 0, 53);
+}
+
+/******************* PÁGINA DE UM EVENTO ***************/
+
+#capa-evento img {
+    width: 700px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+#conteudo-pagina-evento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 50px 0px 70px 240px;
+}
+
+#capa-evento {
+    grid-row: 1/2;
+    margin-right: 50px;
+}
+
+#texto-pagina-evento {
+    grid-row: 2/3;
+    padding: 20px;
+    margin-right: 30px;
+}
+
+#texto-pagina-evento h4 {
+    font-size: 1.4em;
+    margin-bottom: 13px;
+}
+
+#texto-pagina-evento p {
+    font-size: 1em;
+    line-height: 28px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+#informacoes-evento {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    border: 1px solid grey;
+    padding-top: 10px;
+}
+
+#informacoes-evento h4:nth-of-type(1) {
+    padding-right: 90px;
+    border-right: 1px solid grey;
+}
+
+#menu-lateral {
+    grid-row: 1/2;
+    display: grid;
+    max-width: 270px;
+    max-height: 360px;
+    grid-gap: 20px;
+}
+
+.caixa-lateral {
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 1px solid rgb(240, 228, 228);
+    background: rgb(238, 238, 238);
+}
+
+#titulo-lateral h2 {
+    padding: 20px 30px 15px 30px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 106, 124);
+}
+
+.conteudo-lateral {
+    text-align: center;
+}
+
+.conteudo-lateral a h3 {
+    color: rgb(0, 106, 124);
+    margin-bottom: 20px;
+    border: 1px solid rgb(228, 228, 228);
+    padding: 10px;
+}
+
+.conteudo-lateral a h3:hover {
+    color: rgb(240, 240, 240);
+    background: rgb(0, 106, 124);
+}
+
+/*** Seta para DIREITA ***/
+
+.seta-direita:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid rgb(0, 0, 0);
+}
+
+#inscrever {
+    margin-top: 120px;
+    max-width: 270px;
+    max-height: 300px;
+    grid-row: 2/3;
+}
+
+#conteudo-inscrever p {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#titulo-inscrever h2 {
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    border: 2px solid rgb(0, 105, 40);
+    border-radius: 50px;
+    background: rgb(0, 105, 40);
+}
+
+#titulo-inscrever h2:hover {
+    background: white;
+    color: rgb(0, 105, 40);
+}
+
+#titulo-inscrever h2:active {
+    background: rgb(0, 105, 40);
+    color: white;
+}
+
+#conteudo-inscrever {
+    padding: 15px;
+    text-align: center;
 }
