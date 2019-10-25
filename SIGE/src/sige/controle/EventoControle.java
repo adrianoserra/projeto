@@ -18,6 +18,13 @@ public class EventoControle {
 	public List<Evento> listarEventos (){
 		return eventoDAO.listarEventos();
 	}
+	
+	public void alterarEvento (Evento evento) throws ClassNotFoundException, SQLException {
+		eventoDAO.alterarEvento(evento);
+	}
+	public void excluirEvento (Evento evento) throws ClassNotFoundException, SQLException {
+		eventoDAO.excluirEvento(evento);
+	}
 }
 
 

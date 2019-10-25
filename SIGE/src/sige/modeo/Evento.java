@@ -5,11 +5,12 @@ public class Evento {
 	
 	private int idEvento;
 	private String tema;
-	private String data_evento;
-	private String horario_inicio;
-	private String horario_fim;
-	private String carga_horaria;
-	private int matricula;
+	private String dataEvento;
+	private String horarioInicio;
+	private String horarioFim;
+	private String cargaHoraria;
+	private Participante palestrante;
+	
 	public int getIdEvento() {
 		return idEvento;
 	}
@@ -22,35 +23,35 @@ public class Evento {
 	public void setTema(String tema) {
 		this.tema = tema;
 	}
-	public String getData_evento() {
-		return data_evento;
+	public String getHorarioInicio() {
+		return horarioInicio;
 	}
-	public void setData_evento(String data_evento) {
-		this.data_evento = data_evento;
+	public void setHorarioInicio(String horarioInicio) {
+		this.horarioInicio = horarioInicio;
 	}
-	public String getHorario_inicio() {
-		return horario_inicio;
+	public String getHorarioFim() {
+		return horarioFim;
 	}
-	public void setHorario_inicio(String horario_inicio) {
-		this.horario_inicio = horario_inicio;
+	public void setHorarioFim(String horarioFim) {
+		this.horarioFim = horarioFim;
 	}
-	public String getHorario_fim() {
-		return horario_fim;
+	public String getCargaHoraria() {
+		return cargaHoraria;
 	}
-	public void setHorario_fim(String horario_fim) {
-		this.horario_fim = horario_fim;
+	public void setCargaHoraria(String cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
 	}
-	public String getCarga_horaria() {
-		return carga_horaria;
+	public Participante getPalestrante() {
+		return palestrante;
 	}
-	public void setCarga_horaria(String carga_horaria) {
-		this.carga_horaria = carga_horaria;
+	public void setPalestrante(Participante palestrante) {
+		this.palestrante = palestrante;
 	}
-	public int getMatricula() {
-		return matricula;
+	public String getDataEvento() {
+		return dataEvento;
 	}
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
+	public void setDataEvento(String dataEvento) {
+		this.dataEvento = dataEvento;
 	}
 	
 	
