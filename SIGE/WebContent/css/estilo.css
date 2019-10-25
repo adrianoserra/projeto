@@ -822,3 +822,45 @@ li.sair {
     padding: 15px;
     text-align: center;
 }
+
+
+/********** PAGINA LOGIN ADM ************/
+
+body#login-adm {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bg-login-adm {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, rgb(1, 117, 121), rgb(90, 89, 89)); ;
+}
+
+#caixa-login-adm {
+    width: 370px;
+    height: 300px;
+    border: 3px solid rgb(3, 0, 0);
+    border-radius: 10px;
+    padding: 20px;
+    background:linear-gradient(to bottom, rgb(1, 117, 121), rgb(90, 89, 89)); 
+    z-index: 10;
+}
+
+#topo-login-adm h2 {
+    letter-spacing: 5px;
+    padding-bottom: 10px;
+    margin-left: 30px;
+    color: black;
+}
+
+#topo-login-adm {
+    border-bottom: 6px solid black;
+    border-radius: 15px;
+}
