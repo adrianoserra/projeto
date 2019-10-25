@@ -15,7 +15,7 @@ public class ParticipanteControle {
 	public Participante autenticarUsuario (String matricula, String senha) throws ClassNotFoundException, SQLException {
 		return participanteDAO.autenticarUsuario(matricula, senha);
 	}
-	public boolean verificarSeMatriculaExiste (String matricula) throws ClassNotFoundException, SQLException{
+	public boolean verificarSeMatriculaExiste (String matricula) {
 		return participanteDAO.verificarSeMatriculaExiste(matricula);
 		
 	}

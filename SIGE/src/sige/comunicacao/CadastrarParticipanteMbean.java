@@ -136,11 +136,7 @@ public class CadastrarParticipanteMbean {
 	  
 	  public boolean verificarSeMatriculaExiste () {
 		  boolean existe = false;
-		  try {
 			existe = participanteControle.verificarSeMatriculaExiste(participante.getMatricula());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
 		  if (existe) {
 			  mensagem = "matrícula já cadastrada, informe outra matrícula!";
 			  util.exibirDialog("alerta");

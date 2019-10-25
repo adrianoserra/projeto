@@ -19,7 +19,7 @@ public class ParticipanteDAO {
 		PreparedStatement stmt = null;
 		try {
 		String	sql	=	"INSERT INTO participante"
-				+ "(matricula, nome, setor, CPF, email, telefone, senha, tipoUsuario)"
+				+ "(matricula, nome, setor, cpf, email, telefone, senha, tipoUsuario)"
 				+ " values (?,?,?,?,?,?,?,?)";
 		stmt = connection.prepareStatement(sql);
 	    stmt.setString(1, participante.getMatricula());
@@ -55,7 +55,7 @@ public class ParticipanteDAO {
 	   Participante particianteAtual = null; 
 	   
 	   try {
-		   String	sql	=	"SELECT matricula, nome, setor, CPF, email, telefone, senha, tipoUsuario "
+		   String	sql	=	"SELECT matricula, nome, setor, cpf, email, telefone, senha, tipoUsuario "
 		   		+ "FROM participante WHERE matricula = ? AND senha = ?";
 		   stmt = connection.prepareStatement(sql);
 		   stmt.setString(1, matricula);
@@ -67,7 +67,7 @@ public class ParticipanteDAO {
 			   particianteAtual.setMatricula(rs.getString("matricula"));
 			   particianteAtual.setNome(rs.getString("nome"));
 			   particianteAtual.setSetor(rs.getString("setor"));
-			   particianteAtual.setCPF(rs.getString("CPF"));
+			   particianteAtual.setCPF(rs.getString("cpf"));
 			   particianteAtual.setEmail(rs.getString("email"));
 			   particianteAtual.setTelefone(rs.getString("telefone"));
 			   particianteAtual.setTipoUsuario(rs.getInt("tipoUsuario"));
@@ -99,7 +99,7 @@ public class ParticipanteDAO {
 			   particiante.setMatricula(rs.getString("matricula"));
 			   particiante.setNome(rs.getString("nome"));
 			   particiante.setSetor(rs.getString("setor"));
-			   particiante.setCPF(rs.getString("CPF"));
+			   particiante.setCPF(rs.getString("cpf"));
 			   particiante.setEmail(rs.getString("email"));
 			   particiante.setTelefone(rs.getString("telefone"));
 			   particiante.setTipoUsuario(rs.getInt("tipoUsuario"));
@@ -115,13 +115,12 @@ public class ParticipanteDAO {
 		}
 		return colecaoParticipante;
    }
-   public boolean verificarSeMatriculaExiste (String matricula) throws SQLException, ClassNotFoundException {
+   public boolean verificarSeMatriculaExiste (String matricula) {
+	   boolean existe = false;
+	   try {
 	   this.connection = new JDBC().getConexao();
 	   PreparedStatement stmt = null;
 	   ResultSet rs = null;
-	   boolean existe = false; 
-	   
-	   try {
 		   String	sql	=	"SELECT matricula "
 		   		+ "FROM participante WHERE matricula = ?";
 		   stmt = connection.prepareStatement(sql);
@@ -133,11 +132,10 @@ public class ParticipanteDAO {
 			}
 	   } catch (SQLException e) {
 			e.printStackTrace();
-			connection.rollback();
-		} finally {
-			stmt.close();
-			connection.close();
-		}
+	    } catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	   
 		return existe;
    }
    
@@ -146,7 +144,7 @@ public class ParticipanteDAO {
 		PreparedStatement stmt = null;
 		try {
 		String	sql	=	"update participante set"
-				+ " nome = ? , setor = ? , CPF = ? , email = ? , telefone = ? , senha = ? WHERE matricula = ?";
+				+ " nome = ? , setor = ? , cpf = ? , email = ? , telefone = ? , senha = ? WHERE matricula = ?";
 				
 				
 		stmt = connection.prepareStatement(sql);
