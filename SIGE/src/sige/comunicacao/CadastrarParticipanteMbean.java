@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import sige.controle.ParticipanteControle;
@@ -15,7 +15,7 @@ import sige.util.Util;
 
 
 
-@ViewScoped
+@SessionScoped
 @ManagedBean
 public class CadastrarParticipanteMbean {
 
@@ -26,6 +26,7 @@ public class CadastrarParticipanteMbean {
 	private String senha;
 	private String mensagem;
 	private String confirmarSenha;
+	private Participante participanteAutenticado;
 	
 	  @PostConstruct
       public void inicializar (){
@@ -64,7 +65,7 @@ public class CadastrarParticipanteMbean {
     			  return;
 		  }
 		  try {
-			  Participante participanteAutenticado = participanteControle.autenticarUsuario(CPF, senha);
+			 participanteAutenticado = participanteControle.autenticarUsuario(CPF, senha);
 			  if (participanteAutenticado != null) {
 				  if (participanteAutenticado.getTipoUsuario() == 1) {
 					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.html");  
@@ -177,5 +178,14 @@ public class CadastrarParticipanteMbean {
 	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
+
+	public Participante getParticipanteAutenticado() {
+		return participanteAutenticado;
+	}
+
+	public void setParticipanteAutenticado(Participante participanteAutenticado) {
+		this.participanteAutenticado = participanteAutenticado;
+	}
+	
 
 }
