@@ -1,7 +1,6 @@
 package sige.modeo;
 
 public class Participante {
-	private String matricula;
 	private String nome;
 	private String setor;
 	private String CPF;
@@ -11,13 +10,6 @@ public class Participante {
 	private String senhaCriptrografada;
 	private int tipoUsuario;
 	
-	
-	public String getMatricula() {
-		return matricula;
-	}
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
 	public String getNome() {
 		return nome;
 	}

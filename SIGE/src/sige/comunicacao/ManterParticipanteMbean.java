@@ -21,7 +21,7 @@ public class ManterParticipanteMbean {
 	private Participante participanteSelecionado;
 	private Util util = new Util();
 	private Boolean desabilitarBotaoIncluir;
-	private Boolean erroMatricula = false;
+	private Boolean erroCPF = false;
 
 	@PostConstruct
 	public void inicializar() {
@@ -36,6 +36,7 @@ public class ManterParticipanteMbean {
 		try {
 			participanteControle.excluirParticipante(participante);
 			colecaoParticipante.remove(participante);
+			util.getMenssagemInfor("Participante excluido com sucesso!");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -44,7 +45,7 @@ public class ManterParticipanteMbean {
 
 	public void incluirParticipante() {
 		setParticipanteNovo(new Participante());
-		erroMatricula = false;
+		erroCPF = false;
 		util.exibirDialogPF("DialogAdicionar");
 	}
 
@@ -78,16 +79,16 @@ public class ManterParticipanteMbean {
 	}
 
 	public void validarInclusao() {
-		if (participanteNovo.getMatricula() == null) {
+		if (participanteNovo.getCPF() == null) {
 			desabilitarBotaoIncluir = true;
 			return;
 		} else {
-			if (participanteNovo.getMatricula().equals("")) {
+			if (participanteNovo.getCPF().equals("")) {
 				desabilitarBotaoIncluir = true;
 				return;
 			} else {
-				erroMatricula = participanteControle.verificarSeMatriculaExiste(participanteNovo.getMatricula());
-				if (erroMatricula) {
+				erroCPF = participanteControle.verificarSeCPFExiste(participanteNovo.getCPF());
+				if (erroCPF) {
 					desabilitarBotaoIncluir = true;
 					return;
 				}
@@ -116,15 +117,6 @@ public class ManterParticipanteMbean {
 			return;
 		} else {
 			if (participanteNovo.getSetor().equals("")) {
-				desabilitarBotaoIncluir = true;
-				return;
-			}
-		}
-		if (participanteNovo.getCPF() == null) {
-			desabilitarBotaoIncluir = true;
-			return;
-		} else {
-			if (participanteNovo.getCPF().equals("")) {
 				desabilitarBotaoIncluir = true;
 				return;
 			}
@@ -183,12 +175,13 @@ public class ManterParticipanteMbean {
 		this.desabilitarBotaoIncluir = desabilitarBotaoIncluir;
 	}
 
-	public Boolean getErroMatricula() {
-		return erroMatricula;
+	public Boolean getErroCPF() {
+		return erroCPF;
 	}
 
-	public void setErroMatricula(Boolean erroMatricula) {
-		this.erroMatricula = erroMatricula;
+	public void setErroCPF(Boolean erroCPF) {
+		this.erroCPF = erroCPF;
 	}
+	
 
 }

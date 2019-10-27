@@ -19,22 +19,17 @@ public class ParticipanteDAO {
 		PreparedStatement stmt = null;
 		try {
 		String	sql	=	"INSERT INTO participante"
-				+ "(matricula, nome, setor, cpf, email, telefone, senha, tipoUsuario)"
-				+ " values (?,?,?,?,?,?,?,?)";
+				+ "(nome, setor, cpf, email, telefone, senha, tipoUsuario)"
+				+ " values (?,?,?,?,?,?,?)";
 		stmt = connection.prepareStatement(sql);
-	    stmt.setString(1, participante.getMatricula());
-	    stmt.setString(2, participante.getNome());
-	    stmt.setString(3, participante.getSetor());
-	    stmt.setString(4, participante.getCPF());
-	    stmt.setString(5, participante.getEmail());
-	    stmt.setString(6, participante.getTelefone());
-	    stmt.setString(7, participante.getSenha());
-	    if (participante.getMatricula().subSequence(0, 1).equals("2")) {
-	    	participante.setTipoUsuario(2);
-	    } else {
-	    	participante.setTipoUsuario(1);  	
-	    }
-	    stmt.setInt   (8, participante.getTipoUsuario());
+	    stmt.setString(1, participante.getNome());
+	    stmt.setString(2, participante.getSetor());
+	    stmt.setString(3, participante.getCPF());
+	    stmt.setString(4, participante.getEmail());
+	    stmt.setString(5, participante.getTelefone());
+	    stmt.setString(6, participante.getSenha());
+	    participante.setTipoUsuario(0);
+	    stmt.setInt   (7, participante.getTipoUsuario());
 		stmt.execute();
 		
 		} catch (SQLException e) {
@@ -48,23 +43,22 @@ public class ParticipanteDAO {
 		
 	}
 
-   public Participante autenticarUsuario (String matricula, String senha) throws SQLException, ClassNotFoundException {
+   public Participante autenticarUsuario (String CPF, String senha) throws SQLException, ClassNotFoundException {
 	   this.connection = new JDBC().getConexao();
 	   PreparedStatement stmt = null;
 	   ResultSet rs = null;
 	   Participante particianteAtual = null; 
 	   
 	   try {
-		   String	sql	=	"SELECT matricula, nome, setor, cpf, email, telefone, senha, tipoUsuario "
-		   		+ "FROM participante WHERE matricula = ? AND senha = ?";
+		   String	sql	=	"SELECT nome, setor, cpf, email, telefone, senha, tipoUsuario "
+		   		+ "FROM participante WHERE cpf = ? AND senha = ?";
 		   stmt = connection.prepareStatement(sql);
-		   stmt.setString(1, matricula);
+		   stmt.setString(1, CPF);
 		   stmt.setString(2, senha);
 		   rs = stmt.executeQuery();
 		   
 		   while(rs.next()){
 			   particianteAtual = new Participante();
-			   particianteAtual.setMatricula(rs.getString("matricula"));
 			   particianteAtual.setNome(rs.getString("nome"));
 			   particianteAtual.setSetor(rs.getString("setor"));
 			   particianteAtual.setCPF(rs.getString("cpf"));
@@ -96,7 +90,6 @@ public class ParticipanteDAO {
 		   
 		   while(rs.next()){
 			   particiante = new Participante();
-			   particiante.setMatricula(rs.getString("matricula"));
 			   particiante.setNome(rs.getString("nome"));
 			   particiante.setSetor(rs.getString("setor"));
 			   particiante.setCPF(rs.getString("cpf"));
@@ -115,16 +108,16 @@ public class ParticipanteDAO {
 		}
 		return colecaoParticipante;
    }
-   public boolean verificarSeMatriculaExiste (String matricula) {
+   public boolean verificarSeCPFExiste (String cpf) {
 	   boolean existe = false;
 	   try {
 	   this.connection = new JDBC().getConexao();
 	   PreparedStatement stmt = null;
 	   ResultSet rs = null;
-		   String	sql	=	"SELECT matricula "
-		   		+ "FROM participante WHERE matricula = ?";
+		   String	sql	=	"SELECT cpf "
+		   		+ "FROM participante WHERE cpf = ?";
 		   stmt = connection.prepareStatement(sql);
-		   stmt.setString(1, matricula);
+		   stmt.setString(1,cpf);
 		   rs = stmt.executeQuery();
 		   
 		   while(rs.next()){
@@ -144,17 +137,16 @@ public class ParticipanteDAO {
 		PreparedStatement stmt = null;
 		try {
 		String	sql	=	"update participante set"
-				+ " nome = ? , setor = ? , cpf = ? , email = ? , telefone = ? , senha = ? WHERE matricula = ?";
+				+ " nome = ? , setor = ? , email = ? , telefone = ? , senha = ? WHERE cpf = ?";
 				
 				
 		stmt = connection.prepareStatement(sql);
 	    stmt.setString(1, participante.getNome());
 	    stmt.setString(2, participante.getSetor());
-	    stmt.setString(3, participante.getCPF());
-	    stmt.setString(4, participante.getEmail());
-	    stmt.setString(5, participante.getTelefone());
-	    stmt.setString(6, participante.getSenha());
-	    stmt.setString(7, participante.getMatricula());
+	    stmt.setString(3, participante.getEmail());
+	    stmt.setString(4, participante.getTelefone());
+	    stmt.setString(5, participante.getSenha());
+	    stmt.setString(6, participante.getCPF());
 		stmt.execute();
 		
 		} catch (SQLException e) {
@@ -171,11 +163,11 @@ public class ParticipanteDAO {
 	   this.connection = new JDBC().getConexao();
 		PreparedStatement stmt = null;
 		try {
-		String	sql	=	"DELETE FROM participante WHERE matricula = ?";
+		String	sql	=	"DELETE FROM participante WHERE cpf = ?";
 				
 				
 		stmt = connection.prepareStatement(sql);
-	    stmt.setString(1, participante.getMatricula());
+	    stmt.setString(1, participante.getCPF());
 		stmt.execute();
 		
 		} catch (SQLException e) {

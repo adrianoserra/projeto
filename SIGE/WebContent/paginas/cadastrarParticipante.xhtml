@@ -61,15 +61,15 @@
 
 					<div id="top-caixa-login">
 						<h2>Ja é cadastrado?</h2>
-						<p>Então entre com seus dados de matrícula e senha.</p>
+						<p>Então entre com seus dados de CPF e senha.</p>
 					</div>
 
 					<div class="formulario-cadastro">
-						<p>Matrícula e Senha obrigatórios para o login.</p>
+						<p>CPF e Senha obrigatórios para o login.</p>
 
 						<p:panelGrid style="border: none !important;" columns="1">
-							<p:outputLabel value="Matrícula" />
-							<p:inputText value="#{mBean.matricula}" />
+							<p:outputLabel value="CPF" />
+							<p:inputMask mask="999.999.999-99" value="#{mBean.CPF}" />
 
 							<p:outputLabel value="Senha" />
 							<p:password style="width:80%" value="#{mBean.senha}" />
@@ -96,10 +96,10 @@
 
 						<p>Todos os campos são de preenchimento obrigatório.</p>
 						<p:panelGrid id="panelCadastro" columns="1">
-
-							<p:outputLabel value="Matrícula " />
-							<p:inputText style="width:100%" value="#{mBean.participante.matricula}" />
-
+						
+						    <p:outputLabel value="CPF" />
+							<p:inputMask style="width:70%" mask="999.999.999-99" value="#{mBean.participante.CPF}" />
+							
 							<p:outputLabel value="Crie sua Senha" />
 							<p:password style="width:80%" value="#{mBean.participante.senha}" />
 
@@ -111,9 +111,6 @@
 
 							<p:outputLabel value="Setor" />
 							<p:inputText style="width:100%" value="#{mBean.participante.setor}" />
-
-							<p:outputLabel value="CPF" />
-							<p:inputMask style="width:70%" mask="999.999.999-99" value="#{mBean.participante.CPF}" />
 
 							<p:outputLabel value="Telefone" />
 							<p:inputMask style="width:80%" mask="(99)99999-9999"

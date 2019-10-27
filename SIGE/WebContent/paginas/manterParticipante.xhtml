@@ -49,14 +49,17 @@
 		<br/>
 		<br/>
 		
+		
+		
+		
 		<p:commandButton action="#{mBean.incluirParticipante()}" update="@form" value="Adicionar" icon="fa fa-plus" 
 		style="margin-left:78%"	 title="incluir" />
 		<br/>
 		
 		<p:dataTable value="#{mBean.colecaoParticipante}" style="width:98%; margin-left: auto; margin-right: auto" var="participante">
 		
-		<p:column style="width:8%" headerText="Matrícula">
-		<h:outputText value="#{participante.matricula}" />		
+		<p:column headerText="CPF">
+		<p:outputLabel style="width:100%" value="#{participante.CPF}" />		
 		</p:column>
 		
 		<p:column headerText="Nome">
@@ -67,10 +70,7 @@
 		<p:inputText style="width:100%" value="#{participante.setor}" />		
 		</p:column>
 		
-		<p:column headerText="CPF">
-		<p:inputMask style="width:100%" mask="999.999.999-99" value="#{participante.CPF}" />		
-		</p:column>
-		
+	
 		<p:column headerText="Email" style="width:20%">
 		<p:inputText style="width:100%" value="#{participante.email}" />		
 		</p:column>
@@ -82,12 +82,12 @@
 		<p:column headerText="Opções" style="width:15%">
 		<p:commandButton style="margin-left:13px; margin-right:40px; margin-top:7px" action="#{mBean.alterarParticipante(participante)}" 
 		icon="fa fa-pencil" title="alterar" update="@form">
-		<p:confirm header="Confirmar" message="Deseja mesmo alterar o participante de matricula #{participante.matricula} ?"/>
+		<p:confirm header="Confirmar" message="Deseja mesmo alterar o participante de CPF #{participante.CPF} ?"/>
 		</p:commandButton>
 		
 		<p:commandButton action="#{mBean.excluirParticipante(participante)}" 
 		icon="fa fa-trash" update="@form" title="excluir" >
-		<p:confirm header="Confirmar" message="Deseja mesmo excluir o participante matricula #{participante.matricula} ?"/>
+		<p:confirm header="Confirmar" message="Deseja mesmo excluir o participante de CPF #{participante.CPF} ?"/>
 		</p:commandButton>
 		</p:column>
 		
@@ -101,15 +101,16 @@
 		<p:dialog widgetVar="DialogAdicionar">
 		<p:outputLabel value="*Digite todos os campos para habilitar o botão salvar" style="color:orange"/>
 		<br/>
-		<p:outputLabel value="*Digite uma matrícula não cadastrada para habilitar o botão salvar" style="color:orange" />
+		<p:outputLabel value="*Digite um CPF não cadastrada para habilitar o botão salvar" style="color:orange" />
 			<p:panelGrid id="panel-cadastro" columns="2">
-					<p:outputLabel value="Matrícula: " />
-					<p:inputText style="width:50%"
-						value="#{mBean.participanteNovo.matricula}" >
+				
+                    <p:outputLabel value="CPF:" />
+					<p:inputMask style="width:70%"  mask="999.999.999-99" 
+						value="#{mBean.participanteNovo.CPF}" >
 						<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
 						update="botaoSalvar"/>
-					</p:inputText>	
-
+					</p:inputMask>
+					
 					<p:outputLabel value="Senha:" />
 					<p:password style="width:50%"  value="#{mBean.participanteNovo.senha}" >
 					    <p:ajax event="keyup"  listener="#{mBean.validarInclusao()}" 
@@ -127,13 +128,6 @@
 					     <p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
 						update="botaoSalvar"/>
 					</p:inputText>
-
-					<p:outputLabel value="CPF:" />
-					<p:inputMask style="width:70%"  mask="999.999.999-99" 
-						value="#{mBean.participanteNovo.CPF}" >
-						<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
-						update="botaoSalvar"/>
-					</p:inputMask>	
 
 					<p:outputLabel value="Telefone:" />
 					<p:inputMask style="width:80%"  mask="(99)99999-9999"

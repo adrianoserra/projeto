@@ -22,7 +22,7 @@ public class CadastrarParticipanteMbean {
 	private ParticipanteControle participanteControle = new ParticipanteControle(); 
 	private Util util = new Util();
 	private Participante participante;
-	private String matricula;
+	private String CPF;
 	private String senha;
 	private String mensagem;
 	private String confirmarSenha;
@@ -37,7 +37,7 @@ public class CadastrarParticipanteMbean {
 	  
 	  public void salvar () {
 		  try {
-			  if (validar() && !verificarSeMatriculaExiste()) {
+			  if (validar() && !verificarSeCPFExiste()) {
 			      participanteControle.salvarParticipante(participante);
 			      mensagem = "Participante salvo com sucesso!";
 			      util.exibirDialog("confirmação");
@@ -53,8 +53,8 @@ public class CadastrarParticipanteMbean {
 	  }
 	  
 	  public void logar () throws IOException {
-		  if (matricula == null || matricula.equals("")) {
-			  mensagem = "O campo matrícula é obrigatorio para o login!";
+		  if (CPF == null || CPF.equals("")) {
+			  mensagem = "O campo CPF é obrigatorio para o login!";
 			  util.exibirDialog("alerta");
 			  return;
 		  } 
@@ -64,9 +64,9 @@ public class CadastrarParticipanteMbean {
     			  return;
 		  }
 		  try {
-			  Participante participanteAutenticado = participanteControle.autenticarUsuario(matricula, senha);
+			  Participante participanteAutenticado = participanteControle.autenticarUsuario(CPF, senha);
 			  if (participanteAutenticado != null) {
-				  if (participanteAutenticado.getTipoUsuario() == 2) {
+				  if (participanteAutenticado.getTipoUsuario() == 1) {
 					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.html");  
 				  } else {
 					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.html");
@@ -85,11 +85,6 @@ public class CadastrarParticipanteMbean {
 	  }
 	  
 	  public boolean validar (){
-		  if (participante.getMatricula().equals("")) {
-			  mensagem = "O campo matrícula é obrigatorio!";
-			  util.exibirDialog("alerta");
-			  return false;
-		  }
 		  if (participante.getSenha().equals("")) {
 			  mensagem = "O campo senha é obrigatorio!";
 			  util.exibirDialog("alerta");
@@ -134,10 +129,10 @@ public class CadastrarParticipanteMbean {
 		  
 	  }
 	  
-	  public boolean verificarSeMatriculaExiste () {
+	  public boolean verificarSeCPFExiste () {
 		  boolean existe = false;
-			existe = participanteControle.verificarSeMatriculaExiste(participante.getMatricula());
-		  if (existe) {
+			existe = participanteControle.verificarSeCPFExiste(participante.getCPF());
+					if (existe) {
 			  mensagem = "matrícula já cadastrada, informe outra matrícula!";
 			  util.exibirDialog("alerta");
 		  }
@@ -150,15 +145,7 @@ public class CadastrarParticipanteMbean {
 	public void setParticipante(Participante participante) {
 		this.participante = participante;
 	}
-
-	public String getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
-
+	
 	public String getSenha() {
 		return senha;
 	}
@@ -181,6 +168,14 @@ public class CadastrarParticipanteMbean {
 
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
+	}
+
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String cPF) {
+		CPF = cPF;
 	}
 
 }

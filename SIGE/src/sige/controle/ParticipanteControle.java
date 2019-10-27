@@ -12,11 +12,11 @@ public class ParticipanteControle {
 	public void salvarParticipante (Participante participante) throws ClassNotFoundException, SQLException {
 		participanteDAO.salvarParticipante(participante);
 	}
-	public Participante autenticarUsuario (String matricula, String senha) throws ClassNotFoundException, SQLException {
-		return participanteDAO.autenticarUsuario(matricula, senha);
+	public Participante autenticarUsuario (String CPF, String senha) throws ClassNotFoundException, SQLException {
+		return participanteDAO.autenticarUsuario(CPF, senha);
 	}
-	public boolean verificarSeMatriculaExiste (String matricula) {
-		return participanteDAO.verificarSeMatriculaExiste(matricula);
+	public boolean verificarSeCPFExiste (String cpf) {
+		return participanteDAO.verificarSeCPFExiste(cpf);
 		
 	}
 	public void alterarParticipante (Participante participante) throws ClassNotFoundException, SQLException {
