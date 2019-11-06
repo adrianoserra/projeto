@@ -28,7 +28,7 @@ public class ParticipanteDAO {
 	    stmt.setString(4, participante.getEmail());
 	    stmt.setString(5, participante.getTelefone());
 	    stmt.setString(6, participante.getSenha());
-	    participante.setTipoUsuario(0);
+	    participante.setTipoUsuario(1);
 	    stmt.setInt   (7, participante.getTipoUsuario());
 		stmt.execute();
 		

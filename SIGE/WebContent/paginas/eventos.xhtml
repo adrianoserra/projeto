@@ -19,7 +19,7 @@
 </h:head>
 
 <body>
-
+<h:form id="form">
     <div id="menu-bg">
 
         <div id="menu">
@@ -34,6 +34,7 @@
                     <li><a href="eventos.xhtml">Eventos</a></li>
                     <li><a href="sobre.xhtml">Conheça o SIGE</a></li>
                     <li><a href="contato.xhtml">Fale conosco</a></li>
+                    <li class="sair adm" > <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}"/></li>
                 </ul>
             </div>
 
@@ -111,7 +112,7 @@
                 <div id="conteudo-eventos">
 
                     <div class="caixa-eventos">
-                        <a href="evento-desenvolvimento-web.html">
+                        <a href="evento-desenvolvimento-web.xhtml">
                             <img src="../img/palestra-desenvolvimento-web.jpg" alt=""> </img>
                             <h5>Desenvolvimento Web</h5>
                             <p>Palestra que abordará principais conceitos
@@ -207,7 +208,7 @@
                         <li><a href="#menu">Topo</a></li>
                         <li><a href="sobre.xhtml">Conheça o SIGE</a></li>
                         <li><a href="contato.xhtml">Fale Conosco</a></li>
-                        <li><a href="#eventos">Eventos</a></li>
+                        <li><a href="#menu">Eventos</a></li>
                     </ul>
                 </div>
 
@@ -238,7 +239,7 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         
-
+</h:form>
 </body>
 
 </html>

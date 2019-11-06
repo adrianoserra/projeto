@@ -77,10 +77,10 @@ public class CadastrarParticipanteMbean {
 		  try {
 			 participanteAutenticado = participanteControle.autenticarUsuario(CPF, senha);
 			  if (participanteAutenticado != null) {
-				  if (participanteAutenticado.getTipoUsuario() == 1) {
+				  if (participanteAutenticado.getTipoUsuario() == 0) {
 					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.xhtml");  
 				  } else {
-					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.xhtml");
+					  FacesContext.getCurrentInstance().getExternalContext().redirect("eventos.xhtml");
 				  }
 				  
 			  } else {
@@ -148,6 +148,30 @@ public class CadastrarParticipanteMbean {
 			  util.exibirDialog("alerta");
 		  }
 		  return existe;
+	  }
+	  
+	  public Boolean mostrarTelaCadastro () {
+		  if (participanteAutenticado == null) {
+			  return true;
+		  } else {
+			  return false;
+		  }
+	  }
+	  
+	  public Boolean mostrarSair () {
+		  if (participanteAutenticado != null) {
+			  return true;
+		  } else {
+			  return false;
+		  }
+	  }
+	  public void paginaCadastro() {
+		  try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("cadastrarParticipante.xhtml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	  }
 	public Participante getParticipante() {
 		return participante;

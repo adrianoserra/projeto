@@ -118,16 +118,9 @@ li.sair {
     top: 0px;
 }
 
-.sair a.adm::before {
-    position: absolute;
-    content: "";
-    background: url(../img/seta-sair.png) no-repeat;
-    width: 45px;
-    height: 45px;
-    background-size: 20px;
-    left: 26px;
-    top: -5px;
-}
+
+
+
 
 /**************            ************
  *********** ACESSO RAPIDO  ************/
