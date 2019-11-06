@@ -10,6 +10,7 @@ import javax.faces.context.FacesContext;
 
 import sige.controle.ParticipanteControle;
 import sige.modeo.Participante;
+import sige.modeo.Usuario;
 import sige.util.Util;
 
 
@@ -53,6 +54,15 @@ public class CadastrarParticipanteMbean {
 		  
 	  }
 	  
+	  public void deslogar () {
+		  participanteAutenticado = null;
+		  try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("cadastrarParticipante.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+	  }
+	  
 	  public void logar () throws IOException {
 		  if (CPF == null || CPF.equals("")) {
 			  mensagem = "O campo CPF é obrigatorio para o login!";
@@ -68,9 +78,9 @@ public class CadastrarParticipanteMbean {
 			 participanteAutenticado = participanteControle.autenticarUsuario(CPF, senha);
 			  if (participanteAutenticado != null) {
 				  if (participanteAutenticado.getTipoUsuario() == 1) {
-					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.html");  
+					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.xhtml");  
 				  } else {
-					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.html");
+					  FacesContext.getCurrentInstance().getExternalContext().redirect("inicioADM.xhtml");
 				  }
 				  
 			  } else {
@@ -134,7 +144,7 @@ public class CadastrarParticipanteMbean {
 		  boolean existe = false;
 			existe = participanteControle.verificarSeCPFExiste(participante.getCPF());
 					if (existe) {
-			  mensagem = "matrícula já cadastrada, informe outra matrícula!";
+			  mensagem = "CPF já cadastrado, informe outra matrícula!";
 			  util.exibirDialog("alerta");
 		  }
 		  return existe;

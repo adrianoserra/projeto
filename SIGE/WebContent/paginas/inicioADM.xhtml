@@ -16,6 +16,7 @@
 </h:head>
 
 <body>
+<h:form id="form">
 
     <div id="menu-bg">
 
@@ -26,7 +27,9 @@
                 </a>
             </div>
             <p>Sistema de Gerenciamento de Eventos - SIGE</p>
-            <p>OLÁ, ADMINISTRADOR</p>
+            <p>OLÁ, <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.nome}" /></p>
+            
+            <li class="sair adm" > <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}"/></li>
         </div>
 
     </div>
@@ -42,7 +45,7 @@
         </div>
 
         <div class="caixa-rapido">
-            <a href="">
+            <a href="manterEvento.xhtml">
                 <img src="../img/calendario.png" alt=""></img>
                 <h2>Eventos</h2>
                 <p>Acesse para incluir, editar e excluir eventos</p>
@@ -72,7 +75,7 @@
             </div>
         </div>
     </div>
-
+</h:form>
 </body>
 
 </html>
