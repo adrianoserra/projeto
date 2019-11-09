@@ -72,7 +72,7 @@
 		</p:column>
 		
 		<p:column style="width:4%" headerText="Carga horaria">
-		<p:inputMask mask="99" style="width:100%" value="#{evento.cargaHoraria}" />		
+		<p:inputText style="width:100%" value="#{evento.cargaHoraria}" />		
 		</p:column>
 		
 		<p:column headerText="Opções" style="width:15%">
@@ -110,7 +110,7 @@
 		<p:inputMask style="width:40%" mask="99:99" value="#{mBean.eventoNovo.horarioFim}" />
 				
 		<p:outputLabel value="carga horaria"/>
-		<p:inputMask style="width:30%" mask="99"  value="#{mBean.eventoNovo.cargaHoraria}" />
+		<p:inputText style="width:30%"  value="#{mBean.eventoNovo.cargaHoraria}" />
 				
 		</p:panelGrid>
 				<p:commandButton id="botaoSalvar" value="Salvar" 

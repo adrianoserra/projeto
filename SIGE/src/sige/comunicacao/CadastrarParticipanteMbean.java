@@ -10,7 +10,6 @@ import javax.faces.context.FacesContext;
 
 import sige.controle.ParticipanteControle;
 import sige.modeo.Participante;
-import sige.modeo.Usuario;
 import sige.util.Util;
 
 
@@ -144,7 +143,7 @@ public class CadastrarParticipanteMbean {
 		  boolean existe = false;
 			existe = participanteControle.verificarSeCPFExiste(participante.getCPF());
 					if (existe) {
-			  mensagem = "CPF já cadastrado, informe outra matrícula!";
+			  mensagem = "CPF já cadastrado, informe outro CPF!";
 			  util.exibirDialog("alerta");
 		  }
 		  return existe;

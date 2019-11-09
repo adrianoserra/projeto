@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sige.modeo.Evento;
-import sige.modeo.Participante;
 import sige.util.conexao.JDBC;
 
 public class EventoDAO {
