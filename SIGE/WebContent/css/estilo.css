@@ -118,9 +118,56 @@ li.sair {
     top: 0px;
 }
 
+.sair a.adm::before {
+    position: absolute;
+    content: "";
+    background: url(../img/seta-sair.png) no-repeat;
+    width: 45px;
+    height: 45px;
+    background-size: 20px;
+    left: 26px;
+    top: -5px;
+}
 
+/* Submenu */
 
+#menu ul.submenu {
+    position: absolute;
+    top: 45px;
+    right: 150px;
+    display: none;
+    z-index: 1;
+}
 
+#menu li:hover ul, #menu li.over ul.submenu {
+    display: block;
+}
+
+#menu li ul.submenu li {
+    display: block;
+}
+
+#menu-nav img {
+    width: 20px;
+    height: 20px;
+}
+
+#menu-nav ul.submenu {
+    background: #222222;
+    border-radius: 10px;
+}
+
+#menu-nav ul.submenu li a{
+    color: white;
+    text-align:center;
+}
+
+#menu-nav ul.submenu li a:hover{
+    color: #006577;
+
+}
+
+/* FIM SUBMENU */ 
 
 /**************            ************
  *********** ACESSO RAPIDO  ************/
@@ -474,7 +521,7 @@ li.sair {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     opacity: 0.8;
     background-repeat: no-repeat;
     background-size: cover;
@@ -488,14 +535,17 @@ li.sair {
 
 .caixa2 {
     background-image: url(../img/palestras2.jpg);
+
 }
 
 .caixa3 {
     background-image: url(../img/palestras3.jpg);
+
 }
 
 .caixa4 {
     background-image: url(../img/palestras4.jpg);
+
 }
 
 .conteudo-titulo span.titulo {
@@ -857,3 +907,6 @@ body#login-adm {
     border-bottom: 6px solid black;
     border-radius: 15px;
 }
+
+
+

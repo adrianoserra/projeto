@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>SIGE - Sobre</title>
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</h:head>
+
+<body>
+    <h:form id="form">
+
+
+        <div id="menu-bg">
+
+            <div id="menu">
+                <div id="menu-logo">
+                    <a href="indexUsuario.xhtml">
+                        <img src="../img/logo-sige.png" alt=""></img>
+                    </a>
+                </div>
+
+                <div id="menu-nav">
+                    <ul>
+                        <li><a href="eventos.xhtml">Eventos</a></li>
+                        <li><a href="sobreUsuario.xhtml">Conheça o SIGE</a></li>
+                        <li><a href="contatoUsuario.xhtml">Fale conosco</a></li>
+                        <li><a href="#"><img src="../img/engrenagem.png"></img></a>
+                            <ul class="submenu">
+
+                                <li><a href="">Minha Conta</a></li>
+                                <li>
+                                    <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
+                                </li>
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="caixa1">
+            <div class="conteudo-titulo">
+                <span class="titulo">CONHEÇA O SIGE</span>
+            </div>
+        </div>
+
+        <div class="conteudo">
+            <h3>SIGE</h3>
+            <p>
+                É um sistema de gerenciamento de eventos, como palestras, treinamentos, e entre outros.
+            </p>
+            <p>
+                A ideia central é
+                gerenciar o acesso dos usuários e administradores às funcionalidades do sistema, com o intuito de os
+                participantes dos eventos poderem de forma simples se cadastrar em determinado evento e o sistema
+                gerenciar
+                o comprometimento do participante através de seu comparecimento no local para então, gerar o certificado
+                de
+                conhecimento sobre determinada abordagem.
+            </p>
+
+        </div>
+
+        <div class="caixa2">
+            <div class="conteudo-titulo">
+                <span class="titulo">Praticidade</span>
+            </div>
+        </div>
+
+        <div class="conteudo">
+            <h3>Praticidade</h3>
+            <p>
+                O que o SIGE propõe é praticidade, economia de tempo, em uma plataforma completa para gestão do seu
+                evento,
+                o que vai refletir em uma ótima experiência para o organizador e o participante.
+            </p>
+            <p>
+                Essa é a nossa missão desde 2019: descomplicar sua vida, te deixando no controle para fazer tudo do seu
+                jeito. O SIGE existe justamente para tornar o trabalho de organizar um evento mais fácil e produtivo,
+                gerando mais resultado com menos esforço.
+            </p>
+
+        </div>
+
+        <div class="caixa3">
+            <div class="conteudo-titulo">
+                <span class="titulo">COMO TUDO COMEÇOU?</span>
+            </div>
+        </div>
+
+        <div class="conteudo">
+            <h3>Como tudo começou</h3>
+            <p>
+                O SIGE nasceu a partir da necessidade de seus próprios fundadores, quando ainda universitários. Adriano
+                Serra,
+                Carlos Henrique, Dayvid Melo,
+                Josué Jorge e George Santos
+                - hoje sócios - organizaram um evento na faculdade Maurício de Nassau – Olinda
+                (UNINASSAU) e sentiram as dificuldades de gerenciá-lo. Como não encontraram uma solução disponível no
+                mercado, desenvolveram um site próprio com um sistema que permitia a inscrição de participantes.
+            </p>
+
+            <p>
+                Por isso, entendemos tão bem as preocupações e sabemos as soluções que os organizadores de eventos
+                precisam.
+                Quando você usa o SIGE, passamos a ser seu parceiro em todas as etapas até o pós-evento, sempre prontos
+                a
+                ajudar, tirar dúvidas e solucionar cada detalhe do gerenciamento.
+            </p>
+        </div>
+
+        <div class="caixa4">
+
+        </div>
+
+        <div id="rodape-bg">
+            <div id="rodape">
+                <div id="rodape-logo">
+                    <a href="indexUsuario.xhtml">
+                        <img src="../img/logo-sige.png" alt=""></img>
+                    </a>
+                </div>
+                <div id="rodape-nav">
+                    <ul>
+                        <li><a href="#menu">Topo</a></li>
+                        <li><a href="sobreUsuario.xhtml">Conheça o SIGE</a></li>
+                        <li><a href="contatoUsuario.xhtml">Fale Conosco</a></li>
+                        <li><a href="eventos.xhtml">Eventos</a></li>
+                    </ul>
+                </div>
+                <div id="redes-sociais">
+                    <a href="">
+                        <img src="../img/icone-facebook.png"></img>
+                    </a>
+                    <a href="">
+                        <img src="../img/icone-instagram.png"></img>
+                    </a>
+                    <a href="">
+                        <img src="../img/icone-twitter.png"></img>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#menu" class="voltar-ao-topo">
+            <img src="../img/seta-pra-cima.png"></img></a>
+
+
+    </h:form>
+
+</body>
+
+</html>

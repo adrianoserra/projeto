@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>SIGE - Contato</title>
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</h:head>
+
+<body>
+    <h:form id="form">
+
+
+        <div id="menu-bg">
+
+            <div id="menu">
+                <div id="menu-logo">
+                    <a href="indexUsuario.xhtml">
+                        <img src="../img/logo-sige.png" alt=""></img>
+                    </a>
+                </div>
+
+                <div id="menu-nav">
+                    <ul>
+                        <li><a href="eventos.xhtml">Eventos</a></li>
+                        <li><a href="sobreUsuario.xhtml">Conheça o SIGE</a></li>
+                        <li><a href="contatoUsuario.xhtml">Fale conosco</a></li>
+                        <li><a href="#"><img src="../img/engrenagem.png"></img></a>
+                            <ul class="submenu">
+
+                                <li><a href="">Minha Conta</a></li>
+                                <li>
+                                    <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
+                                </li>
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="contato-titulo">
+            <h3>Como você prefere falar com a gente?</h3>
+        </div>
+
+        <div id="contato-conteudo">
+            <div class="contato-ajuda">
+
+                <img src="../img/icone-email.png" alt=""></img>
+                <h4>E-mail</h4>
+                <p>Tem alguma dúvida?</p>
+                <p>adriano_sanfly@hotmail.com</p>
+
+            </div>
+
+            <div class="contato-ajuda">
+
+                <img src="../img/icone-telefone.png" alt=""></img>
+                <h4>Telefone</h4>
+                <p>Você pode ligar a qualquer hora.</p>
+                <p>0800 642 9781</p>
+
+            </div>
+
+
+        </div>
+
+        <div id="rodape-bg">
+            <div id="rodape">
+                <div id="rodape-logo">
+                    <a href="indexUsuario.xhtml">
+                        <img src="../img/logo-sige.png" alt=""></img>
+                    </a>
+                </div>
+                <div id="rodape-nav">
+                    <ul>
+                        <li><a href="#menu">Topo</a></li>
+                        <li><a href="sobreUsuario.xhtml">Conheça o SIGE</a></li>
+                        <li><a href="contatoUsuario.xhtml">Fale Conosco</a></li>
+                        <li><a href="eventos.xhtml">Eventos</a></li>
+                    </ul>
+                </div>
+                <div id="redes-sociais">
+                    <a href="">
+                        <img src="../img/icone-facebook.png"></img>
+                    </a>
+                    <a href="">
+                        <img src="../img/icone-instagram.png"></img>
+                    </a>
+                    <a href="">
+                        <img src="../img/icone-twitter.png"></img>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </h:form>
+</body>
+
+</html>
