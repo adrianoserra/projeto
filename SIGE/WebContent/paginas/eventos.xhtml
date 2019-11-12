@@ -137,6 +137,7 @@
                             <h5><p:outputLabel value="#{evento.tema}" /></h5>
                             <p>Carga Horária: <p:outputLabel value="#{evento.cargaHoraria}"/> </p>
                             <p>Data: <p:outputLabel value="#{evento.dataEvento}"/></p>
+                            <p>Descrição:  <p:outputLabel value="#{evento.descricao}" /> </p>
                             
                             <p:commandButton value="Inscrever-se" update="form:growl, @form"
                              action="#{inscricaoEventosMbean.inscreverParticipanteEvento(evento)}" disabled="#{evento.participanteInscrito}" /> 

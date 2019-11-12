@@ -10,6 +10,7 @@ public class Evento {
 	private String horarioFim;
 	private String cargaHoraria;
 	private Participante palestrante;
+	private String descricao;
 	
 	private Boolean participanteInscrito;
 	
@@ -61,6 +62,13 @@ public class Evento {
 	public void setParticipanteInscrito(Boolean participanteInscrito) {
 		this.participanteInscrito = participanteInscrito;
 	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
 	
 	
 	
