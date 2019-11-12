@@ -59,3 +59,5 @@ from inscricao inner join participante on inscricao.cpf = participante.cpf inner
 
 select participante.nome as Participante, historico_participante.presenca as Presença  
 from historico_participante inner join participante on historico_participante.cpf = participante.cpf;
+
+Alter table evento add column descricao varchar(100);
