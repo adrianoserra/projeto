@@ -16,7 +16,6 @@ import sige.controle.EventoControle;
 import sige.controle.InscricaoControle;
 import sige.modeo.Evento;
 import sige.modeo.Participante;
-import sige.util.Util;
 
 @ViewScoped
 @ManagedBean
@@ -25,7 +24,6 @@ public class InscricaoEventosMbean {
 	private InscricaoControle inscricaoControle = new InscricaoControle();
 	private List<Evento> colecaoEvento;
 	private Participante participante;
-	private Util util = new Util(); 
 
 	@PostConstruct
 	public void inicializar() {
@@ -33,6 +31,9 @@ public class InscricaoEventosMbean {
 		colecaoEvento = eventoControle.listarEventos();
 		CadastrarParticipanteMbean cadastrarParticipanteMbean = Faces.getSessionAttribute("cadastrarParticipanteMbean");
 		participante = cadastrarParticipanteMbean.getParticipanteAutenticado();
+		for (Evento evento: colecaoEvento) {
+			evento.setParticipanteInscrito(inscricaoControle.verificaSeParticipanteInscrito(evento, participante));
+		}
 	}
 	
 	public void inscreverParticipanteEvento (Evento evento) {

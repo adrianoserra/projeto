@@ -13,7 +13,7 @@ import sige.util.conexao.JDBC;
 public class ParticipanteDAO {
 	private	Connection	connection;
 	
-	public void salvarParticipante (Participante participante) throws SQLException, ClassNotFoundException {
+	public void salvarParticipante (Participante participante) throws SQLException {
 		
 		this.connection = new JDBC().getConexao();
 		PreparedStatement stmt = null;
@@ -43,7 +43,7 @@ public class ParticipanteDAO {
 		
 	}
 
-   public Participante autenticarUsuario (String CPF, String senha) throws SQLException, ClassNotFoundException {
+   public Participante autenticarUsuario (String CPF, String senha) throws SQLException {
 	   this.connection = new JDBC().getConexao();
 	   PreparedStatement stmt = null;
 	   ResultSet rs = null;
@@ -102,9 +102,6 @@ public class ParticipanteDAO {
 		   connection.close();
 	   } catch (SQLException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
 		}
 		return colecaoParticipante;
    }
@@ -125,8 +122,6 @@ public class ParticipanteDAO {
 			}
 	   } catch (SQLException e) {
 			e.printStackTrace();
-	    } catch (ClassNotFoundException e) {
-		e.printStackTrace();
 	}
 	   
 		return existe;

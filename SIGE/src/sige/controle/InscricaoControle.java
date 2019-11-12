@@ -12,5 +12,9 @@ public class InscricaoControle {
 	public void inscreverParticipante(Evento evento, Participante participante) throws SQLException, ClassNotFoundException  {
 		incricaoDAO.inscreverParticipante(evento, participante);
 	}
+	
+	public Boolean verificaSeParticipanteInscrito (Evento evento, Participante participante){
+		return incricaoDAO.verificaSeParticipanteInscrito(evento, participante);
+	}
 
 }

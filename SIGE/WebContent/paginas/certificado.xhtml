@@ -24,16 +24,16 @@
         <div id="certificado" style="position: relative;">
             <img style="width: 800px; height: 535px; z-index: 1;" src="../img/certificadopdf.png"></img>
             <div style="position: absolute; z-index: 2; bottom: 193px; left: 195px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 45px; color: #002972; text-transform: uppercase;" >
-                adriano serra
+                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.nome}"/>
             </div>
             <div style="position: absolute; z-index: 2; bottom: 160px; left: 460px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 22px; color: #002972; text-transform: uppercase; font-weight:bold;" >
-                Desenvolvimento Web
+                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.tema}"/>
             </div>
             <div style="position: absolute; z-index: 2; bottom: 133px; left: 311px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: #939393; text-transform: uppercase;" >
-                12/11/2019
+                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.dataEvento}"/>
             </div>
             <div style="position: absolute; z-index: 2; bottom: 133px; left: 530px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: #939393;" >
-                5 horas
+                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.cargaHoraria}"/>
             </div>
             <div id="data" style="position: absolute; z-index: 2; bottom: 54px; left: 108px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: black;" >
                 <script>

@@ -11,6 +11,8 @@ public class Evento {
 	private String cargaHoraria;
 	private Participante palestrante;
 	
+	private Boolean participanteInscrito;
+	
 	public int getIdEvento() {
 		return idEvento;
 	}
@@ -52,6 +54,12 @@ public class Evento {
 	}
 	public void setDataEvento(String dataEvento) {
 		this.dataEvento = dataEvento;
+	}
+	public Boolean getParticipanteInscrito() {
+		return participanteInscrito;
+	}
+	public void setParticipanteInscrito(Boolean participanteInscrito) {
+		this.participanteInscrito = participanteInscrito;
 	}
 	
 	

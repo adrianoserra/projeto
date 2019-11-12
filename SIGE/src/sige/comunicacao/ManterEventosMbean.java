@@ -9,18 +9,22 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import sige.controle.EventoControle;
+import sige.controle.ParticipanteControle;
 import sige.modeo.Evento;
+import sige.modeo.Participante;
 import sige.util.Util;
 
 @ViewScoped
 @ManagedBean
 public class ManterEventosMbean {
 	private EventoControle eventoControle = new EventoControle(); 
+	private ParticipanteControle participanteControle = new ParticipanteControle(); 
 	private List<Evento> colecaoEvento;
 	private Evento eventoNovo;
 	private Evento eventoSelecionado;
 	private Util util = new Util();
 	private Boolean desabilitarBotaoIncluir;
+	private List<Participante> colecaoPalestrante;
 
 	@PostConstruct
 	public void inicializar() {
@@ -29,6 +33,8 @@ public class ManterEventosMbean {
 		colecaoEvento = eventoControle.listarEventos();
 		eventoSelecionado = new Evento();
 		setEventoNovo(new Evento());
+		colecaoPalestrante = participanteControle.listarParticipante();
+		
 	}
 
 	public void excluirEvento(Evento evento) {
@@ -101,6 +107,14 @@ public class ManterEventosMbean {
 
 	public void setDesabilitarBotaoIncluir(Boolean desabilitarBotaoIncluir) {
 		this.desabilitarBotaoIncluir = desabilitarBotaoIncluir;
+	}
+
+	public List<Participante> getColecaoPalestrante() {
+		return colecaoPalestrante;
+	}
+
+	public void setColecaoPalestrante(List<Participante> colecaoPalestrante) {
+		this.colecaoPalestrante = colecaoPalestrante;
 	}
 
 

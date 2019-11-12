@@ -1,5 +1,7 @@
 package sige.modeo;
 
+import java.util.List;
+
 public class Participante {
 	private String nome;
 	private String setor;
@@ -9,6 +11,8 @@ public class Participante {
 	private String senha;
 	private String senhaCriptrografada;
 	private int tipoUsuario;
+	private Evento eventoAtual;
+	private List<Evento> colecaoEventoAtual;
 	
 	public String getNome() {
 		return nome;
@@ -57,6 +61,22 @@ public class Participante {
 	}
 	public void setTipoUsuario(int tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
+	}
+	public Evento getEventoAtual() {
+		eventoAtual = new Evento();
+		eventoAtual.setTema("Teste do teste");
+		eventoAtual.setDataEvento("12/11/2019");
+		eventoAtual.setCargaHoraria("5 horas");
+		return eventoAtual;
+	}
+	public void setEventoAtual(Evento eventoAtual) {
+		this.eventoAtual = eventoAtual;
+	}
+	public List<Evento> getColecaoEventoAtual() {
+		return colecaoEventoAtual;
+	}
+	public void setColecaoEventoAtual(List<Evento> colecaoEventoAtual) {
+		this.colecaoEventoAtual = colecaoEventoAtual;
 	}
 
 }
