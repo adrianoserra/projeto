@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>SIGE - Sobre</title>
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/sje0nji.css"> </link> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</h:head>
+
+
+<body>
+<h:form id="form">
+
+    <div id="dados">
+        <div id="certificado" style="position: relative;">
+            <img style="width: 800px; height: 535px; z-index: 1;" src="../img/certificadopdf.png"></img>
+            <div style="position: absolute; z-index: 2; bottom: 193px; left: 195px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 45px; color: #002972; text-transform: uppercase;" >
+                adriano serra
+            </div>
+            <div style="position: absolute; z-index: 2; bottom: 160px; left: 460px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 22px; color: #002972; text-transform: uppercase; font-weight:bold;" >
+                Desenvolvimento Web
+            </div>
+            <div style="position: absolute; z-index: 2; bottom: 133px; left: 311px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: #939393; text-transform: uppercase;" >
+                12/11/2019
+            </div>
+            <div style="position: absolute; z-index: 2; bottom: 133px; left: 530px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: #939393;" >
+                5 horas
+            </div>
+            <div id="data" style="position: absolute; z-index: 2; bottom: 54px; left: 108px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: black;" >
+                <script>
+                const zeroFill = n => {
+    				return ('0' + n).slice(-2);
+    			}
+
+    			// Cria intervalo
+    			const interval = setInterval(() => {
+    				// Pega o horário atual
+    				const now = new Date();
+
+    				// Formata a data conforme dd/mm/aaaa
+    				const dataHora = zeroFill(now.getUTCDate()) + '/' + zeroFill((now.getMonth() + 1)) + '/' + now.getFullYear();
+
+    				// Exibe na tela usando a div#data
+    				document.getElementById('data').innerHTML = dataHora;
+    			}, 0);
+                
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+  
+        <p:commandButton value="IMPRIMIR" onclick="funcao_pdf()" />
+ 
+
+
+
+
+
+
+
+</h:form>
+
+</body>
+
+<script>
+    function funcao_pdf() {
+        var pegar_dados = document.getElementById('dados').innerHTML;
+
+        var janela = window.open('', '', 'width=800, heigth=600');
+        janela.document.write('<html><head>');
+        janela.document.write('<title>PDF</title></head>');
+        janela.document.write('<body>');
+        janela.document.write(pegar_dados);
+        janela.document.write('</body></html>');
+        janela.document.close();
+        janela.print();
+
+    }
+    
+    function RetornaDataAtual(){
+    	  var dNow = new Date();
+    	  
+    	  var localdate = dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFullYear();
+    	  
+    	  return localdate;
+
+    }
+    
+    
+    
+    
+    
+</script>
+
+</html>
