@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sige.modeo.Evento;
+import sige.modeo.Participante;
 import sige.util.conexao.JDBC;
 
 public class EventoDAO {
@@ -20,8 +21,8 @@ public class EventoDAO {
 		PreparedStatement stmt = null;
 		try {
 
-			String sql = "INSERT INTO evento" + "(tema, data_evento, horario_inicio, horario_fim, carga_horaria)"
-					+ " values (?,?,?,?,?)";
+			String sql = "INSERT INTO evento" + "(tema, data_evento, horario_inicio, horario_fim, carga_horaria, palestrante, descricao)"
+					+ " values (?,?,?,?,?,?,?)";
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, evento.getTema());
@@ -29,6 +30,8 @@ public class EventoDAO {
 			stmt.setString(3, evento.getHorarioInicio());
 			stmt.setString(4, evento.getHorarioFim());
 			stmt.setString(5, evento.getCargaHoraria());
+			stmt.setString(6, evento.getPalestrante().getCPF());
+			stmt.setString(7, evento.getDescricao());
 
 			stmt.execute();
 
@@ -50,18 +53,25 @@ public class EventoDAO {
 			ResultSet rs = null;
 
 			Evento evento;
-			String sql = "SELECT * FROM evento";
+			String sql = "SELECT idEvento, tema, data_evento, horario_inicio, horario_fim, carga_horaria, "
+					+ "descricao, p.nome, p.cpf FROM evento join participante p on evento.palestrante = p.cpf";
 			stmt = connection.prepareStatement(sql);
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {
 				evento = new Evento();
+				Participante participante = new Participante();
 				evento.setIdEvento(rs.getInt("idEvento"));
 				evento.setTema(rs.getString("tema"));
 				evento.setDataEvento(rs.getString("data_evento"));
 				evento.setHorarioInicio(rs.getString("horario_inicio"));
 				evento.setHorarioFim(rs.getString("horario_fim"));
 				evento.setCargaHoraria(rs.getString("carga_horaria"));
+				evento.setDescricao(rs.getString("descricao"));
+				participante.setCPF(rs.getString("p.cpf"));
+				participante.setNome(rs.getString("p.nome"));
+				evento.setPalestrante(participante);
+				
 				colecaoEvento.add(evento);
 			}
 			stmt.close();
@@ -77,7 +87,7 @@ public class EventoDAO {
 		try {
 		String	sql	=	"update evento set"
 				+ " tema = ?, data_evento = ?, horario_inicio = ?, horario_fim = ? "
-				+ ", carga_horaria = ? WHERE idEvento = ?";
+				+ ", carga_horaria = ?, descricao = ?, palestrante = ? WHERE idEvento = ?";
 				
 				
 		stmt = connection.prepareStatement(sql);
@@ -86,7 +96,10 @@ public class EventoDAO {
 	    stmt.setString(3, evento.getHorarioInicio());
 	    stmt.setString(4, evento.getHorarioFim());
 	    stmt.setString(5, evento.getCargaHoraria());
-	    stmt.setInt(6, evento.getIdEvento());
+	    stmt.setString(6, evento.getDescricao());
+	    stmt.setString(7, evento.getPalestrante().getCPF());
+	    stmt.setInt(8, evento.getIdEvento());
+	    
 		stmt.execute();
 		
 		} catch (SQLException e) {

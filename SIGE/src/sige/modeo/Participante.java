@@ -63,10 +63,6 @@ public class Participante {
 		this.tipoUsuario = tipoUsuario;
 	}
 	public Evento getEventoAtual() {
-		eventoAtual = new Evento();
-		eventoAtual.setTema("Teste do teste");
-		eventoAtual.setDataEvento("12/11/2019");
-		eventoAtual.setCargaHoraria("5 horas");
 		return eventoAtual;
 	}
 	public void setEventoAtual(Evento eventoAtual) {
@@ -78,5 +74,6 @@ public class Participante {
 	public void setColecaoEventoAtual(List<Evento> colecaoEventoAtual) {
 		this.colecaoEventoAtual = colecaoEventoAtual;
 	}
+
 
 }

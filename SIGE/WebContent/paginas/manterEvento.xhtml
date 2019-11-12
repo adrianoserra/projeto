@@ -44,50 +44,56 @@
 
 			</div>
 		</div>
-
-		<br />
-		<br />
-
-		<p:commandButton action="#{mBean.incluirEvento()}" update="@form" value="Adicionar" icon="fa fa-plus"
-			style="margin-left:78%" title="incluir" />
-		<br />
-
-		<p:dataTable value="#{mBean.colecaoEvento}" style="width:98%; margin-left: auto; margin-right: auto"
-			var="evento">
-
-			<p:column style="width:20%" headerText="Tema">
-				<p:inputText style="width:100%" value="#{evento.tema}" />
-			</p:column>
-
-			<p:column style="width:8%" headerText="Data">
-				<p:inputMask mask="99/99/9999" style="width:100%" value="#{evento.dataEvento}" />
-			</p:column>
-
-			<p:column style="width:5%" headerText="Horario inicio">
-				<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioInicio}" />
-			</p:column>
-
-			<p:column style="width:5%" headerText="Horario fim">
-				<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioFim}" />
-			</p:column>
-
-			<p:column style="width:4%" headerText="Carga horaria">
-				<p:inputText style="width:100%" value="#{evento.cargaHoraria}" />
-			</p:column>
-
-			<p:column headerText="Opções" style="width:15%">
-				<p:commandButton action="#{mBean.alterarEvento(evento)}"
-					style="margin-left:13px; margin-right:40px; margin-top:7px" icon="fa fa-pencil" title="alterar"
-					update="@form">
-					<p:confirm header="Confirmar" message="Deseja mesmo alterar o evento ?" />
-				</p:commandButton>
-
-				<p:commandButton action="#{mBean.excluirEvento(evento)}" icon="fa fa-trash" update="@form"
-					title="excluir">
-					<p:confirm header="Confirmar" message="Deseja mesmo excluir o evento ?" />
-				</p:commandButton>
-			</p:column>
-
+		
+	
+		<br/>
+		
+		<p:commandButton action="#{mBean.incluirEvento()}" update="@form" value="Adicionar" icon="fa fa-plus" 
+		style="margin-left:78%"	 title="incluir" />
+		<br/>
+		
+		<p:dataTable value="#{mBean.colecaoEvento}" style="width:98%; margin-left: auto; margin-right: auto" var="evento">
+		
+		<p:column style="width:10%" headerText="Tema">
+		<p:inputText style="width:100%" value="#{evento.tema}" />		
+		</p:column>
+		
+		<p:column style="width:8%" headerText="Data">
+		<p:inputMask mask="99/99/9999" style="width:100%" value="#{evento.dataEvento}" />		
+		</p:column>
+		
+		<p:column style="width:5%" headerText="Horario inicio">
+		<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioInicio}" />		
+		</p:column>
+		
+		<p:column style="width:5%" headerText="Horario fim">
+		<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioFim}" />		
+		</p:column>
+		
+		<p:column style="width:5%" headerText="Carga horaria">
+		<p:inputText style="width:100%" value="#{evento.cargaHoraria}" />		
+		</p:column>
+		
+		<p:column style="width:8%" headerText="Palestrante">
+	        <p:outputLabel value="#{evento.palestrante.nome}"/>
+		</p:column>
+		
+		<p:column style="width:20%" headerText="Descrição">
+		<p:inputTextarea maxlength="100" style="width:100%" value="#{evento.descricao}" />		
+		</p:column>
+		
+		<p:column headerText="Opções" style="width:10%">
+		<p:commandButton action="#{mBean.alterarEvento(evento)}" style="margin-left:13px; margin-right:40px; margin-top:7px"
+		icon="fa fa-pencil" title="alterar" update="@form">
+		<p:confirm header="Confirmar" message="Deseja mesmo alterar o evento ?"/>
+		</p:commandButton>
+		
+		<p:commandButton action="#{mBean.excluirEvento(evento)}"
+		icon="fa fa-trash" update="@form" title="excluir" >
+		<p:confirm header="Confirmar" message="Deseja mesmo excluir o evento ?"/>
+		</p:commandButton>
+		</p:column>
+		
 		</p:dataTable>
 
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
@@ -98,24 +104,35 @@
 
 		<p:dialog widgetVar="DialogAdicionar">
 			<p:panelGrid id="panel-cadastro" columns="2">
-
-				<p:outputLabel value="Tema:" />
-				<p:inputText style="width:100%" value="#{mBean.eventoNovo.tema}" />
-
-				<p:outputLabel value="Data:" />
-				<p:inputMask style="width:60%" mask="99/99/9999" value="#{mBean.eventoNovo.dataEvento}" />
-
-				<p:outputLabel value="horario inicio" />
-				<p:inputMask style="width:40%" mask="99:99" value="#{mBean.eventoNovo.horarioInicio}" />
-
-				<p:outputLabel value="horario fim" />
-				<p:inputMask style="width:40%" mask="99:99" value="#{mBean.eventoNovo.horarioFim}" />
-
-				<p:outputLabel value="carga horaria" />
-				<p:inputText style="width:30%" value="#{mBean.eventoNovo.cargaHoraria}" />
-
-			</p:panelGrid>
-			<p:commandButton id="botaoSalvar" value="Salvar" action="#{mBean.salvar()}" update="@form" />
+		
+		<p:outputLabel value="Tema:"/>
+		<p:inputText style="width:100%" value="#{mBean.eventoNovo.tema}" />		
+		
+		<p:outputLabel value="Data:"/>
+		<p:inputMask style="width:60%" mask="99/99/9999" value="#{mBean.eventoNovo.dataEvento}" />
+				
+		<p:outputLabel value="horario inicio"/>
+		<p:inputMask style="width:40%"  mask="99:99" value="#{mBean.eventoNovo.horarioInicio}" />		
+		
+		<p:outputLabel value="horario fim"/>
+		<p:inputMask style="width:40%" mask="99:99" value="#{mBean.eventoNovo.horarioFim}" />
+				
+		<p:outputLabel value="carga horaria"/>
+		<p:inputText style="width:30%"  value="#{mBean.eventoNovo.cargaHoraria}" />
+			
+		<p:outputLabel value="palestrante"/>
+			<p:selectOneMenu converter="omnifaces.SelectItemsConverter" style="width:100%" value="#{mBean.eventoNovo.palestrante}">
+				<f:selectItem noSelectionOption="true" itemValue=""
+					itemLabel="Selecione" />
+				<f:selectItems var="palestrante" value="#{mBean.colecaoPalestrante}" itemValue="#{palestrante}"
+				itemLabel="#{palestrante.nome}" />
+			</p:selectOneMenu>
+		    <p:outputLabel value="Descrição"/>	
+			<p:inputTextarea maxlength="100" style="width:100%" value="#{mBean.eventoNovo.descricao}" />
+				
+		</p:panelGrid>
+				<p:commandButton style="width:80%" id="botaoSalvar" value="Salvar" 
+				action="#{mBean.salvar()}" update="@form" />
 		</p:dialog>
 
 	</h:form>
