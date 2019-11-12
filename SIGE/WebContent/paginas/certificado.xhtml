@@ -9,7 +9,8 @@
     <title>SIGE - Sobre</title>
     <link rel="stylesheet" href="../css/estilo.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.typekit.net/sje0nji.css"> </link> 
+    <link rel="stylesheet" href="https://use.typekit.net/sje0nji.css">
+    </link>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -18,50 +19,63 @@
 
 
 <body>
-<h:form id="form">
+    <h:form id="form">
 
-    <div id="dados">
-        <div id="certificado" style="position: relative;">
-            <img style="width: 800px; height: 535px; z-index: 1;" src="../img/certificadopdf.png"></img>
-            <div style="position: absolute; z-index: 2; bottom: 193px; left: 195px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 45px; color: #002972; text-transform: uppercase;" >
-                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.nome}"/>
-            </div>
-            <div style="position: absolute; z-index: 2; bottom: 160px; left: 460px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 22px; color: #002972; text-transform: uppercase; font-weight:bold;" >
-                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.tema}"/>
-            </div>
-            <div style="position: absolute; z-index: 2; bottom: 133px; left: 311px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: #939393; text-transform: uppercase;" >
-                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.dataEvento}"/>
-            </div>
-            <div style="position: absolute; z-index: 2; bottom: 133px; left: 530px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: #939393;" >
-                <p:outputLabel value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.cargaHoraria}"/>
-            </div>
-            <div id="data" style="position: absolute; z-index: 2; bottom: 54px; left: 108px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 20px; color: black;" >
-                <script>
-                const zeroFill = n => {
-    				return ('0' + n).slice(-2);
-    			}
+        <div id="dados">
+            <div id="certificado" style="position: relative;">
+                <img style="width: 30cm; height: 20cm; z-index: 1;" src="../img/certificadopdf.png"></img>
 
-    			// Cria intervalo
-    			const interval = setInterval(() => {
-    				// Pega o horário atual
-    				const now = new Date();
+                <div
+                    style="position: absolute; z-index: 2; bottom: 276px; left: 225px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 60px; color: #002972; text-transform: uppercase;">
+                    <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic;"
+                        value="#{cadastrarParticipanteMbean.participanteAutenticado.nome}" />
+                </div>
 
-    				// Formata a data conforme dd/mm/aaaa
-    				const dataHora = zeroFill(now.getUTCDate()) + '/' + zeroFill((now.getMonth() + 1)) + '/' + now.getFullYear();
+                <div
+                    style="position: absolute; z-index: 2; bottom: 230px; left: 652px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 30px; color: #002972; text-transform: uppercase; font-weight:bold;">
+                    <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic;"
+                        value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.tema}" />
+                </div>
 
-    				// Exibe na tela usando a div#data
-    				document.getElementById('data').innerHTML = dataHora;
-    			}, 0);
-                
-                </script>
+                <div
+                    style="position: absolute; z-index: 2; bottom: 189px; left: 447px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 24px; color: #939393; text-transform: uppercase; font-weight:540">
+                    <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic; color: #939393;"
+                        value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.dataEvento}" />
+                </div>
+
+                <div
+                    style="position: absolute; z-index: 2; bottom: 189px; left: 751px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 26px; color: #939393; font-weight:540">
+                    <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic; color: #939393;"
+                        value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.cargaHoraria}" />
+                </div>
+
+                <div id="data"
+                    style="position: absolute; z-index: 2; bottom: 80px; left: 144px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 30px; color: black;">
+                    <script>
+                        const zeroFill = n => {
+                            return ('0' + n).slice(-2);
+                        }
+
+                        // Cria intervalo
+                        const interval = setInterval(() => {
+                            // Pega o horário atual
+                            const now = new Date();
+
+                            // Formata a data conforme dd/mm/aaaa
+                            const dataHora = zeroFill(now.getUTCDate()) + '/' + zeroFill((now.getMonth() + 1)) +
+                                '/' + now.getFullYear();
+
+                            // Exibe na tela usando a div#data
+                            document.getElementById('data').innerHTML = dataHora;
+                        }, 0);
+                    </script>
+                </div>
             </div>
+
         </div>
 
-    </div>
 
-  
         <p:commandButton value="IMPRIMIR" onclick="funcao_pdf()" />
- 
 
 
 
@@ -69,7 +83,8 @@
 
 
 
-</h:form>
+
+    </h:form>
 
 </body>
 
@@ -77,7 +92,7 @@
     function funcao_pdf() {
         var pegar_dados = document.getElementById('dados').innerHTML;
 
-        var janela = window.open('', '', 'width=800, heigth=600');
+        var janela = window.open('', '', 'width=1000, heigth=800');
         janela.document.write('<html><head>');
         janela.document.write('<title>PDF</title></head>');
         janela.document.write('<body>');
@@ -87,20 +102,15 @@
         janela.print();
 
     }
-    
-    function RetornaDataAtual(){
-    	  var dNow = new Date();
-    	  
-    	  var localdate = dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFullYear();
-    	  
-    	  return localdate;
+
+    function RetornaDataAtual() {
+        var dNow = new Date();
+
+        var localdate = dNow.getDate() + '/' + (dNow.getMonth() + 1) + '/' + dNow.getFullYear();
+
+        return localdate;
 
     }
-    
-    
-    
-    
-    
 </script>
 
 </html>

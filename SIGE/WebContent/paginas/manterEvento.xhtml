@@ -1,136 +1,137 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-<title>SIGE - Eventos</title>
-<link rel="stylesheet" href="../css/estilo.css"/>
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap"
-	rel="stylesheet" />
-	
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<script src="https://kit.fontawesome.com/093faf44a3.js" crossorigin="anonymous"></script>
+	<title>SIGE - Eventos</title>
+	<link rel="stylesheet" href="../css/estilo.css" />
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://kit.fontawesome.com/093faf44a3.js" crossorigin="anonymous"></script>
 
 
 </h:head>
 
 <body>
- <ui:param name="mBean" value="#{manterEventosMbean}" /> 
+	<ui:param name="mBean" value="#{manterEventosMbean}" />
 
 
 	<h:form id="form">
-	<p:growl id="message" showDetail="true" /> 
+		<p:growl id="message" showDetail="true" />
 
 		<div id="menu-bg">
 
 			<div id="menu">
 				<div id="menu-logo">
-					<a href="inicioADM.xhtml"> <img src="../img/logo-sige.png" alt=""/></a>
+					<a href="inicioADM.xhtml"> <img src="../img/logo-sige.png" alt="" /></a>
 				</div>
 
 				<div id="menu-nav">
-					<ul>												
+					<ul>
 						<li><a href="manterParticipante.xhtml">Participante</a></li>
 						<li><a href="manterEvento.xhtml">Evento</a></li>
 						<li><a href="#">Certificados</a></li>
-						<li class="sair adm" > <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}"/></li>
+						<li class="sair adm">
+							<p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
+						</li>
 					</ul>
 				</div>
 
 			</div>
 		</div>
-		
-		<br/>
-		<br/>
-		
-		<p:commandButton action="#{mBean.incluirEvento()}" update="@form" value="Adicionar" icon="fa fa-plus" 
-		style="margin-left:78%"	 title="incluir" />
-		<br/>
-		
-		<p:dataTable value="#{mBean.colecaoEvento}" style="width:98%; margin-left: auto; margin-right: auto" var="evento">
-		
-		<p:column style="width:20%" headerText="Tema">
-		<p:inputText style="width:100%" value="#{evento.tema}" />		
-		</p:column>
-		
-		<p:column style="width:8%" headerText="Data">
-		<p:inputMask mask="99/99/9999" style="width:100%" value="#{evento.dataEvento}" />		
-		</p:column>
-		
-		<p:column style="width:5%" headerText="Horario inicio">
-		<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioInicio}" />		
-		</p:column>
-		
-		<p:column style="width:5%" headerText="Horario fim">
-		<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioFim}" />		
-		</p:column>
-		
-		<p:column style="width:4%" headerText="Carga horaria">
-		<p:inputText style="width:100%" value="#{evento.cargaHoraria}" />		
-		</p:column>
-		
-		<p:column headerText="Opções" style="width:15%">
-		<p:commandButton action="#{mBean.alterarEvento(evento)}" style="margin-left:13px; margin-right:40px; margin-top:7px"
-		icon="fa fa-pencil" title="alterar" update="@form">
-		<p:confirm header="Confirmar" message="Deseja mesmo alterar o evento ?"/>
-		</p:commandButton>
-		
-		<p:commandButton action="#{mBean.excluirEvento(evento)}"
-		icon="fa fa-trash" update="@form" title="excluir" >
-		<p:confirm header="Confirmar" message="Deseja mesmo excluir o evento ?"/>
-		</p:commandButton>
-		</p:column>
-		
+
+		<br />
+		<br />
+
+		<p:commandButton action="#{mBean.incluirEvento()}" update="@form" value="Adicionar" icon="fa fa-plus"
+			style="margin-left:78%" title="incluir" />
+		<br />
+
+		<p:dataTable value="#{mBean.colecaoEvento}" style="width:98%; margin-left: auto; margin-right: auto"
+			var="evento">
+
+			<p:column style="width:20%" headerText="Tema">
+				<p:inputText style="width:100%" value="#{evento.tema}" />
+			</p:column>
+
+			<p:column style="width:8%" headerText="Data">
+				<p:inputMask mask="99/99/9999" style="width:100%" value="#{evento.dataEvento}" />
+			</p:column>
+
+			<p:column style="width:5%" headerText="Horario inicio">
+				<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioInicio}" />
+			</p:column>
+
+			<p:column style="width:5%" headerText="Horario fim">
+				<p:inputMask mask="99:99" style="width:100%" value="#{evento.horarioFim}" />
+			</p:column>
+
+			<p:column style="width:4%" headerText="Carga horaria">
+				<p:inputText style="width:100%" value="#{evento.cargaHoraria}" />
+			</p:column>
+
+			<p:column headerText="Opções" style="width:15%">
+				<p:commandButton action="#{mBean.alterarEvento(evento)}"
+					style="margin-left:13px; margin-right:40px; margin-top:7px" icon="fa fa-pencil" title="alterar"
+					update="@form">
+					<p:confirm header="Confirmar" message="Deseja mesmo alterar o evento ?" />
+				</p:commandButton>
+
+				<p:commandButton action="#{mBean.excluirEvento(evento)}" icon="fa fa-trash" update="@form"
+					title="excluir">
+					<p:confirm header="Confirmar" message="Deseja mesmo excluir o evento ?" />
+				</p:commandButton>
+			</p:column>
+
 		</p:dataTable>
-		
-	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" style="margin-left:30%" icon="pi pi-check" />
-        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-    </p:confirmDialog>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" style="margin-left:30%"
+				icon="pi pi-check" />
+			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+		</p:confirmDialog>
 
 		<p:dialog widgetVar="DialogAdicionar">
 			<p:panelGrid id="panel-cadastro" columns="2">
-		
-		<p:outputLabel value="Tema:"/>
-		<p:inputText style="width:100%" value="#{mBean.eventoNovo.tema}" />		
-		
-		<p:outputLabel value="Data:"/>
-		<p:inputMask style="width:60%" mask="99/99/9999" value="#{mBean.eventoNovo.dataEvento}" />
-				
-		<p:outputLabel value="horario inicio"/>
-		<p:inputMask style="width:40%"  mask="99:99" value="#{mBean.eventoNovo.horarioInicio}" />		
-		
-		<p:outputLabel value="horario fim"/>
-		<p:inputMask style="width:40%" mask="99:99" value="#{mBean.eventoNovo.horarioFim}" />
-				
-		<p:outputLabel value="carga horaria"/>
-		<p:inputText style="width:30%"  value="#{mBean.eventoNovo.cargaHoraria}" />
-						
-		</p:panelGrid>
-				<p:commandButton id="botaoSalvar" value="Salvar" 
-				action="#{mBean.salvar()}" update="@form" />
+
+				<p:outputLabel value="Tema:" />
+				<p:inputText style="width:100%" value="#{mBean.eventoNovo.tema}" />
+
+				<p:outputLabel value="Data:" />
+				<p:inputMask style="width:60%" mask="99/99/9999" value="#{mBean.eventoNovo.dataEvento}" />
+
+				<p:outputLabel value="horario inicio" />
+				<p:inputMask style="width:40%" mask="99:99" value="#{mBean.eventoNovo.horarioInicio}" />
+
+				<p:outputLabel value="horario fim" />
+				<p:inputMask style="width:40%" mask="99:99" value="#{mBean.eventoNovo.horarioFim}" />
+
+				<p:outputLabel value="carga horaria" />
+				<p:inputText style="width:30%" value="#{mBean.eventoNovo.cargaHoraria}" />
+
+			</p:panelGrid>
+			<p:commandButton id="botaoSalvar" value="Salvar" action="#{mBean.salvar()}" update="@form" />
 		</p:dialog>
-		
+
 	</h:form>
-	<br/>
-	<br/>
-	<br/>
+	<br />
+	<br />
+	<br />
 	<div id="rodape-bg" class="rodape-no-final-da-pagina">
-        <div id="rodape">
-            <div id="rodape-logo-adm">
-                <a href="inicioADM.xhtml">
-                    <img src="../img/logo-sige.png" alt=""></img>
-                </a>
-                <p></p>
-            </div>
-        </div>
-    </div>
+		<div id="rodape">
+			<div id="rodape-logo-adm">
+				<a href="inicioADM.xhtml">
+					<img src="../img/logo-sige.png" alt=""></img>
+				</a>
+				<p></p>
+			</div>
+		</div>
+	</div>
 
 
 

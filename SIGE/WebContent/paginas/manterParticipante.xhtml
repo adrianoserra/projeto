@@ -1,165 +1,161 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-<title>SIGE - Login</title>
-<link rel="stylesheet" href="../css/estilo.css"/>
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap"
-	rel="stylesheet" />
-	
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<script src="https://kit.fontawesome.com/093faf44a3.js" crossorigin="anonymous"></script>
+	<title>SIGE - Login</title>
+	<link rel="stylesheet" href="../css/estilo.css" />
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://kit.fontawesome.com/093faf44a3.js" crossorigin="anonymous"></script>
 
 
 </h:head>
 
 <body>
- <ui:param name="mBean" value="#{manterParticipanteMbean}" /> 
+	<ui:param name="mBean" value="#{manterParticipanteMbean}" />
 
 
 	<h:form id="form">
-	<p:growl id="message" showDetail="true" /> 
+		<p:growl id="message" showDetail="true" />
 
 		<div id="menu-bg">
 
 			<div id="menu">
 				<div id="menu-logo">
-					<a href="inicioADM.xhtml"> <img src="../img/logo-sige.png" alt=""/></a>
+					<a href="inicioADM.xhtml"> <img src="../img/logo-sige.png" alt="" /></a>
 				</div>
 
 				<div id="menu-nav">
-					<ul>												
+					<ul>
 						<li><a href="manterParticipante.xhtml">Participante</a></li>
 						<li><a href="manterEvento.xhtml">Evento</a></li>
 						<li><a href="#">Certificados</a></li>
-						<li class="sair adm" > <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}"/></li>
+						<li class="sair adm">
+							<p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
+						</li>
 					</ul>
 				</div>
 
 			</div>
 		</div>
-		
-		<br/>
-		<br/>
-		
-		
-		
-		
-		<p:commandButton action="#{mBean.incluirParticipante()}" update="@form" value="Adicionar" icon="fa fa-plus" 
-		style="margin-left:78%"	 title="incluir" />
-		<br/>
-		
-		<p:dataTable value="#{mBean.colecaoParticipante}" style="width:98%; margin-left: auto; margin-right: auto" var="participante">
-		
-		<p:column headerText="CPF">
-		<p:outputLabel style="width:100%" value="#{participante.CPF}" />		
-		</p:column>
-		
-		<p:column headerText="Nome">
-		<p:inputText style="width:100%" value="#{participante.nome}" />		
-		</p:column>
-		
-		<p:column style="width:8%" headerText="Setor">
-		<p:inputText style="width:100%" value="#{participante.setor}" />		
-		</p:column>
-		
-	
-		<p:column headerText="Email" style="width:20%">
-		<p:inputText style="width:100%" value="#{participante.email}" />		
-		</p:column>
-		
-		<p:column headerText="Telefone">
-		<p:inputMask style="width:100%" mask="(99)99999-9999" value="#{participante.telefone}" />		
-		</p:column>
-		
-		<p:column headerText="Opções" style="width:15%">
-		<p:commandButton style="margin-left:13px; margin-right:40px; margin-top:7px" action="#{mBean.alterarParticipante(participante)}" 
-		icon="fa fa-pencil" title="alterar" update="@form">
-		<p:confirm header="Confirmar" message="Deseja mesmo alterar o participante de CPF #{participante.CPF} ?"/>
-		</p:commandButton>
-		
-		<p:commandButton action="#{mBean.excluirParticipante(participante)}" 
-		icon="fa fa-trash" update="@form" title="excluir" >
-		<p:confirm header="Confirmar" message="Deseja mesmo excluir o participante de CPF #{participante.CPF} ?"/>
-		</p:commandButton>
-		</p:column>
-		
+
+		<br />
+		<br />
+
+
+
+
+		<p:commandButton action="#{mBean.incluirParticipante()}" update="@form" value="Adicionar" icon="fa fa-plus"
+			style="margin-left:78%" title="incluir" />
+		<br />
+
+		<p:dataTable value="#{mBean.colecaoParticipante}" style="width:98%; margin-left: auto; margin-right: auto"
+			var="participante">
+
+			<p:column headerText="CPF">
+				<p:outputLabel style="width:100%" value="#{participante.CPF}" />
+			</p:column>
+
+			<p:column headerText="Nome">
+				<p:inputText style="width:100%" value="#{participante.nome}" />
+			</p:column>
+
+			<p:column style="width:8%" headerText="Setor">
+				<p:inputText style="width:100%" value="#{participante.setor}" />
+			</p:column>
+
+
+			<p:column headerText="Email" style="width:20%">
+				<p:inputText style="width:100%" value="#{participante.email}" />
+			</p:column>
+
+			<p:column headerText="Telefone">
+				<p:inputMask style="width:100%" mask="(99)99999-9999" value="#{participante.telefone}" />
+			</p:column>
+
+			<p:column headerText="Opções" style="width:15%">
+				<p:commandButton style="margin-left:13px; margin-right:40px; margin-top:7px"
+					action="#{mBean.alterarParticipante(participante)}" icon="fa fa-pencil" title="alterar"
+					update="@form">
+					<p:confirm header="Confirmar"
+						message="Deseja mesmo alterar o participante de CPF #{participante.CPF} ?" />
+				</p:commandButton>
+
+				<p:commandButton action="#{mBean.excluirParticipante(participante)}" icon="fa fa-trash" update="@form"
+					title="excluir">
+					<p:confirm header="Confirmar"
+						message="Deseja mesmo excluir o participante de CPF #{participante.CPF} ?" />
+				</p:commandButton>
+			</p:column>
+
 		</p:dataTable>
-		
-	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" style="margin-left:30%" icon="pi pi-check" />
-        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-    </p:confirmDialog>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" style="margin-left:30%"
+				icon="pi pi-check" />
+			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+		</p:confirmDialog>
 
 		<p:dialog widgetVar="DialogAdicionar">
-		<p:outputLabel value="*Digite todos os campos para habilitar o botão salvar" style="color:orange"/>
-		<br/>
-		<p:outputLabel value="*Digite um CPF não cadastrada para habilitar o botão salvar" style="color:orange" />
+			<p:outputLabel value="*Digite todos os campos para habilitar o botão salvar" style="color:orange" />
+			<br />
+			<p:outputLabel value="*Digite um CPF não cadastrada para habilitar o botão salvar" style="color:orange" />
 			<p:panelGrid id="panel-cadastro" columns="2">
-				
-                    <p:outputLabel value="CPF:" />
-					<p:inputMask style="width:70%"  mask="999.999.999-99" 
-						value="#{mBean.participanteNovo.CPF}" >
-						<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
-						update="botaoSalvar"/>
-					</p:inputMask>
-					
-					<p:outputLabel value="Senha:" />
-					<p:password style="width:50%"  value="#{mBean.participanteNovo.senha}" >
-					    <p:ajax event="keyup"  listener="#{mBean.validarInclusao()}" 
-						update="botaoSalvar"/>
-					</p:password>
 
-					<p:outputLabel value="Nome:" />
-					<p:inputText style="width:100%"  value="#{mBean.participanteNovo.nome}" >
-					    <p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
-						update="botaoSalvar"/>
-					</p:inputText>
+				<p:outputLabel value="CPF:" />
+				<p:inputMask style="width:70%" mask="999.999.999-99" value="#{mBean.participanteNovo.CPF}">
+					<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" update="botaoSalvar" />
+				</p:inputMask>
 
-					<p:outputLabel value="Setor:" />
-					<p:inputText style="width:100%"  value="#{mBean.participanteNovo.setor}" >
-					     <p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
-						update="botaoSalvar"/>
-					</p:inputText>
+				<p:outputLabel value="Senha:" />
+				<p:password style="width:50%" value="#{mBean.participanteNovo.senha}">
+					<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" update="botaoSalvar" />
+				</p:password>
 
-					<p:outputLabel value="Telefone:" />
-					<p:inputMask style="width:80%"  mask="(99)99999-9999"
-						value="#{mBean.participanteNovo.telefone}" >
-						<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
-						update="botaoSalvar"/>
-					</p:inputMask>	
+				<p:outputLabel value="Nome:" />
+				<p:inputText style="width:100%" value="#{mBean.participanteNovo.nome}">
+					<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" update="botaoSalvar" />
+				</p:inputText>
 
-					<p:outputLabel value="Email:" />
-					<p:inputText style="width:100%"  value="#{mBean.participanteNovo.email}" >
-					    <p:ajax event="keyup" listener="#{mBean.validarInclusao()}" 
-						update="botaoSalvar"/>
-					</p:inputText>
-				</p:panelGrid>
-				<p:commandButton id="botaoSalvar" value="Salvar" disabled="#{mBean.desabilitarBotaoIncluir}" 
+				<p:outputLabel value="Setor:" />
+				<p:inputText style="width:100%" value="#{mBean.participanteNovo.setor}">
+					<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" update="botaoSalvar" />
+				</p:inputText>
+
+				<p:outputLabel value="Telefone:" />
+				<p:inputMask style="width:80%" mask="(99)99999-9999" value="#{mBean.participanteNovo.telefone}">
+					<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" update="botaoSalvar" />
+				</p:inputMask>
+
+				<p:outputLabel value="Email:" />
+				<p:inputText style="width:100%" value="#{mBean.participanteNovo.email}">
+					<p:ajax event="keyup" listener="#{mBean.validarInclusao()}" update="botaoSalvar" />
+				</p:inputText>
+			</p:panelGrid>
+			<p:commandButton id="botaoSalvar" value="Salvar" disabled="#{mBean.desabilitarBotaoIncluir}"
 				action="#{mBean.salvar()}" update="@form" />
 		</p:dialog>
-		
+
 	</h:form>
-	<br/>
-	<br/>
-	<br/>
+	<br />
+	<br />
+	<br />
 	<div id="rodape-bg" class="rodape-no-final-da-pagina">
-        <div id="rodape">
-            <div id="rodape-logo-adm">
-                <a href="inicioADM.xhtml">
-                    <img src="../img/logo-sige.png" alt=""></img>
-                </a>
-                <p></p>
-            </div>
-        </div>
-    </div>
+		<div id="rodape">
+			<div id="rodape-logo-adm">
+				<a href="inicioADM.xhtml">
+					<img src="../img/logo-sige.png" alt=""></img>
+				</a>
+				<p></p>
+			</div>
+		</div>
+	</div>
 
 
 

@@ -134,7 +134,7 @@ li.sair {
 #menu ul.submenu {
     position: absolute;
     top: 45px;
-    right: 150px;
+    right: 180px;
     display: none;
     z-index: 1;
 }
@@ -555,6 +555,7 @@ li.sair {
     padding: 18px;
     font-size: 25px;
     letter-spacing: 5px;
+    border-radius: 6px;
 }
 
 /**************            ************
