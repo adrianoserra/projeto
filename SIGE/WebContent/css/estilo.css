@@ -134,7 +134,7 @@ li.sair {
 #menu ul.submenu {
     position: absolute;
     top: 45px;
-    right: 180px;
+    right: 160px;
     display: none;
     z-index: 1;
 }
@@ -385,7 +385,7 @@ li.sair {
 
 #top-caixa-cadastro, #top-caixa-login {
     padding: 15px;
-    background: rgb(230, 44, 30);
+    background: rgb(201, 35, 23);
     color: white;
     /* text-shadow: 0px 0px 1px black; */
     /* border-radius: 15px; */
@@ -396,7 +396,7 @@ li.sair {
 }
 
 #top-caixa-login {
-    background: rgb(0, 156, 47);
+    background: rgb(0, 129, 39);
 }
 
 #top-caixa-cadastro p, #top-caixa-login p {
@@ -434,7 +434,8 @@ li.sair {
 
 .formulario-cadastro p {
     margin-bottom: 12px;
-    color: #FF9933
+    color: #FF9933;
+    border-bottom: 1px solid #FF9933;
 }
 
 .ui-panelgrid .ui-panelgrid-cell {
@@ -664,7 +665,7 @@ li.sair {
 
 #conteudo-eventos {
     padding: 40px 0px;
-    max-width: 960px;
+    width: 1012px;
     margin: 0 auto;
     background: rgb(238, 238, 240);
     display: flex;
@@ -674,13 +675,15 @@ li.sair {
 
 .caixa-eventos {
     margin-left: 38px;
-    width: 250px;
-    height: 450px;
+    width: 450px;
+    height: 680px;
     background: #fff;
     display: flex;
     border-radius: 10px;
     transition: 0.3s ease-out;
     margin-bottom: 30px;
+    flex-wrap: wrap;
+    position: relative;
 }
 
 .caixa-eventos:hover {
@@ -704,9 +707,11 @@ li.sair {
     display: inline-block;
 }
 
-.caixa-eventos h5:hover {
-    color: rgb(48, 0, 53);
+.posicionar-fixo {
+    position: absolute;
+    bottom: 5px;
 }
+
 
 .caixa-eventos p:nth-of-type(1) {
     margin: 0 10px;
@@ -714,18 +719,17 @@ li.sair {
     color: rgb(102, 102, 102);
 }
 
-.caixa-eventos p:nth-of-type(1n+2) {
-    margin: 10px 0;
-    margin-left: 23%;
+.caixa-eventos .posicionar-fixo p:nth-of-type(1n) {
+    margin: 10px 28px;
     color: black;
     font-weight: bold;
     border-bottom: 1px solid black;
     display: inline-block;
+    font-size: 17px;
 }
 
-.caixa-eventos p:hover {
-    color: rgb(48, 0, 53);
-}
+
+                                    
 
 /******************* PÁGINA DE UM EVENTO ***************/
 

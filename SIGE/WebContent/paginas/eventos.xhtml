@@ -6,8 +6,12 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <title>SIGE - Eventos</title>
-    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../css/estilo.css?1422981258" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,8 +24,7 @@
 <body>
     <h:form id="form">
 
-        <p:growl id="caixaMensagem" autoUpdate="true" showSummary="true"
-						showDetail="true" sticky="true" />
+        <p:growl id="caixaMensagem" autoUpdate="true" showSummary="true" showDetail="true" sticky="true" />
 
         <div id="menu-bg">
 
@@ -39,7 +42,8 @@
                         <li><a href="contatoUsuario.xhtml">Fale conosco</a></li>
                         <li><a href="#"><img src="../img/engrenagem.png"></img></a>
                             <ul class="submenu">
-                                <li><a href="">Minha Conta</a></li>
+                                <li><a href="minhaConta.xhtml">Minha Conta</a></li>
+                                <li><a href="certificadoUsuario.xhtml">Certificados</a></li>
                                 <li>
                                     <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
                                 </li>
@@ -75,31 +79,47 @@
 
                 <div id="conteudo-eventos">
 
-			<p:repeat var="evento" value="#{inscricaoEventosMbean.colecaoEvento}">	
-                    <div id="caixa-eventos" class="caixa-eventos">
-                        <a href="">
-                            <img src="../img/palestra-desenvolvimento-web.jpg" alt=""> </img>
-                            <h5><p:outputLabel value="#{evento.tema}" /></h5>
-                            <p>Carga Horária: <p:outputLabel value="#{evento.cargaHoraria}"/> </p>
-                            <p>Data: <p:outputLabel value="#{evento.dataEvento}"/></p>
-                            <p>Descrição:  <p:outputLabel value="#{evento.descricao}" /> </p>
-                            
-                            <p:commandButton id="inscrever" value="Inscrever-se" update="form:caixaMensagem, inscrever"
-                             action="#{inscricaoEventosMbean.inscreverParticipanteEvento(evento)}" disabled="#{evento.participanteInscrito}" /> 
-                             <br/>
-                             <p:outputLabel style="color:green" value="Inscrito" rendered="#{evento.participanteInscrito}" />
-                        
-                        
-                        </a>
-                      
-                    </div>
-                    
-                    
-                    <br/>
-                    <div id="titulo-inscrever">
-                    		
-              			</div>
-                    
+                    <p:repeat var="evento" value="#{inscricaoEventosMbean.colecaoEvento}">
+                        <div id="caixa-eventos" class="caixa-eventos">
+                            <a href="">
+                                <img src="../img/palestra-desenvolvimento-web.jpg" alt=""> </img>
+                                <h5>
+                                    <p:outputLabel value="#{evento.tema}" />
+                                </h5>
+                                <p>Descrição:
+                                    <p:outputLabel value="#{evento.descricao}" />
+                                </p>
+                                <div class="posicionar-fixo">
+                                    <p>Data:
+                                        <p:outputLabel value="#{evento.dataEvento}" />
+                                    </p>
+                                    <p>Carga Horária:
+                                        <p:outputLabel value="#{evento.cargaHoraria}" />
+                                    </p>
+                                    <br> </br>
+                                    <p:commandButton style="margin-left: 155px;" id="inscrever" value="Inscrever-se"
+                                        update="form:caixaMensagem, inscrever"
+                                        action="#{inscricaoEventosMbean.inscreverParticipanteEvento(evento)}"
+                                        disabled="#{evento.participanteInscrito}" />
+                                    <p:outputLabel style="color:green; margin-left: 10px;" value="Inscrito"
+                                        rendered="#{evento.participanteInscrito}" />
+
+                                    <p:graphicImage value="../img/inscrito.png"
+                                        style="width: 40px; height: 35px; float:right; margin-right: 35px"
+                                        rendered="#{evento.participanteInscrito}" />
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <br />
+                        <div id="titulo-inscrever">
+
+                        </div>
+
                     </p:repeat>
 
 

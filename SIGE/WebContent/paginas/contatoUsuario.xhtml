@@ -6,6 +6,9 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>SIGE - Contato</title>
     <link rel="stylesheet" href="../css/estilo.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
@@ -36,7 +39,8 @@
                         <li><a href="#"><img src="../img/engrenagem.png"></img></a>
                             <ul class="submenu">
 
-                                <li><a href="">Minha Conta</a></li>
+                                <li><a href="minhaConta.xhtml">Minha Conta</a></li>
+                                <li><a href="certificadoUsuario.xhtml">Certificados</a></li>
                                 <li>
                                     <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
                                 </li>
@@ -62,7 +66,7 @@
                 <img src="../img/icone-email.png" alt=""></img>
                 <h4>E-mail</h4>
                 <p>Tem alguma dúvida?</p>
-                <p>adriano_sanfly@hotmail.com</p>
+                <p>sige@contato.com</p>
 
             </div>
 
