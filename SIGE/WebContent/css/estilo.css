@@ -632,12 +632,13 @@ li.sair {
 /********************* EVENTOS *******************/
 
 #eventos {
-    max-width: 960px;
+    max-width: 1012px;
     margin: 0 auto;
     margin-bottom: 30px;
 }
 
 #eventos-titulo {
+    margin-top: 35px;
     display: flex;
     justify-content: space-between;
     border-radius: 4px;
@@ -658,7 +659,7 @@ li.sair {
     margin-left: 35px;
     color: #222222;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.1em;
     letter-spacing: 1px;
     padding-bottom: 10px;
 }
@@ -676,7 +677,7 @@ li.sair {
 .caixa-eventos {
     margin-left: 38px;
     width: 450px;
-    height: 680px;
+    height: 705px;
     background: #fff;
     display: flex;
     border-radius: 10px;
@@ -709,7 +710,7 @@ li.sair {
 
 .posicionar-fixo {
     position: absolute;
-    bottom: 5px;
+    bottom: 11px;
 }
 
 
@@ -923,8 +924,14 @@ body#login-adm {
 }
 
 
-/* Certificado */
 
+/* Tela Minha Conta */
+
+#contorno-minhaConta{
+	padding-bottom: 20px;
+    border-bottom: 3px solid rgb(88, 82, 177);
+    border-radius: 10px;
+}
 
 
 

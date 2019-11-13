@@ -37,8 +37,8 @@ public class CadastrarParticipanteMbean {
 		try {
 			if (validar() && !verificarSeCPFExiste()) {
 				participanteControle.salvarParticipante(participante);
-				mensagem = "Participante salvo com sucesso!";
-				util.exibirDialog("confirmaÃ§Ã£o");
+				mensagem = "Cadastro realizado com sucesso!";
+				util.exibirDialog("confirmação");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -61,12 +61,12 @@ public class CadastrarParticipanteMbean {
 
 	public void logar() throws IOException {
 		if (CPF == null || CPF.equals("")) {
-			mensagem = "O campo CPF Ã© obrigatorio para o login!";
+			mensagem = "O campo CPF é obrigatório para o login!";
 			util.exibirDialog("alerta");
 			return;
 		}
 		if (senha == null || senha.equals("")) {
-			mensagem = "O campo senha Ã© obrigatorio para o login!";
+			mensagem = "O campo senha é obrigatório para o login!";
 			util.exibirDialog("alerta");
 			return;
 		}
@@ -80,7 +80,7 @@ public class CadastrarParticipanteMbean {
 				}
 
 			} else {
-				mensagem = "a senha ou matrÃ­cula informadas estÃ£o erradas";
+				mensagem = "A senha ou matrícula informada está incorreta!";
 				util.exibirDialog("alerta");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
@@ -93,42 +93,42 @@ public class CadastrarParticipanteMbean {
 
 	public boolean validar() {
 		if (participante.getSenha().equals("")) {
-			mensagem = "O campo senha Ã© obrigatorio!";
+			mensagem = "O campo senha é obrigatório!";
 			util.exibirDialog("alerta");
 			return false;
 		}
 		if (!confirmarSenha.equals(participante.getSenha())) {
-			mensagem = "As senhas informadas estÃ£o diferentes!";
+			mensagem = "As senhas informadas estão diferentes!";
 			util.exibirDialog("alerta");
 			return false;
 		}
 		if (participante.getSetor().equals("")) {
-			mensagem = "O campo setor Ã© obrigatorio!";
+			mensagem = "O campo setor é obrigatório!";
 			util.exibirDialog("alerta");
 			return false;
 		}
 		if (participante.getNome().equals("")) {
-			mensagem = "O campo nome Ã© obrigatorio!";
+			mensagem = "O campo nome é obrigatório!";
 			util.exibirDialog("alerta");
 			return false;
 		}
 		if (participante.getSetor().equals("")) {
-			mensagem = "O campo setor Ã© obrigatorio!";
+			mensagem = "O campo setor é obrigatório!";
 			util.exibirDialog("alerta");
 			return false;
 		}
 		if (participante.getCPF().equals("")) {
-			mensagem = "O campo CPF Ã© obrigatorio!";
+			mensagem = "O campo CPF é obrigatório!";
 			util.exibirDialog("alerta");
 			return false;
 		}
 		if (participante.getTelefone().equals("")) {
-			mensagem = "O campo telefone Ã© obrigatorio!";
+			mensagem = "O campo telefone é obrigatório!";
 			util.exibirDialog("alerta");
 			return false;
 		}
 		if (participante.getEmail().equals("")) {
-			mensagem = "O campo email Ã© obrigatorio!";
+			mensagem = "O campo email é obrigatório!";
 			util.exibirDialog("alerta");
 			return false;
 		}
@@ -140,7 +140,7 @@ public class CadastrarParticipanteMbean {
 		boolean existe = false;
 		existe = participanteControle.verificarSeCPFExiste(participante.getCPF());
 		if (existe) {
-			mensagem = "CPF jÃ¡ cadastrado, informe outro CPF!";
+			mensagem = "CPF já cadastrado!";
 			util.exibirDialog("alerta");
 		}
 		return existe;

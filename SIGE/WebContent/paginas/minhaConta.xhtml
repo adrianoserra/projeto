@@ -6,9 +6,9 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>SIGE - Eventos</title>
     <link rel="stylesheet" href="../css/estilo.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
@@ -23,8 +23,7 @@
 <body>
     <h:form id="form">
 
-        <p:growl id="caixaMensagem" autoUpdate="true" showSummary="true"
-						showDetail="true" sticky="true" />
+        <p:growl id="caixaMensagem" autoUpdate="true" showSummary="true" showDetail="true" sticky="true" />
 
         <div id="menu-bg">
 
@@ -42,7 +41,8 @@
                         <li><a href="contatoUsuario.xhtml">Fale conosco</a></li>
                         <li><a href="#"><img src="../img/engrenagem.png"></img></a>
                             <ul class="submenu">
-                                <li><a href="">Minha Conta</a></li>
+                                <li><a href="minhaConta.xhtml">Perfil</a></li>
+                                <li><a href="certificadoUsuario.xhtml">Certificados</a></li>
                                 <li>
                                     <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
                                 </li>
@@ -55,43 +55,66 @@
 
         </div>
 
-		<p:panelGrid id="panel" columns="2">
-							<p:outputLabel value="CPF:" />
-							<p:outputLabel style="width:70%" value="#{cadastrarParticipanteMbean.participanteAutenticado.CPF}" />
+        <div id="minhaConta-bg">
 
-							<p:outputLabel value="Senha:" />
-							<p:password required="true" style="width:80%" value="#{cadastrarParticipanteMbean.participanteAutenticado.senha}" />
+            <div id="eventos">
+                <div id="texto">
 
-							<p:outputLabel value="Confirmar Senha:" />
-							<p:password required="true" style="width:80%"  value="#{cadastrarParticipanteMbean.participanteAutenticado.senhaCriptrografada}" />
+                    <h1>Alterar Dados</h1>
+                    <p>Para alteraração de algum dado, preencher com o novo e clicar em alterar.</p>
 
-							<p:outputLabel value="Nome:" />
-							<p:inputText required="true" style="width:140%"  value="#{cadastrarParticipanteMbean.participanteAutenticado.nome}" />
+                </div>
+                <div id="contorno-minhaConta">
+                
+                    <p:panelGrid id="panel" columns="2">
+                        <p:outputLabel value="CPF:" />
+                        <p:outputLabel style="width:140%"
+                            value="#{cadastrarParticipanteMbean.participanteAutenticado.CPF}" />
 
-							<p:outputLabel value="Setor:" />
-							<p:inputText required="true" style="width:100%" value="#{cadastrarParticipanteMbean.participanteAutenticado.setor}" />
+                        <p:outputLabel value="Senha:" />
+                        <p:password required="true" style="width:250px"
+                            value="#{cadastrarParticipanteMbean.participanteAutenticado.senha}" />
 
-							<p:outputLabel value="Telefone:" />
-							<p:inputMask required="true" style="width:80%" mask="(99)99999-9999"
-								value="#{cadastrarParticipanteMbean.participanteAutenticado.telefone}" />
+                        <p:outputLabel value="Confirmar Senha:" />
+                        <p:password required="true" style="width:250px"
+                            value="#{cadastrarParticipanteMbean.participanteAutenticado.senhaCriptrografada}" />
 
-							<p:outputLabel value="Email:" />
-							<p:inputText required="true" style="width:140%" value="#{cadastrarParticipanteMbean.participanteAutenticado.email}" />
+                        <p:outputLabel value="Nome:" />
+                        <p:inputText required="true" style="width:250px"
+                            value="#{cadastrarParticipanteMbean.participanteAutenticado.nome}" />
 
-							<p:commandButton value="Alterar" styleClass="botao-alterar" action="#{cadastrarParticipanteMbean.alterarParticipante()}"
-								update="@form" />
-		
-		
-		
-		
-		
-		</p:panelGrid>	
+                        <p:outputLabel value="Setor:" />
+                        <p:inputText required="true" style="width:250px"
+                            value="#{cadastrarParticipanteMbean.participanteAutenticado.setor}" />
+
+                        <p:outputLabel value="Telefone:" />
+                        <p:inputMask required="true" style="width:250px" mask="(99)99999-9999"
+                            value="#{cadastrarParticipanteMbean.participanteAutenticado.telefone}" />
+
+                        <p:outputLabel value="Email:" />
+                        <p:inputText required="true" style="width:250px"
+                            value="#{cadastrarParticipanteMbean.participanteAutenticado.email}" />
+
+
+                
+
+
+
+
+                </p:panelGrid>
+</div> 
+                <p:commandButton style="margin-left: 430px; margin-top: 20px" value="Alterar" styleClass="botao-alterar"
+                    action="#{cadastrarParticipanteMbean.alterarParticipante()}" update="@form" />
+
+            </div>
+
+        </div>
 
 
 
 
 
-        
+
 
         <div id="rodape-bg">
             <div id="rodape">

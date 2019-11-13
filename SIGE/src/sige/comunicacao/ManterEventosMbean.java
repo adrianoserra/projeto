@@ -41,7 +41,7 @@ public class ManterEventosMbean {
 		try {
 			eventoControle.excluirEvento(evento);
 			colecaoEvento.remove(evento);
-			util.getMenssagemInfor("Evento excluido com sucesso!");
+			util.getMenssagemInfor("Evento excluído com sucesso!");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -67,7 +67,7 @@ public class ManterEventosMbean {
 		try {
 			eventoControle.salvarEvento(eventoNovo);
 			colecaoEvento.add(eventoNovo);
-			util.getMenssagemInfor("Evento incluido com sucesso!");
+			util.getMenssagemInfor("Evento incluído com sucesso!");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

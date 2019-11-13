@@ -52,7 +52,7 @@ public class ManterParticipanteMbean {
 	public void alterarParticipante(Participante participante) {
 		try {
 			participanteControle.alterarParticipante(participante);
-			util.getMenssagemInfor("participante alterado com sucesso!");
+			util.getMenssagemInfor("Participante alterado com sucesso!");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
