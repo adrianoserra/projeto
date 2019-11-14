@@ -9,7 +9,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
-	<title>SIGE - Login</title>
+	<title>ADM - Participante</title>
 	<link rel="stylesheet" href="../css/estilo.css" />
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
 
@@ -39,7 +39,7 @@
 					<ul>
 						<li><a href="manterParticipante.xhtml">Participante</a></li>
 						<li><a href="manterEvento.xhtml">Evento</a></li>
-						<li><a href="#">Certificados</a></li>
+						<li><a href="marcarPresenca.xhtml">Marcar Presença</a></li>
 						<li class="sair adm">
 							<p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
 						</li>
@@ -54,7 +54,7 @@
 
 
 
-
+		<div style="width: 80%; margin: 0 auto;">
 		<p:commandButton action="#{mBean.incluirParticipante()}" update="@form" value="Adicionar" icon="fa fa-plus"
 			style="margin-left:78%" title="incluir" />
 		<br />
@@ -70,7 +70,7 @@
 				<p:inputText style="width:100%" value="#{participante.nome}" />
 			</p:column>
 
-			<p:column style="width:8%" headerText="Setor">
+			<p:column style="width:11%" headerText="Setor">
 				<p:inputText style="width:100%" value="#{participante.setor}" />
 			</p:column>
 
@@ -84,7 +84,7 @@
 			</p:column>
 
 			<p:column headerText="Opções" style="width:15%">
-				<p:commandButton style="margin-left:13px; margin-right:40px; margin-top:7px"
+				<p:commandButton style="margin-left:13px; margin-right:20px; margin-top:7px"
 					action="#{mBean.alterarParticipante(participante)}" icon="fa fa-pencil" title="alterar"
 					update="@form">
 					<p:confirm header="Confirmar"
@@ -145,7 +145,7 @@
 			<p:commandButton id="botaoSalvar" value="Salvar" disabled="#{mBean.desabilitarBotaoIncluir}"
 				action="#{mBean.salvar()}" update="@form" />
 		</p:dialog>
-
+	</div>
 	</h:form>
 	<br />
 	<br />

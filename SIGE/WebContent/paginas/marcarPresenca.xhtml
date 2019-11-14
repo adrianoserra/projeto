@@ -6,8 +6,8 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	<title>SIGE - Registrar Presença</title>
-	<link rel="stylesheet" href="../css/estilo.css" />
+	<title>ADM - Registrar Presença</title>
+	<link rel="stylesheet" href="../css/estiloMarcarPresenca.css" />
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,6 @@
 
 <body>
 	<ui:param name="mBean" value="#{marcarPresencaMbean}" />
-
 
 	<h:form id="form">
 		<p:growl id="caixaMensagem" autoUpdate="true" showSummary="true"
@@ -36,7 +35,7 @@
 					<ul>
 						<li><a href="manterParticipante.xhtml">Participante</a></li>
 						<li><a href="manterEvento.xhtml">Evento</a></li>
-						<li><a href="#">Certificados</a></li>
+						<li><a href="marcarPresenca.xhtml">Marcar Presença</a></li>
 						<li class="sair adm">
 							<p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
 						</li>
@@ -48,6 +47,19 @@
 		
 	
 		<br/>
+
+		
+
+            <div id="eventos">
+                <div id="texto">
+
+                    <h1>Marcar Presença</h1>
+                    <p>OBS: Escolha o evento e selecione os participantes que não compareceram, automaticamente 
+						quem não foi selecionado, esteva presente.
+					</p>
+
+                </div>
+		
 		
 		<p:panelGrid columns="2">
 		
@@ -67,10 +79,13 @@
             <f:selectItems var="participante" itemValue="#{participante}" itemLabel="#{participante.nome}" value="#{mBean.participantesInscritos}" />
         </p:selectCheckboxMenu>
         
-        <p:commandButton value="Marcar Presença" actionListener="#{mBean.marcarPresenca()}" update="@form" />
+        <p:commandButton value="Não Compareceu" actionListener="#{mBean.marcarPresenca()}" update="@form" />
         
         </p:panelGrid>
 		
+		
+
+		</div>
 		
 
 	</h:form>

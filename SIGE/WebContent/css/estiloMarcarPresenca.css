@@ -20,9 +20,6 @@ a {
     text-decoration: none;
 }
 
-* {
-    box-sizing: border-box;
-}
 
 /**************         ************
  *********** TOPO  ************/
@@ -363,7 +360,7 @@ li.sair.adm a::before {
 }
 
 #texto {
-    padding: 50px 0 20px 50px;
+    padding: 25px 0 20px 50px;
     max-width: 960px;
     margin: 0 auto;
     border-bottom: 3px solid rgb(88, 82, 177);
@@ -448,7 +445,7 @@ li.sair.adm a::before {
 
 .ui-panelgrid .ui-panelgrid-cell {
     border-style: none;
-    padding: 0px 10px;
+    padding: 8px 10px;
 }
 
 .ui-widget-content {
@@ -467,8 +464,6 @@ li.sair.adm a::before {
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
     border: 1px solid #a8a8a8;
-    border-left: 5px solid #CCCCCC;
-    margin-bottom: 15px;
 }
 
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
@@ -477,7 +472,6 @@ li.sair.adm a::before {
 
 .ui-inputfield {
     padding-left: 10px;
-    margin-top: 4px;
 }
 
 /* BOT�O ENTRE */
@@ -944,11 +938,25 @@ body#login-adm {
 
 /* Marcar Presença */
 
+.ui-selectcheckboxmenu-header {
+    margin-bottom: .3em;
+    padding: 20px 0 9px 5px;
+}
 
 .ui-helper-clearfix:before, .ui-helper-clearfix:after {
     content: "";
     display: table;
-    margin-bottom: -11px;
+    margin-bottom: -14px;
     border-collapse: collapse;
+}
+
+.ui-selectcheckboxmenu-multiple-container {
+    clear: left;
+    cursor: pointer;
+    list-style-type: none;
+    margin: 0;
+    min-height: 32px;
+    overflow: hidden;
+    min-width: 173px;
 }
 
