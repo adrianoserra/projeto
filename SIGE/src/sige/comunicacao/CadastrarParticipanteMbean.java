@@ -80,7 +80,7 @@ public class CadastrarParticipanteMbean {
 				}
 
 			} else {
-				mensagem = "A senha ou matrícula informada está incorreta!";
+				mensagem = "A senha ou CPF informado está incorreto!";
 				util.exibirDialog("alerta");
 			}
 		} catch (ClassNotFoundException | SQLException e) {

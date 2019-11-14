@@ -132,7 +132,7 @@ public class ParticipanteDAO {
 		PreparedStatement stmt = null;
 		try {
 		String	sql	=	"update participante set"
-				+ " nome = ? , setor = ? , email = ? , telefone = ? , senha = ? WHERE cpf = ?";
+				+ " nome = ? , setor = ? , email = ? , telefone = ? WHERE cpf = ?";
 				
 				
 		stmt = connection.prepareStatement(sql);
@@ -140,8 +140,7 @@ public class ParticipanteDAO {
 	    stmt.setString(2, participante.getSetor());
 	    stmt.setString(3, participante.getEmail());
 	    stmt.setString(4, participante.getTelefone());
-	    stmt.setString(5, participante.getSenha());
-	    stmt.setString(6, participante.getCPF());
+	    stmt.setString(5, participante.getCPF());
 		stmt.execute();
 		
 		} catch (SQLException e) {
