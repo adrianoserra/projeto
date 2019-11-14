@@ -72,7 +72,8 @@ public class InscricaoDAO {
 			
 			try {
 
-				String sql = "SELECT p.cpf, p.nome from inscricao join participante p on inscricao.cpf = p.cpf where idEvento = ?";
+				String sql = "SELECT p.cpf, p.nome from inscricao "
+						+ "join participante p on inscricao.cpf = p.cpf where idEvento = ? AND presenca = 0 ORDER BY p.nome ASC";
 				stmt = connection.prepareStatement(sql);
 
 				
@@ -92,6 +93,32 @@ public class InscricaoDAO {
 			return participantes;
 			
 		}
+		
+	public void marcarPresenca(List<Participante> participantes, Evento evento) throws SQLException {
+		this.connection = new JDBC().getConexao();
+		PreparedStatement stmt = null;
+		try {
+			for (Participante participante : participantes) {
+			String sql = "update inscricao set" + " presenca = ? WHERE cpf = ? AND idEvento = ?";
+
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, 1);
+			stmt.setString(2, participante.getCPF());
+			stmt.setInt(3, evento.getIdEvento());
+
+			stmt.execute();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			connection.rollback();
+		} finally {
+			stmt.close();
+			connection.close();
+
+		}
+	}
 		
 		
 

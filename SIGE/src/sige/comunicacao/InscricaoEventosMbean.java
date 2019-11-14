@@ -1,5 +1,6 @@
 package sige.comunicacao;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import sige.controle.EventoControle;
 import sige.controle.InscricaoControle;
 import sige.modeo.Evento;
 import sige.modeo.Participante;
+import sige.util.conexao.JDBC;
 
 @ViewScoped
 @ManagedBean
@@ -55,6 +57,5 @@ public class InscricaoEventosMbean {
 	public void setColecaoEvento(List<Evento> colecaoEvento) {
 		this.colecaoEvento = colecaoEvento;
 	}
-
 
 }

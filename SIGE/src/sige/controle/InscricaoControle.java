@@ -20,5 +20,9 @@ public class InscricaoControle {
 	public List<Participante> listarParticipantesPorEvento (Evento evento){
 		return incricaoDAO.participantesInscritosPorEvento(evento);
 	}
+	
+	public void marcarPresenca(List<Participante> participantes, Evento evento) throws SQLException {
+		incricaoDAO.marcarPresenca(participantes, evento);
+	}
 
 }

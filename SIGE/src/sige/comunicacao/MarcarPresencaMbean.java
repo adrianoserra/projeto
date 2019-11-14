@@ -1,5 +1,6 @@
 package sige.comunicacao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,21 +10,21 @@ import javax.faces.bean.SessionScoped;
 
 import sige.controle.EventoControle;
 import sige.controle.InscricaoControle;
-import sige.controle.ParticipanteControle;
 import sige.modeo.Evento;
 import sige.modeo.Participante;
+import sige.util.Util;
 
 @SessionScoped
 @ManagedBean
 public class MarcarPresencaMbean {
 
-	private ParticipanteControle participanteControle = new ParticipanteControle();
 	private EventoControle eventoControle = new EventoControle();
 	private InscricaoControle inscricaoControle = new InscricaoControle();
 	private List<Evento> eventos;
 	private Evento eventoSelecionado = null;
 	private List<Participante> participantesInscritos;
 	private List<Participante> participantesSelecionados;
+	private Util util = new Util();
 
 
 	@PostConstruct
@@ -34,8 +35,16 @@ public class MarcarPresencaMbean {
 	
 	
 	public void marcarPresenca () {
-		
+		try {
+			inscricaoControle.marcarPresenca(participantesSelecionados, eventoSelecionado);
+			participantesInscritos.removeAll(participantesSelecionados);
+			participantesSelecionados.clear();
+			util.getMenssagemInfor("Todos os paticipantes selecionados podem emitir um certificado!");			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
+	
 	public void listarParticipantesInscritos () {
 		if (eventoSelecionado != null) {
 		participantesInscritos = inscricaoControle.listarParticipantesPorEvento(eventoSelecionado); 
