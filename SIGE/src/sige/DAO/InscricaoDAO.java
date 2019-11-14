@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import sige.modeo.Evento;
 import sige.modeo.Participante;
@@ -61,5 +63,36 @@ public class InscricaoDAO {
 			}
 			return participanteInscrito;
 		}
+		
+		public List<Participante> participantesInscritosPorEvento (Evento evento) {
+			List<Participante> participantes = new ArrayList<Participante>();
+			this.connection = new JDBC().getConexao();
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			
+			try {
+
+				String sql = "SELECT p.cpf, p.nome from inscricao join participante p on inscricao.cpf = p.cpf where idEvento = ?";
+				stmt = connection.prepareStatement(sql);
+
+				
+				stmt.setInt(1, evento.getIdEvento());
+				rs = stmt.executeQuery();
+				
+				while (rs.next()) {
+					Participante participante = new Participante();
+					participante.setCPF(rs.getString("p.cpf"));
+					participante.setNome(rs.getString("p.nome"));
+					participantes.add(participante);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return participantes;
+			
+		}
+		
+		
 
 }

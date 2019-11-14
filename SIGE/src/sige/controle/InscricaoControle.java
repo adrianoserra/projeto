@@ -1,6 +1,7 @@
 package sige.controle;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import sige.DAO.InscricaoDAO;
 import sige.modeo.Evento;
@@ -15,6 +16,9 @@ public class InscricaoControle {
 	
 	public Boolean verificaSeParticipanteInscrito (Evento evento, Participante participante){
 		return incricaoDAO.verificaSeParticipanteInscrito(evento, participante);
+	}
+	public List<Participante> listarParticipantesPorEvento (Evento evento){
+		return incricaoDAO.participantesInscritosPorEvento(evento);
 	}
 
 }
