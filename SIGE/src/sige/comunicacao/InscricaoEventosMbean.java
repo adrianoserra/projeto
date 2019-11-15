@@ -44,6 +44,7 @@ public class InscricaoEventosMbean {
 		try {
 			
 			inscricaoControle.inscreverParticipante(evento, participante);
+			evento.setParticipanteInscrito(true);
 			context.addMessage(null, new FacesMessage("Inscrição realizada com sucesso!", " ") );
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
