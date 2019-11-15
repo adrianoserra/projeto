@@ -98,13 +98,13 @@
                                     </p>
                                     <br> </br>
                                     <p:commandButton style="margin-left: 155px;" id="inscrever" value="Inscrever-se"
-                                        update="form:caixaMensagem, inscrever"
+                                        update="form:caixaMensagem, @form"
                                         action="#{inscricaoEventosMbean.inscreverParticipanteEvento(evento)}"
                                         disabled="#{evento.participanteInscrito}" />
-                                    <p:outputLabel style="color:green; margin-left: 10px;" value="Inscrito"
+                                    <p:outputLabel id="texto" style="color:green; margin-left: 10px;" value="Inscrito"
                                         rendered="#{evento.participanteInscrito}" />
 
-                                    <p:graphicImage value="../img/inscrito.png"
+                                    <p:graphicImage id="imagem" value="../img/inscrito.png"
                                         style="width: 40px; height: 35px; float:right; margin-right: 35px"
                                         rendered="#{evento.participanteInscrito}" />
 
@@ -116,9 +116,7 @@
 
 
                         <br />
-                        <div id="titulo-inscrever">
-
-                        </div>
+                        
 
                     </p:repeat>
 
