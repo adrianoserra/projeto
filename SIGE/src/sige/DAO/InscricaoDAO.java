@@ -119,7 +119,42 @@ public class InscricaoDAO {
 
 		}
 	}
-		
+		public List<Evento> listarEventosPorParticipante (Participante participante){
+			List<Evento> eventos = new ArrayList<Evento>();
+			this.connection = new JDBC().getConexao();
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			
+			try {
+
+				String sql = "SELECT e.idEvento, e.tema, e.data_evento, e.horario_inicio, e.horario_fim, e.carga_horaria from inscricao "
+						+ "join evento e on inscricao.idEvento = e.idEvento where cpf = ? AND presenca = 1 ORDER BY e.tema ASC";
+				stmt = connection.prepareStatement(sql);
+
+				
+				stmt.setString(1, participante.getCPF());
+				rs = stmt.executeQuery();
+				
+				while (rs.next()) {
+					Evento evento = new Evento();
+					evento.setIdEvento(rs.getInt("e.idEvento"));
+					evento.setTema(rs.getString("e.tema"));
+					evento.setDataEvento(rs.getString("e.data_evento"));
+					evento.setHorarioInicio(rs.getString("e.horario_inicio"));
+					evento.setHorarioFim(rs.getString("e.horario_fim"));
+					evento.setCargaHoraria(rs.getString("e.carga_horaria"));
+					
+					eventos.add(evento);
+	
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			return eventos;
+		}
+	
 		
 
 }
