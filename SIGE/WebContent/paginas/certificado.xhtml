@@ -10,7 +10,7 @@
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
     <title>SIGE - Certificado</title>
-    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../css/certificado.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.typekit.net/sje0nji.css">
     </link>
@@ -29,25 +29,25 @@
                 <img style="width: 30cm; height: 20cm; z-index: 1;" src="../img/certificadopdf.png"></img>
 
                 <div
-                    style="position: absolute; z-index: 2; bottom: 276px; left: 225px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 60px; color: #002972; text-transform: uppercase;">
+                    style="position: absolute; z-index: 2; bottom: 276px; left: 295px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 60px; color: #002972; text-transform: uppercase;">
                     <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic;"
                         value="#{cadastrarParticipanteMbean.participanteAutenticado.nome}" />
                 </div>
 
                 <div
-                    style="position: absolute; z-index: 2; bottom: 230px; left: 652px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 30px; color: #002972; text-transform: uppercase; font-weight:bold;">
+                    style="position: absolute; z-index: 2; bottom: 228px; left: 652px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 31px; color: #002972; text-transform: uppercase; font-weight:bold;">
                     <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic;"
                         value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.tema}" />
                 </div>
 
                 <div
-                    style="position: absolute; z-index: 2; bottom: 189px; left: 447px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 24px; color: #939393; text-transform: uppercase; font-weight:540">
+                    style="position: absolute; z-index: 2; bottom: 186px; left: 490px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 27px; color: #939393; text-transform: uppercase; font-weight:normal">
                     <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic; color: #939393;"
                         value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.dataEvento}" />
                 </div>
 
                 <div
-                    style="position: absolute; z-index: 2; bottom: 189px; left: 751px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 26px; color: #939393; font-weight:540">
+                    style="position: absolute; z-index: 2; bottom: 186px; left: 774px; font-family: 'Adobe Caslon Pro Semibold italic'; font-size: 27px; color: #939393; font-weight:normal">
                     <p:outputLabel style="font-family: 'Adobe Caslon Pro Semibold italic; color: #939393;"
                         value="#{cadastrarParticipanteMbean.participanteAutenticado.eventoAtual.cargaHoraria}" />
                 </div>
@@ -76,9 +76,14 @@
             </div>
 
         </div>
+        
+        <p:graphicImage id="imagem" value="../img/pdf_baixar.png"
+                                        style="width: 150px; height: 155px; float:right; position:absolute;
+                                        top: 180px; right: 35px"
+                                         /> 
 
 
-        <p:commandButton value="IMPRIMIR" onclick="funcao_pdf()" />
+        <p:commandButton style="position:absolute; right:0px; top:350px; background:rgb(171, 0, 0) ; color: white" value="SALVAR COMO PDF" onclick="funcao_pdf()" />
 
 
 

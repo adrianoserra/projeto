@@ -10,7 +10,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>SIGE - Gerar Certificado</title>
-    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../css/estiloMarcarPresenca.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,32 +55,43 @@
 
         </div>
 
-		<p:panelGrid id="panel" columns="2">
-			<p:outputLabel value="Selecione um Evento: " />
-			<p:selectOneMenu converter="omnifaces.SelectItemsConverter"
-				style="width:100%" value="#{analiseCertificadoMbean.participante.eventoAtual}">
-				<f:selectItem noSelectionOption="true" itemValue=""
-					itemLabel="Selecione" />
-				<f:selectItems var="evento" value="#{analiseCertificadoMbean.colecaoEvento}"
-					itemValue="#{evento}" itemLabel="#{evento.tema}" />
-			</p:selectOneMenu>
+        <div id="gerarCertificado-bg">
+
+            <div id="eventos">
+
+                <div id="texto">
+
+                    <h1>Emitir Certificado</h1>
+                    <p>Abaixo terá listado somente os eventos que você obteve presença.</p>
+
+                </div>
+
+                <p:panelGrid id="panel" columns="2">
+                    <p:outputLabel value="Selecione um Evento: " />
+                    <p:selectOneMenu converter="omnifaces.SelectItemsConverter" style="width:100%"
+                        value="#{analiseCertificadoMbean.participante.eventoAtual}">
+                        <f:selectItem noSelectionOption="true" itemValue="" itemLabel="Selecione" />
+                        <f:selectItems var="evento" value="#{analiseCertificadoMbean.colecaoEvento}"
+                            itemValue="#{evento}" itemLabel="#{evento.tema}" />
+                    </p:selectOneMenu>
 
 
 
-		</p:panelGrid>
+                </p:panelGrid>
 
-		<p:commandButton style="margin-left: 430px; margin-top: 20px" value="Gerar Certificado" styleClass="botao-alterar"
-                    action="#{analiseCertificadoMbean.escolherEvento()}" update="@form" />
-
-
+                <p:commandButton style="margin-left: 430px; margin-top: 20px" value="Gerar Certificado"
+                    styleClass="botao-alterar" action="#{analiseCertificadoMbean.escolherEvento()}" update="@form" />
 
 
-
-
+            </div>
+        </div>
 
 
 
-        <div id="rodape-bg">
+
+
+
+        <div id="rodape-bg" class="rodape-no-final-da-pagina">
             <div id="rodape">
                 <div id="rodape-logo">
                     <a href="indexUsuario.xhtml">

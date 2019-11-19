@@ -54,8 +54,8 @@
                 <div id="texto">
 
                     <h1>Marcar Presença</h1>
-                    <p>OBS: Escolha o evento e selecione os participantes que não compareceram, automaticamente 
-						quem não foi selecionado, esteva presente.
+                    <p>OBS: Escolha o evento e selecione os participantes que compareceram, automaticamente 
+						quem não foi selecionado, estava ausente.
 					</p>
 
                 </div>
@@ -79,7 +79,7 @@
             <f:selectItems var="participante" itemValue="#{participante}" itemLabel="#{participante.nome}" value="#{mBean.participantesInscritos}" />
         </p:selectCheckboxMenu>
         
-        <p:commandButton value="Não Compareceu" actionListener="#{mBean.marcarPresenca()}" update="@form" />
+        <p:commandButton value="Marcar Presença" actionListener="#{mBean.marcarPresenca()}" update="@form" />
         
         </p:panelGrid>
 		

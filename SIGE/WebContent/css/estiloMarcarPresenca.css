@@ -360,7 +360,7 @@ li.sair.adm a::before {
 }
 
 #texto {
-    padding: 25px 0 20px 50px;
+    padding: 50px 0 20px 50px;
     max-width: 960px;
     margin: 0 auto;
     border-bottom: 3px solid rgb(88, 82, 177);
