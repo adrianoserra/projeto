@@ -366,7 +366,7 @@ li.sair.adm a::before {
     padding: 50px 0 20px 50px;
     max-width: 960px;
     margin: 0 auto;
-    border-bottom: 3px solid rgb(88, 82, 177);
+    border-bottom: 3px solid #006577;
     margin-bottom: 30px;
     border-radius: 5px;
 }
@@ -952,4 +952,15 @@ body#login-adm {
     border-collapse: collapse;
 }
 
+
+/* Marcar presença estilização da tabela */
+
+.ui-datatable thead th, .ui-datatable tfoot td {
+	background: #006577;
+    color: white;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	text-shadow: none;
+}
 

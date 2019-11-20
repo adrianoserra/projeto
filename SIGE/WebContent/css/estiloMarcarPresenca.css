@@ -1,5 +1,5 @@
 /* /**************            ************ *
- *********** FORMATAÇÕES PADRÕES  ***********/
+ *********** FORMATAÃ‡Ã•ES PADRÃ•ES  ***********/
 
 body, h1, h2, h3, h4, h5, p, ul, li, a {
     margin: 0;
@@ -254,7 +254,7 @@ li.sair.adm a::before {
 }
 
 /**************            ************
- *********** RODAPÉ  SITE  ************/
+ *********** RODAPÃ‰  SITE  ************/
 
 #rodape-bg {
     background: #000;
@@ -363,7 +363,7 @@ li.sair.adm a::before {
     padding: 50px 0 20px 50px;
     max-width: 960px;
     margin: 0 auto;
-    border-bottom: 3px solid rgb(88, 82, 177);
+    border-bottom: 3px solid #006577;
     margin-bottom: 30px;
     border-radius: 5px;
 }
@@ -413,7 +413,7 @@ li.sair.adm a::before {
 }
 
 /**************            ************
- *********** Formulário Cadastro  ************/
+ *********** FormulÃ¡rio Cadastro  ************/
 
 .formulario-cadastro, .formulario-login {
     padding: 22px;
@@ -474,7 +474,7 @@ li.sair.adm a::before {
     padding-left: 10px;
 }
 
-/* BOT�O ENTRE */
+/* BOTï¿½O ENTRE */
 
 .ui-widget-content .ui-state-default.botao-entrar {
     border: 0px solid #a8a8a8;
@@ -497,7 +497,7 @@ li.sair.adm a::before {
 }
 
 /**************            ************
- *********** CONHEÇA O SIGE  ************/
+ *********** CONHEÃ‡A O SIGE  ************/
 
 .conteudo {
     color: #777;
@@ -600,7 +600,7 @@ li.sair.adm a::before {
     color: rgb(52, 98, 104);
 }
 
-/* "Tem alguma dúvida?" / */
+/* "Tem alguma dÃºvida?" / */
 
 .contato-ajuda p:first-of-type {
     margin: 15px 0 25px 0;
@@ -712,7 +712,7 @@ li.sair.adm a::before {
 
 .posicionar-fixo {
     position: absolute;
-    bottom: 11px;
+    bottom: 28px;
 }
 
 
@@ -734,7 +734,7 @@ li.sair.adm a::before {
 
                                     
 
-/******************* PÁGINA DE UM EVENTO ***************/
+/******************* PÃ�GINA DE UM EVENTO ***************/
 
 #capa-evento img {
     width: 700px;
@@ -936,7 +936,7 @@ body#login-adm {
 }
 
 
-/* Marcar Presença */
+/* Marcar PresenÃ§a */
 
 .ui-selectcheckboxmenu-header {
     margin-bottom: .3em;
@@ -960,3 +960,11 @@ body#login-adm {
     min-width: 173px;
 }
 
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	text-shadow: none;
+}
+
+.ui-button-text-only .ui-button-text {
+    background: #006577;
+    color: white;
+}

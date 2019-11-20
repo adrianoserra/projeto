@@ -79,10 +79,11 @@
             <f:selectItems var="participante" itemValue="#{participante}" itemLabel="#{participante.nome}" value="#{mBean.participantesInscritos}" />
         </p:selectCheckboxMenu>
         
-        <p:commandButton value="Marcar Presença" actionListener="#{mBean.marcarPresenca()}" update="@form" />
+        
         
         </p:panelGrid>
 		
+		<p:commandButton style="background: #006577; color:white; margin-left: 400px; margin-top: 10px;" value="Marcar Presença" actionListener="#{mBean.marcarPresenca()}" update="@form" />
 		
 
 		</div>
