@@ -41,6 +41,8 @@ public class CadastrarParticipanteMbean {
 			if (validar() && !verificarSeCPFExiste()) {
 				participanteControle.salvarParticipante(participante);
 				mensagem = "Cadastro realizado com sucesso!";
+				participante = null;
+				participante = new Participante();
 				util.exibirDialog("confirmação");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
