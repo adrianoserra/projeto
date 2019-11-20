@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 
 import sige.controle.ParticipanteControle;
 import sige.modeo.Participante;
+import sige.modeo.Usuario;
 import sige.util.Util;
 
 @SessionScoped
@@ -23,7 +24,9 @@ public class CadastrarParticipanteMbean {
 	private String CPF;
 	private String senha;
 	private String mensagem;
+	private String senhaAtual;
 	private String confirmarSenha;
+	private String senhaNova;
 	private Participante participanteAutenticado;
 
 	@PostConstruct
@@ -180,6 +183,35 @@ public class CadastrarParticipanteMbean {
 			e.printStackTrace();
 		}
 	}
+	
+	public void alterarSenha () {
+	
+		if (!senhaAtual.equals(participanteAutenticado.getSenha())) {
+			util.getMenssagemAlerta("Senha atual incorreta!");
+			return;
+		}
+		if (senhaNova.isEmpty()) {
+			util.getMenssagemAlerta("O campo senha nova é obrigatorio!");
+			return;
+		}
+		if (confirmarSenha.isEmpty()) {
+			util.getMenssagemAlerta("O campo confirmar senha é obrigatorio!");
+			return;
+		}
+		
+		if (!senhaNova.equals(confirmarSenha)) {
+			util.getMenssagemAlerta("As senhas informadas estão diferentes!");
+			return;
+		}
+		participanteAutenticado.setSenha(senhaNova);
+		try {
+			participanteControle.alterarSenha(participanteAutenticado);
+			util.getMenssagemInfor("Senha alterada com sucesso!");
+		} catch (ClassNotFoundException | SQLException e) {
+			util.getMenssagemErro();
+			e.printStackTrace();
+		}
+	}
 
 	public Participante getParticipante() {
 		return participante;
@@ -227,6 +259,22 @@ public class CadastrarParticipanteMbean {
 
 	public void setParticipanteAutenticado(Participante participanteAutenticado) {
 		this.participanteAutenticado = participanteAutenticado;
+	}
+
+	public String getSenhaAtual() {
+		return senhaAtual;
+	}
+
+	public void setSenhaAtual(String senhaAtual) {
+		this.senhaAtual = senhaAtual;
+	}
+
+	public String getSenhaNova() {
+		return senhaNova;
+	}
+
+	public void setSenhaNova(String senhaNova) {
+		this.senhaNova = senhaNova;
 	}
 
 }

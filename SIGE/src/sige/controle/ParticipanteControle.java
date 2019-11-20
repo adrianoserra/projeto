@@ -28,4 +28,8 @@ public class ParticipanteControle {
 	public List<Participante> listarParticipante (){
 		return participanteDAO.listarParticipantes();
 	}
+	
+	public void alterarSenha (Participante participante) throws ClassNotFoundException, SQLException {
+		participanteDAO.alterarSenha(participante);
+	}
 }

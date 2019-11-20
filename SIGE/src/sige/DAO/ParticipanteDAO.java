@@ -65,6 +65,7 @@ public class ParticipanteDAO {
 			   particianteAtual.setEmail(rs.getString("email"));
 			   particianteAtual.setTelefone(rs.getString("telefone"));
 			   particianteAtual.setTipoUsuario(rs.getInt("tipoUsuario"));
+			   particianteAtual.setSenha(rs.getString("senha"));
 		   }
 	   } catch (SQLException e) {
 			e.printStackTrace();
@@ -172,4 +173,28 @@ public class ParticipanteDAO {
 			connection.close();
 		}
    }
+   
+   public void alterarSenha (Participante participante) throws ClassNotFoundException, SQLException {
+	    this.connection = new JDBC().getConexao();
+		PreparedStatement stmt = null;
+		try {
+		String	sql	=	"update participante set"
+				+ " senha = ? WHERE cpf = ?";
+				
+				
+		stmt = connection.prepareStatement(sql);
+	    stmt.setString(1, participante.getSenha());
+	    stmt.setString(2, participante.getCPF());
+		stmt.execute();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			connection.rollback();
+		} finally {
+			stmt.close();
+			connection.close();
+		}
+		
+	
+  }
 }   
