@@ -42,7 +42,8 @@
                         <li><a href="#"><img src="../img/engrenagem.png"></img></a>
                             <ul class="submenu">
                                 <li><a href="minhaConta.xhtml">Perfil</a></li>
-                                <li><a href="certificadoUsuario.xhtml">Certificados</a></li>
+                                <li><a href="alterarSenha.xhtml">Alterar Senha</a></li>
+                                <li><a href="gerarCertificado.xhtml">Certificados</a></li>
                                 <li>
                                     <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
                                 </li>
@@ -65,8 +66,9 @@
                     <p>Abaixo terá listado somente os eventos que você obteve presença.</p>
 
                 </div>
+                
 
-                <p:panelGrid id="panel" columns="2">
+                <p:panelGrid style="margin-left: 50px" id="panel" columns="2">
                     <p:outputLabel value="Selecione um Evento: " />
                     <p:selectOneMenu converter="omnifaces.SelectItemsConverter" style="width:100%"
                         value="#{analiseCertificadoMbean.participante.eventoAtual}">
@@ -79,7 +81,8 @@
 
                 </p:panelGrid>
 
-                <p:commandButton style="margin-left: 430px; margin-top: 20px; background: #006577; color:white" value="Gerar Certificado"
+                <p:commandButton style="margin-left: 100px; margin-top: 20px; margin-bottom: 50px; padding: .1em 1em;
+                 background: #006577; color:white" value="Gerar Certificado"
                     styleClass="botao-alterar" action="#{analiseCertificadoMbean.escolherEvento()}" update="@form" />
 
 

@@ -10,7 +10,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>SIGE - alterar Senha</title>
-    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../css/estiloMarcarPresenca.css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700display=swap" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,6 +42,7 @@
                         <li><a href="#"><img src="../img/engrenagem.png"></img></a>
                             <ul class="submenu">
                                 <li><a href="minhaConta.xhtml">Perfil</a></li>
+                                <li><a href="alterarSenha.xhtml">Alterar Senha</a></li>
                                 <li><a href="gerarCertificado.xhtml">Certificados</a></li>
                                 <li>
                                     <p:commandLink value="Sair" action="#{cadastrarParticipanteMbean.deslogar()}" />
@@ -61,25 +62,26 @@
                 <div id="texto">
 
                     <h1>Alterar senha</h1>
+                    <p>Preencha a senha atual, a nova senha e confirme.</p>
 
                 </div>
-                <div id="contorno-minhaConta">
+   
                 
-                    <p:panelGrid id="panel" columns="2">
+                    <p:panelGrid style="margin-left: 50px" id="panel" columns="2">
                     
                     <p:outputLabel value="Senha atual:" />
                     <p:password value="#{cadastrarParticipanteMbean.senhaAtual}" />
                     
-                    <p:outputLabel value="Senha nova:" />
+                    <p:outputLabel value="Nova Senha:" />
                     <p:password value="#{cadastrarParticipanteMbean.senhaNova}" />
                     
-                    <p:outputLabel value="confirmar senha::" />
+                    <p:outputLabel value="Confirmar Senha:" />
                     <p:password value="#{cadastrarParticipanteMbean.confirmarSenha}" />
                                        
                                        
                                        </p:panelGrid>
-</div> 
-                <p:commandButton style="margin-left: 430px; margin-top: 20px" value="Alterar" styleClass="botao-alterar"
+ 
+                <p:commandButton style="margin-left: 150px; margin-top: 20px; margin-bottom: 50px; padding: .1em 3em; background: #006577" value="Alterar" styleClass="botao-alterar"
                     action="#{cadastrarParticipanteMbean.alterarSenha()}" update="caixaMensagem" />
 
             </div>
@@ -92,7 +94,7 @@
 
 
 
-        <div id="rodape-bg" >
+        <div id="rodape-bg"  class="rodape-no-final-da-pagina" >
             <div id="rodape">
                 <div id="rodape-logo">
                     <a href="indexUsuario.xhtml">

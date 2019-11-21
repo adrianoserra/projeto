@@ -61,7 +61,7 @@
                 </div>
 		
 		
-		<p:panelGrid columns="2">
+		<p:panelGrid style="margin-left: 50px" columns="2">
 		
 		<p:outputLabel value="Evento:"/>
 		<p:selectOneMenu converter="omnifaces.SelectItemsConverter" value="#{mBean.eventoSelecionado}">
@@ -83,7 +83,7 @@
         
         </p:panelGrid>
 		
-		<p:commandButton style="background: #006577; color:white; margin-left: 400px; margin-top: 10px;" value="Marcar Presença" actionListener="#{mBean.marcarPresenca()}" update="@form" />
+		<p:commandButton style="background: #006577; color:white; margin-left: 130px; margin-top: 10px;" value="Marcar Presença" actionListener="#{mBean.marcarPresenca()}" update="@form" />
 		
 
 		</div>
