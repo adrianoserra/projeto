@@ -26,7 +26,7 @@ constraint Palestrante_FK foreign key (palestrante) references participante(cpf)
 create table inscricao (
 idInscricao int not null unique auto_increment primary key,
 cpf varchar(14),
-inscricao int(1) default 0,
+inscricao int(1) default '0',
 idEvento int
 );
 
